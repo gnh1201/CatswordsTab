@@ -7,6 +7,6 @@ namespace CatswordsTab.model
 {
     class TabResponse
     {
-        public List<TabItem> Data { get; set; }
+        public TabItem Data { get; set; }
     }
 }

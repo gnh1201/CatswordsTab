@@ -8,7 +8,7 @@ namespace CatswordsTab.model
 {
     class TabItem
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string CreatedBy { get; set; }
         public string CreatedOn { get; set; }
         public string Message { get; set; }

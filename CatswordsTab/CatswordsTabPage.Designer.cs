@@ -78,9 +78,11 @@
             // 
             // txtTerminal
             // 
+            this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTerminal.Location = new System.Drawing.Point(15, 122);
             this.txtTerminal.Multiline = true;
             this.txtTerminal.Name = "txtTerminal";
+            this.txtTerminal.ReadOnly = true;
             this.txtTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTerminal.Size = new System.Drawing.Size(366, 335);
             this.txtTerminal.TabIndex = 3;

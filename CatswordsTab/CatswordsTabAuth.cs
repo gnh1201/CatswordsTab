@@ -41,6 +41,7 @@ namespace CatswordsTab
             labelPassword.Text = "사용자 열쇠글";
             labelTitle.Text = "인증";
             labelCopyright.Text = "(c) 2019 Catswords Research.";
+            this.Text = "인증";
         }
 
         private void InitializeFont()
@@ -65,18 +66,8 @@ namespace CatswordsTab
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            JObject JsonData = new JObject();
-            JsonData.Add("email", txtUsername.Text);
-            JsonData.Add("password", txtPassword.Text);
-
-            string response = CatswordsTabHelper.RequestPost("/auth/authenticate", JsonData.ToString());
-            CatswordsTabHelper.SetAuthToken(response);
-
-            if (catswordsTabPage != null)
-            {
-                catswordsTabPage.SetTxtTerminalText(CatswordsTabHelper.GetAuthToken());
-            }
-
+            CatswordsTabHelper.DoLogin(txtUsername.Text, txtPassword.Text);
+            MessageBox.Show("로그인 요청을 보냈습니다.");
         }
     }
 }

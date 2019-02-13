@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SharpShell.SharpPropertySheet;
 using System.Security.Cryptography;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace CatswordsTab
 {
@@ -50,6 +51,18 @@ namespace CatswordsTab
             txtTerminal.Text = text;
         }
 
+        public void InitializeTerminal()
+        {
+            JObject obj = new JObject();
+            obj.Add("hash_md5", FileMd5);
+            obj.Add("hash_sha1", FileSha1);
+            obj.Add("hash_crc32", FileCrc32);
+            obj.Add("hash_head32", FileHead32);
+            obj.Add("extension", FileExt);
+            string response = CatswordsTabHelper.RequestPost("/portal/?route=tab", obj.ToString());
+            txtTerminal.Text = response;
+        }
+
         protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
         {
             FilePath = parent.SelectedItemPaths.First();
@@ -58,6 +71,7 @@ namespace CatswordsTab
             FileExt = CatswordsTabHelper.GetFileExtension(FilePath);
             FileCrc32 = CatswordsTabHelper.GetFileCrc32(FilePath);
             FileHead32 = CatswordsTabHelper.GetFileHead32(FilePath);
+            InitializeTerminal();
         }
 
         protected override void OnPropertySheetApply()

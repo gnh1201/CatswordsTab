@@ -23,7 +23,7 @@ namespace CatswordsTab
         private static PrivateFontCollection pfc;
         private static string AuthType = "bearer";
         private static string AuthToken = string.Empty;
-        private static string BaseUri = "https://2s.re.kr/_";
+        private static string BaseUri = "https://2s.re.kr";
 
         static CatswordsTabHelper()
         {
@@ -193,6 +193,16 @@ namespace CatswordsTab
         public static string GetAuthorization()
         {
             return AuthType + " " + GetAuthToken();
+        }
+
+        public static void DoLogin(string username, string password)
+        {
+            JObject JsonData = new JObject();
+            JsonData.Add("email", username);
+            JsonData.Add("password", password);
+
+            string response = CatswordsTabHelper.RequestPost("/_/auth/authenticate", JsonData.ToString());
+            CatswordsTabHelper.SetAuthToken(response);
         }
     }
 }

@@ -128,6 +128,7 @@
             this.MinimizeBox = false;
             this.Name = "CatswordsTabAuth";
             this.Text = "CatswordsTabAuth";
+            this.Load += new System.EventHandler(this.CatswordsTabAuth_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

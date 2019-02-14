@@ -105,6 +105,18 @@ namespace CatswordsTab
             }
         }
 
+        public static string GetFileSha256(string filename)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                using (var stream = File.OpenRead(filename))
+                {
+                    var hash = sha256.ComputeHash(stream);
+                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
+            }
+        }
+
         public static string GetFileExtension(string filename)
         {
             return Path.GetExtension(filename);

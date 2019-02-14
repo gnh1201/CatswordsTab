@@ -33,7 +33,9 @@
             this.labelMessage = new System.Windows.Forms.Label();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
-            this.cbPrivacy = new System.Windows.Forms.CheckBox();
+            this.cbAgreement = new System.Windows.Forms.CheckBox();
+            this.labelReplyEmail = new System.Windows.Forms.Label();
+            this.txtReplyEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -49,7 +51,7 @@
             // labelMessage
             // 
             this.labelMessage.AutoSize = true;
-            this.labelMessage.Location = new System.Drawing.Point(26, 137);
+            this.labelMessage.Location = new System.Drawing.Point(26, 135);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(85, 12);
             this.labelMessage.TabIndex = 8;
@@ -80,15 +82,32 @@
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // cbPrivacy
+            // cbAgreement
             // 
-            this.cbPrivacy.AutoSize = true;
-            this.cbPrivacy.Location = new System.Drawing.Point(28, 272);
-            this.cbPrivacy.Name = "cbPrivacy";
-            this.cbPrivacy.Size = new System.Drawing.Size(80, 16);
-            this.cbPrivacy.TabIndex = 17;
-            this.cbPrivacy.Text = "cbPrivacy";
-            this.cbPrivacy.UseVisualStyleBackColor = true;
+            this.cbAgreement.AutoSize = true;
+            this.cbAgreement.Location = new System.Drawing.Point(27, 340);
+            this.cbAgreement.Name = "cbAgreement";
+            this.cbAgreement.Size = new System.Drawing.Size(99, 16);
+            this.cbAgreement.TabIndex = 17;
+            this.cbAgreement.Text = "cbAgreement";
+            this.cbAgreement.UseVisualStyleBackColor = true;
+            // 
+            // labelReplyEmail
+            // 
+            this.labelReplyEmail.AutoSize = true;
+            this.labelReplyEmail.Location = new System.Drawing.Point(25, 275);
+            this.labelReplyEmail.Name = "labelReplyEmail";
+            this.labelReplyEmail.Size = new System.Drawing.Size(96, 12);
+            this.labelReplyEmail.TabIndex = 18;
+            this.labelReplyEmail.Text = "labelReplyEmail";
+            // 
+            // txtReplyEmail
+            // 
+            this.txtReplyEmail.Location = new System.Drawing.Point(27, 295);
+            this.txtReplyEmail.Name = "txtReplyEmail";
+            this.txtReplyEmail.Size = new System.Drawing.Size(358, 21);
+            this.txtReplyEmail.TabIndex = 19;
+            this.txtReplyEmail.TextChanged += new System.EventHandler(this.txtReplyEmail_TextChanged);
             // 
             // CatswordsTabWriter
             // 
@@ -97,8 +116,10 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.Properties.Resources.iconPencli128;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(420, 316);
-            this.Controls.Add(this.cbPrivacy);
+            this.ClientSize = new System.Drawing.Size(420, 390);
+            this.Controls.Add(this.txtReplyEmail);
+            this.Controls.Add(this.labelReplyEmail);
+            this.Controls.Add(this.cbAgreement);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.labelMessage);
@@ -120,6 +141,8 @@
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.CheckBox cbPrivacy;
+        private System.Windows.Forms.CheckBox cbAgreement;
+        private System.Windows.Forms.Label labelReplyEmail;
+        private System.Windows.Forms.TextBox txtReplyEmail;
     }
 }

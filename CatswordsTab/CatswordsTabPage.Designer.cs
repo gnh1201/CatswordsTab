@@ -28,27 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAuth = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.txtTerminal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // btnAuth
-            // 
-            this.btnAuth.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnAuth.FlatAppearance.BorderSize = 0;
-            this.btnAuth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuth.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAuth.Image = global::CatswordsTab.Properties.Resources.IconLogin32;
-            this.btnAuth.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAuth.Location = new System.Drawing.Point(254, 25);
-            this.btnAuth.Name = "btnAuth";
-            this.btnAuth.Size = new System.Drawing.Size(127, 40);
-            this.btnAuth.TabIndex = 0;
-            this.btnAuth.Text = "btnAuth";
-            this.btnAuth.UseVisualStyleBackColor = false;
-            this.btnAuth.Click += new System.EventHandler(this.btnAuth_Click);
             // 
             // btnAdd
             // 
@@ -58,7 +41,7 @@
             this.btnAdd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnAdd.Image = global::CatswordsTab.Properties.Resources.IconPencli32;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(254, 71);
+            this.btnAdd.Location = new System.Drawing.Point(254, 49);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 40);
             this.btnAdd.TabIndex = 1;
@@ -79,6 +62,7 @@
             // txtTerminal
             // 
             this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTerminal.Enabled = false;
             this.txtTerminal.Location = new System.Drawing.Point(15, 122);
             this.txtTerminal.Multiline = true;
             this.txtTerminal.Name = "txtTerminal";
@@ -97,7 +81,6 @@
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnAuth);
             this.Name = "CatswordsTabPage";
             this.Size = new System.Drawing.Size(396, 500);
             this.Load += new System.EventHandler(this.CatswordsTabPage_Load);
@@ -107,8 +90,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAuth;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.TextBox txtTerminal;

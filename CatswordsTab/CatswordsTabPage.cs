@@ -20,6 +20,7 @@ namespace CatswordsTab
         public string FileSha1;
         public string FileExt;
         public string FileCrc32;
+        public string FileSha256;
         public string FileHead32;
 
         public CatswordsTabPage()
@@ -33,7 +34,6 @@ namespace CatswordsTab
         {
             PageTitle = "커뮤니티";
             btnAdd.Text = "의견작성";
-            btnAuth.Text = "미등록";
             labelTitle.Text = "커뮤니티";
         }
 
@@ -41,7 +41,6 @@ namespace CatswordsTab
         {
             this.Font = CatswordsTabHelper.GetFont();
             btnAdd.Font = CatswordsTabHelper.GetFont(12F);
-            btnAuth.Font = CatswordsTabHelper.GetFont(12F);
             labelTitle.Font = CatswordsTabHelper.GetFont(20F);
             txtTerminal.Font = CatswordsTabHelper.GetFont();
         }
@@ -57,10 +56,12 @@ namespace CatswordsTab
             obj.Add("hash_md5", FileMd5);
             obj.Add("hash_sha1", FileSha1);
             obj.Add("hash_crc32", FileCrc32);
+            obj.Add("hash_sha256", FileSha256);
             obj.Add("hash_head32", FileHead32);
             obj.Add("extension", FileExt);
             string response = CatswordsTabHelper.RequestPost("/portal/?route=tab", obj.ToString());
             txtTerminal.Text = response;
+            txtTerminal.Enabled = true;
         }
 
         protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
@@ -70,25 +71,19 @@ namespace CatswordsTab
             FileSha1 = CatswordsTabHelper.GetFileSha1(FilePath);
             FileExt = CatswordsTabHelper.GetFileExtension(FilePath);
             FileCrc32 = CatswordsTabHelper.GetFileCrc32(FilePath);
+            FileSha256 = CatswordsTabHelper.GetFileSha256(FilePath);
             FileHead32 = CatswordsTabHelper.GetFileHead32(FilePath);
             InitializeTerminal();
         }
 
         protected override void OnPropertySheetApply()
         {
-
+            // insert your code
         }
 
         protected override void OnPropertySheetOK()
         {
-
-        }
-        
-
-        private void btnAuth_Click(object sender, EventArgs e)
-        {
-            CatswordsTabAuth authForm = new CatswordsTabAuth(this);
-            authForm.Show();
+            // insert your code
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -99,7 +94,7 @@ namespace CatswordsTab
 
         private void CatswordsTabPage_Load(object sender, EventArgs e)
         {
-
+            ActiveControl = null;
         }
 
     }

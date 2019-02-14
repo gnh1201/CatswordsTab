@@ -14,7 +14,7 @@ namespace CatswordsTab
 {
     public partial class CatswordsTabAuth : Form
     {
-        private CatswordsTabPage catswordsTabPage = null;
+        private CatswordsTabWriter catswordsTabWriter = null;
 
         private void Initialize()
         {
@@ -28,10 +28,10 @@ namespace CatswordsTab
             Initialize();
         }
 
-        public CatswordsTabAuth(CatswordsTabPage catswordsTabPage)
+        public CatswordsTabAuth(CatswordsTabWriter catswordsTabWriter)
         {
             Initialize();
-            this.catswordsTabPage = catswordsTabPage;
+            this.catswordsTabWriter = catswordsTabWriter;
         }
 
         private void InitializeLocalization()
@@ -48,7 +48,7 @@ namespace CatswordsTab
         {
             this.Font = CatswordsTabHelper.GetFont();
             labelTitle.Font = CatswordsTabHelper.GetFont(20F);
-            btnLogin.Font = CatswordsTabHelper.GetFont();
+            btnLogin.Font = CatswordsTabHelper.GetFont(12F);
             labelUsername.Font = CatswordsTabHelper.GetFont();
             labelPassword.Font = CatswordsTabHelper.GetFont();
             labelCopyright.Font = CatswordsTabHelper.GetFont();
@@ -56,18 +56,28 @@ namespace CatswordsTab
             txtPassword.Font = CatswordsTabHelper.GetFont();
         }
 
-        private void CatswordsTabAuth_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            CatswordsTabHelper.DoLogin(txtUsername.Text, txtPassword.Text);
-            MessageBox.Show("로그인 요청을 보냈습니다.");
+            try { 
+                CatswordsTabHelper.DoLogin(txtUsername.Text, txtPassword.Text);
+                MessageBox.Show("로그인 하였습니다.");
+
+                if (catswordsTabWriter != null)
+                {
+                    catswordsTabWriter.setTxtReplyEmail(txtUsername.Text);
+                }
+
+                this.Close();
+            } catch
+            {
+                MessageBox.Show("사용자 이름 또는 열쇠글을 확인하세요.");
+            }
+            
+        }
+
+        private void CatswordsTabAuth_Load(object sender, EventArgs e)
+        {
+            ActiveControl = txtUsername;
         }
     }
 }

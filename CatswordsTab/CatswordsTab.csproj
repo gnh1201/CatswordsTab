@@ -59,12 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CatswordsTabDonation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CatswordsTabDonation.Designer.cs">
-      <DependentUpon>CatswordsTabDonation.cs</DependentUpon>
-    </Compile>
     <Compile Include="CatswordsTabHelper.cs" />
     <Compile Include="CatswordsTabSheet.cs" />
     <Compile Include="CatswordsTabAuth.cs">
@@ -107,9 +101,6 @@
   <ItemGroup>
     <EmbeddedResource Include="CatswordsTabAuth.resx">
       <DependentUpon>CatswordsTabAuth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CatswordsTabDonation.resx">
-      <DependentUpon>CatswordsTabDonation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatswordsTabPage.resx">
       <DependentUpon>CatswordsTabPage.cs</DependentUpon>

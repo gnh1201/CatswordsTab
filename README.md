@@ -1,5 +1,5 @@
 # CatswordsTab
-CatswordsTab is extension of windows file explorer
+CatswordsTab is file informer extension of Windows file explorer  https://exts.kr/wiki/catswords-tab
 
 ## demo
 https://youtu.be/cSdjamlY38I

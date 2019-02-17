@@ -1,4 +1,4 @@
-﻿using CatswordsTab.model;
+﻿using CatswordsTab.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using CatswordsTab.Properties;
-using CatswordsTab.model;
+using CatswordsTab.Model;
 using Newtonsoft.Json;
 using Force.Crc32;
 

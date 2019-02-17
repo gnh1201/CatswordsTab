@@ -61,8 +61,14 @@ namespace CatswordsTab
 
         private void OpenAuthWindow()
         {
-            CatswordsTabAuth authWindow = new CatswordsTabAuth(this);
-            authWindow.Show();
+            CatswordsTabAuth AuthWindow = new CatswordsTabAuth(this);
+            AuthWindow.Show();
+        }
+
+        private void OpenExpertWindow()
+        {
+            CatswordsTabExpert ExpertWindow = new CatswordsTabExpert(this);
+            ExpertWindow.Show();
         }
 
         private void CatswordsTabWriter_Load(object sender, EventArgs e)
@@ -111,9 +117,16 @@ namespace CatswordsTab
 
         private void txtReplyEmail_TextChanged(object sender, EventArgs e)
         {
-            if(txtReplyEmail.Text.ToLower() == "login")
+            string email = txtReplyEmail.Text.ToLower();
+
+            if (email == "/login")
             {
                 OpenAuthWindow();
+            }
+
+            if(email == "/expert")
+            {
+                OpenExpertWindow();
             }
         }
     }

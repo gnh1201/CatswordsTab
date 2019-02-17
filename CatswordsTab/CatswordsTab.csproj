@@ -88,11 +88,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CatswordsTabGodmode.cs">
+    <Compile Include="CatswordsTabExpert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CatswordsTabGodmode.Designer.cs">
-      <DependentUpon>CatswordsTabGodmode.cs</DependentUpon>
+    <Compile Include="CatswordsTabExpert.Designer.cs">
+      <DependentUpon>CatswordsTabExpert.cs</DependentUpon>
     </Compile>
     <Compile Include="CatswordsTabHelper.cs" />
     <Compile Include="CatswordsTabSheet.cs" />
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="CatswordsTabAuth.resx">
       <DependentUpon>CatswordsTabAuth.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CatswordsTabGodmode.resx">
-      <DependentUpon>CatswordsTabGodmode.cs</DependentUpon>
+    <EmbeddedResource Include="CatswordsTabExpert.resx">
+      <DependentUpon>CatswordsTabExpert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatswordsTabPage.resx">
       <DependentUpon>CatswordsTabPage.cs</DependentUpon>

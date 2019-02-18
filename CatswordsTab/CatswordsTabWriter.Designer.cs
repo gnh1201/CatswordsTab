@@ -72,7 +72,7 @@
             this.btnSend.FlatAppearance.BorderSize = 0;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSend.Image = global::CatswordsTab.Properties.Resources.IconCheck32;
+            this.btnSend.Image = global::CatswordsTab.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnSend.Location = new System.Drawing.Point(259, 43);
             this.btnSend.Name = "btnSend";
@@ -114,7 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImage = global::CatswordsTab.Properties.Resources.iconPencli128;
+            this.BackgroundImage = global::CatswordsTab.Properties.Resources.iconfinder_pencil_01_374624;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(420, 390);
             this.Controls.Add(this.txtReplyEmail);

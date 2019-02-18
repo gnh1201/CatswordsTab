@@ -11,16 +11,41 @@ namespace CatswordsTab
 {
     public partial class CatswordsTabExpert : Form
     {
-        private CatswordsTabWriter catswordsTabWriter;
+        private void Initialize()
+        {
+            InitializeComponent();
+            InitializeLocalzation();
+            InitializeFont();
+        }
 
         public CatswordsTabExpert()
         {
-            InitializeComponent();
+            Initialize();
+        }
+        
+        private void InitializeLocalzation()
+        {
+            this.Text = "전문가 모드";
+            labelTitle.Text = "전문가 모드";
+            btnLogin.Text = "로그인";
         }
 
-        public CatswordsTabExpert(CatswordsTabWriter catswordsTabWriter)
+        private void InitializeFont()
         {
-            this.catswordsTabWriter = catswordsTabWriter;
+            this.Font = CatswordsTabHelper.GetFont();
+            labelTitle.Font = CatswordsTabHelper.GetFont(20F);
+            btnLogin.Font = CatswordsTabHelper.GetFont(12F);
+        }
+
+        private void OpenAuthWindow()
+        {
+            CatswordsTabAuth AuthWindow = new CatswordsTabAuth();
+            AuthWindow.Show();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            OpenAuthWindow();
         }
     }
 }

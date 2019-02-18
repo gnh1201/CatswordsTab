@@ -39,7 +39,7 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAdd.Image = global::CatswordsTab.Properties.Resources.IconPencli32;
+            this.btnAdd.Image = global::CatswordsTab.Properties.Resources.icondb_white_edit_32;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.Location = new System.Drawing.Point(254, 49);
             this.btnAdd.Name = "btnAdd";
@@ -76,7 +76,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImage = global::CatswordsTab.Properties.Resources.IconDialogue128;
+            this.BackgroundImage = global::CatswordsTab.Properties.Resources.iconfinder_simpline_45_2305617;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);

@@ -28,12 +28,6 @@ namespace CatswordsTab
             Initialize();
         }
 
-        public CatswordsTabAuth(CatswordsTabWriter catswordsTabWriter)
-        {
-            Initialize();
-            this.catswordsTabWriter = catswordsTabWriter;
-        }
-
         private void InitializeLocalization()
         {
             btnLogin.Text = "로그인";

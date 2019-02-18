@@ -15,6 +15,7 @@ using CatswordsTab.Properties;
 using CatswordsTab.Model;
 using Newtonsoft.Json;
 using Force.Crc32;
+using System.Globalization;
 
 namespace CatswordsTab
 {
@@ -215,6 +216,12 @@ namespace CatswordsTab
 
             string response = CatswordsTabHelper.RequestPost("/_/auth/authenticate", JsonData.ToString());
             CatswordsTabHelper.SetAuthToken(response);
+        }
+        
+        public static string GetCurrentLanaguage()
+        {
+            CultureInfo ci = CultureInfo.CurrentUICulture;
+            return ci.Name;
         }
     }
 }

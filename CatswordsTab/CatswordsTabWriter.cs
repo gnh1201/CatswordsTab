@@ -103,6 +103,7 @@ namespace CatswordsTab
                 obj.Extension = tabPage.FileExt;
                 obj.Message = txtMessage.Text;
                 obj.ReplyEmail = txtReplyEmail.Text;
+                obj.Language = tabPage.DeviceLanguage;
                 string jsonData = obj.ToJson();
                 string response = CatswordsTabHelper.RequestPost("/_/items/catswords_tab", jsonData);
                 TabResponse jsonResponse = JsonConvert.DeserializeObject<TabResponse>(response);

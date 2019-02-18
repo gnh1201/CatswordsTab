@@ -22,6 +22,7 @@ namespace CatswordsTab
         public string FileCrc32;
         public string FileSha256;
         public string FileHead32;
+        public string DeviceLanguage;
 
         public CatswordsTabPage()
         {
@@ -59,6 +60,7 @@ namespace CatswordsTab
             obj.Add("hash_sha256", FileSha256);
             obj.Add("hash_head32", FileHead32);
             obj.Add("extension", FileExt);
+            obj.Add("language", DeviceLanguage);
             string response = CatswordsTabHelper.RequestPost("/portal/?route=tab", obj.ToString());
             txtTerminal.Text = response;
             txtTerminal.Enabled = true;
@@ -73,6 +75,7 @@ namespace CatswordsTab
             FileCrc32 = CatswordsTabHelper.GetFileCrc32(FilePath);
             FileSha256 = CatswordsTabHelper.GetFileSha256(FilePath);
             FileHead32 = CatswordsTabHelper.GetFileHead32(FilePath);
+            DeviceLanguage = CatswordsTabHelper.GetCurrentLanaguage();
             InitializeTerminal();
         }
 

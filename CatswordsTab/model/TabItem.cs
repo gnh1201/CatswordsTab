@@ -20,6 +20,7 @@ namespace CatswordsTab.Model
         public string HashSha256 { get; set; }
         public string Extension { get; set; }
         public string ReplyEmail { get; set; }
+        public string Language { get; set; }
 
         public string ToJson(bool withHeader = false)
         {
@@ -44,6 +45,7 @@ namespace CatswordsTab.Model
             obj.Add("hash_sha256", HashSha256);
             obj.Add("extension", Extension);
             obj.Add("reply_email", ReplyEmail);
+            obj.Add("language", Language);
 
             return obj.ToString();
         }

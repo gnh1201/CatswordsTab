@@ -71,6 +71,7 @@ namespace CatswordsTab
 
         private void CatswordsTabAuth_Load(object sender, EventArgs e)
         {
+            CatswordsTabHelper.TabAuth = this;
             ActiveControl = txtUsername;
         }
     }

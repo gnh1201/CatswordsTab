@@ -31,13 +31,14 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGet = new System.Windows.Forms.Button();
+            this.txtLanguage = new System.Windows.Forms.TextBox();
+            this.txtExtension = new System.Windows.Forms.TextBox();
+            this.txtHashSha256 = new System.Windows.Forms.TextBox();
+            this.txtHashHead32 = new System.Windows.Forms.TextBox();
+            this.txtHashCrc32 = new System.Windows.Forms.TextBox();
+            this.txtHashSha1 = new System.Windows.Forms.TextBox();
+            this.txtHashMd5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Location = new System.Drawing.Point(82, 56);
+            this.labelTitle.Location = new System.Drawing.Point(100, 44);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(56, 12);
             this.labelTitle.TabIndex = 0;
@@ -86,14 +86,14 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox7);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.btnGet);
+            this.tabPage1.Controls.Add(this.txtLanguage);
+            this.tabPage1.Controls.Add(this.txtExtension);
+            this.tabPage1.Controls.Add(this.txtHashSha256);
+            this.tabPage1.Controls.Add(this.txtHashHead32);
+            this.tabPage1.Controls.Add(this.txtHashCrc32);
+            this.tabPage1.Controls.Add(this.txtHashSha1);
+            this.tabPage1.Controls.Add(this.txtHashMd5);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -109,59 +109,69 @@
             this.tabPage1.Text = "양식";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // btnGet
             // 
-            this.textBox7.Location = new System.Drawing.Point(146, 226);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(331, 21);
-            this.textBox7.TabIndex = 1;
+            this.btnGet.Location = new System.Drawing.Point(33, 280);
+            this.btnGet.Name = "btnGet";
+            this.btnGet.Size = new System.Drawing.Size(75, 23);
+            this.btnGet.TabIndex = 2;
+            this.btnGet.Text = "Do Get";
+            this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
-            // textBox6
+            // txtLanguage
             // 
-            this.textBox6.Location = new System.Drawing.Point(146, 194);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(331, 21);
-            this.textBox6.TabIndex = 1;
+            this.txtLanguage.Location = new System.Drawing.Point(146, 225);
+            this.txtLanguage.Name = "txtLanguage";
+            this.txtLanguage.Size = new System.Drawing.Size(331, 21);
+            this.txtLanguage.TabIndex = 1;
             // 
-            // textBox5
+            // txtExtension
             // 
-            this.textBox5.Location = new System.Drawing.Point(146, 161);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(331, 21);
-            this.textBox5.TabIndex = 1;
+            this.txtExtension.Location = new System.Drawing.Point(146, 193);
+            this.txtExtension.Name = "txtExtension";
+            this.txtExtension.Size = new System.Drawing.Size(331, 21);
+            this.txtExtension.TabIndex = 1;
             // 
-            // textBox4
+            // txtHashSha256
             // 
-            this.textBox4.Location = new System.Drawing.Point(146, 127);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(331, 21);
-            this.textBox4.TabIndex = 1;
+            this.txtHashSha256.Location = new System.Drawing.Point(146, 160);
+            this.txtHashSha256.Name = "txtHashSha256";
+            this.txtHashSha256.Size = new System.Drawing.Size(331, 21);
+            this.txtHashSha256.TabIndex = 1;
             // 
-            // textBox3
+            // txtHashHead32
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 94);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(331, 21);
-            this.textBox3.TabIndex = 1;
+            this.txtHashHead32.Location = new System.Drawing.Point(146, 127);
+            this.txtHashHead32.Name = "txtHashHead32";
+            this.txtHashHead32.Size = new System.Drawing.Size(331, 21);
+            this.txtHashHead32.TabIndex = 1;
             // 
-            // textBox2
+            // txtHashCrc32
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(331, 21);
-            this.textBox2.TabIndex = 1;
+            this.txtHashCrc32.Location = new System.Drawing.Point(146, 94);
+            this.txtHashCrc32.Name = "txtHashCrc32";
+            this.txtHashCrc32.Size = new System.Drawing.Size(331, 21);
+            this.txtHashCrc32.TabIndex = 1;
             // 
-            // textBox1
+            // txtHashSha1
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(331, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtHashSha1.Location = new System.Drawing.Point(146, 62);
+            this.txtHashSha1.Name = "txtHashSha1";
+            this.txtHashSha1.Size = new System.Drawing.Size(331, 21);
+            this.txtHashSha1.TabIndex = 1;
+            // 
+            // txtHashMd5
+            // 
+            this.txtHashMd5.Location = new System.Drawing.Point(146, 31);
+            this.txtHashMd5.Name = "txtHashMd5";
+            this.txtHashMd5.Size = new System.Drawing.Size(331, 21);
+            this.txtHashMd5.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 230);
+            this.label7.Location = new System.Drawing.Point(31, 229);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 12);
             this.label7.TabIndex = 0;
@@ -170,7 +180,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 197);
+            this.label6.Location = new System.Drawing.Point(31, 196);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 12);
             this.label6.TabIndex = 0;
@@ -179,7 +189,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 165);
+            this.label5.Location = new System.Drawing.Point(31, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 12);
             this.label5.TabIndex = 0;
@@ -188,7 +198,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 131);
+            this.label4.Location = new System.Drawing.Point(31, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 12);
             this.label4.TabIndex = 0;
@@ -307,15 +317,6 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(33, 280);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Do Get";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // CatswordsTabExpert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -327,8 +328,12 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.labelTitle);
+            this.Icon = ((System.Drawing.Icon)(global::CatswordsTab.Properties.Resources.icon_icons_retro_flower_fire_2_24692));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CatswordsTabExpert";
             this.Text = "CatswordsTabExpert";
+            this.Load += new System.EventHandler(this.CatswordsTabExpert_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -342,13 +347,13 @@
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLanguage;
+        private System.Windows.Forms.TextBox txtExtension;
+        private System.Windows.Forms.TextBox txtHashSha256;
+        private System.Windows.Forms.TextBox txtHashHead32;
+        private System.Windows.Forms.TextBox txtHashCrc32;
+        private System.Windows.Forms.TextBox txtHashSha1;
+        private System.Windows.Forms.TextBox txtHashMd5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -364,6 +369,6 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGet;
     }
 }

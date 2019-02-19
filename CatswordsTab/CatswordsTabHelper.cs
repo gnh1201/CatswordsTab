@@ -21,10 +21,15 @@ namespace CatswordsTab
 {
     public static class CatswordsTabHelper
     {
-        private static PrivateFontCollection pfc;
         private static string AuthType = "bearer";
         private static string AuthToken = string.Empty;
         private static string BaseUri = "https://2s.re.kr";
+
+        private static PrivateFontCollection pfc = null;
+        public static CatswordsTabPage TabPage = null;
+        public static CatswordsTabAuth TabAuth = null;
+        public static CatswordsTabWriter TabWriter = null;
+        public static CatswordsTabExpert TabExpert = null;
 
         static CatswordsTabHelper()
         {
@@ -120,7 +125,7 @@ namespace CatswordsTab
 
         public static string GetFileExtension(string filename)
         {
-            return Path.GetExtension(filename);
+            return Path.GetExtension(filename).Substring(1).ToUpper();
         }
 
         // alternative to RestSharp
@@ -210,10 +215,11 @@ namespace CatswordsTab
 
         public static void DoLogin(string username, string password)
         {
-            JObject JsonData = new JObject();
-            JsonData.Add("email", username);
-            JsonData.Add("password", password);
-
+            JObject JsonData = new JObject
+            {
+                { "email", username },
+                { "password", password }
+            };
             string response = CatswordsTabHelper.RequestPost("/_/auth/authenticate", JsonData.ToString());
             CatswordsTabHelper.SetAuthToken(response);
         }

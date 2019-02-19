@@ -13,8 +13,6 @@ namespace CatswordsTab
 {
     public partial class CatswordsTabWriter : Form
     {
-        private CatswordsTabPage tabPage;
-
         private void Initialize()
         {
             InitializeComponent();
@@ -25,12 +23,6 @@ namespace CatswordsTab
         public CatswordsTabWriter()
         {
             Initialize();
-        }
-
-        public CatswordsTabWriter(CatswordsTabPage catswordsTabPage)
-        {
-            Initialize();
-            tabPage = catswordsTabPage;
         }
 
         public void setTxtReplyEmail(string email)
@@ -73,6 +65,7 @@ namespace CatswordsTab
 
         private void CatswordsTabWriter_Load(object sender, EventArgs e)
         {
+            CatswordsTabHelper.TabWriter = this;
             ActiveControl = txtMessage;
 
             // login by guest credential
@@ -94,22 +87,24 @@ namespace CatswordsTab
             }
             else
             {
-                TabItem obj = new TabItem();
-                obj.HashMd5 = tabPage.FileMd5;
-                obj.HashSha1 = tabPage.FileSha1;
-                obj.HashCrc32 = tabPage.FileCrc32;
-                obj.HashSha256 = tabPage.FileSha256;
-                obj.HashHead32 = tabPage.FileHead32;
-                obj.Extension = tabPage.FileExt;
-                obj.Message = txtMessage.Text;
-                obj.ReplyEmail = txtReplyEmail.Text;
-                obj.Language = tabPage.DeviceLanguage;
+                TabItem obj = new TabItem
+                {
+                    HashMd5 = CatswordsTabHelper.TabPage.FileMd5,
+                    HashSha1 = CatswordsTabHelper.TabPage.FileSha1,
+                    HashCrc32 = CatswordsTabHelper.TabPage.FileCrc32,
+                    HashSha256 = CatswordsTabHelper.TabPage.FileSha256,
+                    HashHead32 = CatswordsTabHelper.TabPage.FileHead32,
+                    Extension = CatswordsTabHelper.TabPage.FileExt,
+                    Message = txtMessage.Text,
+                    ReplyEmail = txtReplyEmail.Text,
+                    Language = CatswordsTabHelper.TabPage.CurrentLanguage
+                };
                 string jsonData = obj.ToJson();
                 string response = CatswordsTabHelper.RequestPost("/_/items/catswords_tab", jsonData);
                 TabResponse jsonResponse = JsonConvert.DeserializeObject<TabResponse>(response);
                 if (jsonResponse.Data.Id > 0)
                 {
-                    tabPage.InitializeTerminal();
+                    CatswordsTabHelper.TabPage.InitializeTerminal();
                     MessageBox.Show("등록이 완료되었습니다.");
                     this.Close();
                 }

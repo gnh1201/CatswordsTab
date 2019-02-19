@@ -22,7 +22,7 @@ namespace CatswordsTab
         public string FileCrc32;
         public string FileSha256;
         public string FileHead32;
-        public string DeviceLanguage;
+        public string CurrentLanguage;
 
         public CatswordsTabPage()
         {
@@ -53,14 +53,16 @@ namespace CatswordsTab
 
         public void InitializeTerminal()
         {
-            JObject obj = new JObject();
-            obj.Add("hash_md5", FileMd5);
-            obj.Add("hash_sha1", FileSha1);
-            obj.Add("hash_crc32", FileCrc32);
-            obj.Add("hash_sha256", FileSha256);
-            obj.Add("hash_head32", FileHead32);
-            obj.Add("extension", FileExt);
-            obj.Add("language", DeviceLanguage);
+            JObject obj = new JObject
+            {
+                { "hash_md5", FileMd5 },
+                { "hash_sha1", FileSha1 },
+                { "hash_crc32", FileCrc32 },
+                { "hash_sha256", FileSha256 },
+                { "hash_head32", FileHead32 },
+                { "extension", FileExt },
+                { "language", CurrentLanguage }
+            };
             string response = CatswordsTabHelper.RequestPost("/portal/?route=tab", obj.ToString());
             txtTerminal.Text = response;
             txtTerminal.Enabled = true;
@@ -75,7 +77,7 @@ namespace CatswordsTab
             FileCrc32 = CatswordsTabHelper.GetFileCrc32(FilePath);
             FileSha256 = CatswordsTabHelper.GetFileSha256(FilePath);
             FileHead32 = CatswordsTabHelper.GetFileHead32(FilePath);
-            DeviceLanguage = CatswordsTabHelper.GetCurrentLanaguage();
+            CurrentLanguage = CatswordsTabHelper.GetCurrentLanaguage();
             InitializeTerminal();
         }
 
@@ -91,12 +93,13 @@ namespace CatswordsTab
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            CatswordsTabWriter writerForm = new CatswordsTabWriter(this);
+            CatswordsTabWriter writerForm = new CatswordsTabWriter();
             writerForm.Show();
         }
 
         private void CatswordsTabPage_Load(object sender, EventArgs e)
         {
+            CatswordsTabHelper.TabPage = this;
             ActiveControl = null;
         }
 

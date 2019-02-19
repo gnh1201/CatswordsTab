@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +47,34 @@ namespace CatswordsTab
         private void btnLogin_Click(object sender, EventArgs e)
         {
             OpenAuthWindow();
+        }
+
+        private void CatswordsTabExpert_Load(object sender, EventArgs e)
+        {
+            CatswordsTabHelper.TabExpert = this;
+            txtHashMd5.Text = CatswordsTabHelper.TabPage.FileMd5;
+            txtHashSha1.Text = CatswordsTabHelper.TabPage.FileSha1;
+            txtHashCrc32.Text = CatswordsTabHelper.TabPage.FileCrc32;
+            txtHashHead32.Text = CatswordsTabHelper.TabPage.FileHead32;
+            txtHashSha256.Text = CatswordsTabHelper.TabPage.FileSha256;
+            txtExtension.Text = CatswordsTabHelper.TabPage.FileExt;
+            txtLanguage.Text = CatswordsTabHelper.TabPage.CurrentLanguage;
+        }
+
+        private void btnGet_Click(object sender, EventArgs e)
+        {
+            JObject obj = new JObject
+            {
+                { "hash_md5", txtHashMd5.Text },
+                { "hash_sha1", txtHashSha1.Text },
+                { "hash_crc32", txtHashCrc32.Text },
+                { "hash_sha256", txtHashSha256.Text },
+                { "hash_head32", txtHashHead32.Text },
+                { "extension", txtExtension.Text },
+                { "language", txtLanguage.Text }
+            };
+            string response = CatswordsTabHelper.RequestPost("/portal/?route=tab", obj.ToString());
+            CatswordsTabHelper.TabPage.SetTxtTerminalText(response);
         }
     }
 }

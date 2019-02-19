@@ -124,7 +124,7 @@
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.labelTitle);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(global::CatswordsTab.Properties.Resources.icon_icons_retro_flower_fire_2_24692));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CatswordsTabWriter";

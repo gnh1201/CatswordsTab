@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+
+  <Import Project="InitializeSourceControlInformation.targets"/>
+  
+  <UsingTask TaskName="Microsoft.SourceLink.Common.GenerateSourceLinkFile" AssemblyFile="$(_MicrosoftSourceLinkCommonAssemblyFile)"/>
+  
+  <PropertyGroup Condition="'$(EnableSourceLink)' == 'true' and '$(DebugType)' != 'none'">
+    <SourceLink>$(IntermediateOutputPath)$(MSBuildProjectName).sourcelink.json</SourceLink>
+  </PropertyGroup>
+
+  <!--
+    Triggers SetEmbeddedFilesFromSourceControlManagerUntrackedFiles target defined by a source control package Microsoft.Build.Tasks.{Git|Tfvc|...}.
+  -->
+  <Target Name="_SetEmbeddedFilesFromSourceControlManagerUntrackedFiles"
+          DependsOnTargets="SetEmbeddedFilesFromSourceControlManagerUntrackedFiles"
+          BeforeTargets="CoreCompile"
+          Condition="'$(EmbedUntrackedSources)' == 'true' and '$(EmbedAllSources)' != 'true' and '$(DebugType)' != 'none' and '$(EnableSourceControlManagerQueries)' == 'true'" />
+
+  <!--
+    If defined populates MappedPath metadata of SourceRoot items.
+  -->
+  <Target Name="_InitializeSourceRootMappedPathsOpt"
+          DependsOnTargets="InitializeSourceRootMappedPaths"
+          Condition="'$(SourceRootMappedPathsFeatureSupported)' == 'true'"/>
+
+  <!-- 
+    Add compiler targets: C++ generates PDB with SourceLink in Link phase.
+  -->
+  <PropertyGroup Condition="'$(Language)' == 'C++'">
+    <_GenerateSourceLinkFileBeforeTargets>Link</_GenerateSourceLinkFileBeforeTargets>
+    <_GenerateSourceLinkFileDependsOnTargets>ComputeLinkSwitches</_GenerateSourceLinkFileDependsOnTargets>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Language)' != 'C++'">
+    <_GenerateSourceLinkFileBeforeTargets>CoreCompile</_GenerateSourceLinkFileBeforeTargets>
+    <_GenerateSourceLinkFileDependsOnTargets/>
+  </PropertyGroup>
+
+  <!--
+    Each source control provider package adds its SourceLinkUrl initialization target to SourceLinkUrlInitializerTargets.
+    This target shall initialize SourceLinkUrl of all items that don't have it initialized yet and belong to the source control provider.
+  -->
+  <Target Name="GenerateSourceLinkFile"
+          DependsOnTargets="InitializeSourceControlInformation;$(_GenerateSourceLinkFileDependsOnTargets);_InitializeSourceRootMappedPathsOpt;$(SourceLinkUrlInitializerTargets)"
+          BeforeTargets="$(_GenerateSourceLinkFileBeforeTargets)"
+          Outputs="$(SourceLink)"
+          Condition="'$(SourceLink)' != '' and '$(SourceControlInformationFeatureSupported)' == 'true'">
+
+    <Microsoft.SourceLink.Common.GenerateSourceLinkFile SourceRoots="@(SourceRoot)" OutputFile="$(SourceLink)" />
+
+    <ItemGroup>
+      <FileWrites Include="$(SourceLink)" />
+    </ItemGroup>
+
+    <!-- C++ Link task currently doesn't recognize SourceLink property -->
+    <ItemGroup Condition="'$(Language)' == 'C++'">
+      <Link Update="@(Link)">
+        <AdditionalOptions>%(Link.AdditionalOptions) /sourcelink:"$(SourceLink)"</AdditionalOptions>
+      </Link>
+    </ItemGroup>
+  </Target>
+  
+</Project>

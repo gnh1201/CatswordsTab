@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using NetMQ;
+using NetMQ.Sockets;
 
 namespace CatswordsTab.Server
 {
@@ -11,9 +9,15 @@ namespace CatswordsTab.Server
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(String.Join(", ", args));
-            Thread.Sleep(1000000);
+            using (var server = new ResponseSocket("@tcp://localhost:26112")) // bind
+            {
+                while(true)
+                {
+                    // Receive the message from the server socket
+                    string m1 = server.ReceiveFrameString();
+                    Console.WriteLine("From Client: {0}", m1);
+                }
+            }
         }
-        
     }
 }

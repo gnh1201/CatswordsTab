@@ -117,62 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CatswordsTabAuth_btnApply" xml:space="preserve">
-    <value>가입</value>
-  </data>
-  <data name="CatswordsTabAuth_btnForgot" xml:space="preserve">
-    <value>찾기</value>
-  </data>
-  <data name="CatswordsTabAuth_btnLogin" xml:space="preserve">
-    <value>로그인</value>
-  </data>
-  <data name="CatswordsTabAuth_labelCopyright" xml:space="preserve">
-    <value>(c) Catswords Community. exts.kr</value>
-  </data>
-  <data name="CatswordsTabPage_btnAdd" xml:space="preserve">
-    <value>글쓰기</value>
-  </data>
-  <data name="CatswordsTabPage_btnAuth" xml:space="preserve">
-    <value>로그인</value>
-  </data>
-  <data name="CatswordsTabPage_btnAuth_logout" xml:space="preserve">
-    <value>로그아웃</value>
-  </data>
-  <data name="CatswordsTabPage_labelTitle" xml:space="preserve">
-    <value>커뮤니티</value>
-  </data>
-  <data name="CatswordsTabPage_PageTitle" xml:space="preserve">
-    <value>커뮤니티</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="NotoSansCJKkr_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NotoSansCJKkr-Regular.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="icondb_white_edit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icondb-white-edit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconfinder_General_Office_48_3592847" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_General_Office_48_3592847.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconfinder_pencil_01_374624" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_pencil-01_374624.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconfinder_shining_mix_wrench_1059388" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_shining_mix_wrench_1059388.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconfinder_simpline_24_2305594" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_simpline_24_2305594.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\icondb-white-edit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconfinder_simpline_45_2305617" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_simpline_45_2305617.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\iconfinder_simpline_45_2305617.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconsdb_white_account_login_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconsdb-white-account-login-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconsdb_white_check_mark_3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconsdb-white-check-mark-3-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_icons_retro_flower_fire_2_24692" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-icons_retro_flower_fire_2_24692.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_icons_retro_flower_fire_2_24692_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon-icons_retro_flower_fire_2_24692_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

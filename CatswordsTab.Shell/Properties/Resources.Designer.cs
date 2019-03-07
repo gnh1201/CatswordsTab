@@ -39,7 +39,7 @@ namespace CatswordsTab.Shell.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CatswordsTab.Shell.Shell.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CatswordsTab.Shell.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,93 +61,12 @@ namespace CatswordsTab.Shell.Properties {
         }
         
         /// <summary>
-        ///   가입과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static string CatswordsTabAuth_btnApply {
+        internal static System.Drawing.Bitmap icon_icons_retro_flower_fire_2_24692_16 {
             get {
-                return ResourceManager.GetString("CatswordsTabAuth_btnApply", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   찾기과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabAuth_btnForgot {
-            get {
-                return ResourceManager.GetString("CatswordsTabAuth_btnForgot", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   로그인과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabAuth_btnLogin {
-            get {
-                return ResourceManager.GetString("CatswordsTabAuth_btnLogin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   (c) Catswords Community. exts.kr과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabAuth_labelCopyright {
-            get {
-                return ResourceManager.GetString("CatswordsTabAuth_labelCopyright", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   글쓰기과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabPage_btnAdd {
-            get {
-                return ResourceManager.GetString("CatswordsTabPage_btnAdd", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   로그인과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabPage_btnAuth {
-            get {
-                return ResourceManager.GetString("CatswordsTabPage_btnAuth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   로그아웃과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabPage_btnAuth_logout {
-            get {
-                return ResourceManager.GetString("CatswordsTabPage_btnAuth_logout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   커뮤니티과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabPage_labelTitle {
-            get {
-                return ResourceManager.GetString("CatswordsTabPage_labelTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   커뮤니티과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string CatswordsTabPage_PageTitle {
-            get {
-                return ResourceManager.GetString("CatswordsTabPage_PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Icon icon_icons_retro_flower_fire_2_24692 {
-            get {
-                object obj = ResourceManager.GetObject("icon_icons_retro_flower_fire_2_24692", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("icon_icons_retro_flower_fire_2_24692_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -164,80 +83,10 @@ namespace CatswordsTab.Shell.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap iconfinder_General_Office_48_3592847 {
-            get {
-                object obj = ResourceManager.GetObject("iconfinder_General_Office_48_3592847", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconfinder_pencil_01_374624 {
-            get {
-                object obj = ResourceManager.GetObject("iconfinder_pencil_01_374624", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconfinder_shining_mix_wrench_1059388 {
-            get {
-                object obj = ResourceManager.GetObject("iconfinder_shining_mix_wrench_1059388", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconfinder_simpline_24_2305594 {
-            get {
-                object obj = ResourceManager.GetObject("iconfinder_simpline_24_2305594", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_simpline_45_2305617 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_simpline_45_2305617", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconsdb_white_account_login_32 {
-            get {
-                object obj = ResourceManager.GetObject("iconsdb_white_account_login_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconsdb_white_check_mark_3_32 {
-            get {
-                object obj = ResourceManager.GetObject("iconsdb_white_check_mark_3_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static byte[] NotoSansCJKkr_Regular {
-            get {
-                object obj = ResourceManager.GetObject("NotoSansCJKkr_Regular", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

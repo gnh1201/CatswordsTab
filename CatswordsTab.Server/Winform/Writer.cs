@@ -47,41 +47,22 @@ namespace CatswordsTab.Server
 
         private void InitializeFont()
         {
-            this.Font = CatswordsTabHelper.GetFont();
-            btnSend.Font = CatswordsTabHelper.GetFont(12F);
-            labelMessage.Font = CatswordsTabHelper.GetFont();
-            cbAgreement.Font = CatswordsTabHelper.GetFont();
-            labelTitle.Font = CatswordsTabHelper.GetFont(20F);
-            labelReplyEmail.Font = CatswordsTabHelper.GetFont();
-            txtMessage.Font = CatswordsTabHelper.GetFont();
+
         }
 
         private void OpenAuthWindow()
         {
-            CatswordsTabHelper.TabAuth = new CatswordsTabAuth();
-            CatswordsTabHelper.TabAuth.Show();
+
         }
 
         private void OpenExpertWindow()
         {
-            CatswordsTabHelper.TabExpert = new CatswordsTabExpert();
-            CatswordsTabHelper.TabExpert.Show();
+
         }
 
         private void CatswordsTabWriter_Load(object sender, EventArgs e)
         {
-            CatswordsTabHelper.TabWriter = this;
-            ActiveControl = txtMessage;
 
-            try
-            {
-                // login by guest credential
-                CatswordsTabHelper.DoLogin("guest.tab@catswords.com", "d3nexkz9UkP8ur77");
-            } catch
-            {
-                // open auth window
-                OpenAuthWindow();
-            }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -93,32 +74,6 @@ namespace CatswordsTab.Server
             }
             else
             {
-                // do analyze
-                CatswordsTabHelper.DoAnalyze();
-
-                // write data
-                TabItem obj = new TabItem
-                {
-                    HashMd5 = CatswordsTabHelper.TabPage.FileMd5,
-                    HashSha1 = CatswordsTabHelper.TabPage.FileSha1,
-                    HashCrc32 = CatswordsTabHelper.TabPage.FileCrc32,
-                    HashSha256 = CatswordsTabHelper.TabPage.FileSha256,
-                    HashHead32 = CatswordsTabHelper.TabPage.FileHead32,
-                    Extension = CatswordsTabHelper.TabPage.FileExt,
-                    Message = txtMessage.Text,
-                    ReplyEmail = txtReplyEmail.Text,
-                    Language = CatswordsTabHelper.TabPage.CurrentLanguage,
-                    Report = CatswordsTabHelper.ReportData,
-                };
-                string jsonData = obj.ToJson();
-                string response = CatswordsTabHelper.RequestPost("/_/items/catswords_tab", jsonData);
-                TabResponse jsonResponse = JsonConvert.DeserializeObject<TabResponse>(response);
-                if (jsonResponse.Data.Id > 0)
-                {
-                    CatswordsTabHelper.TabPage.InitializeTerminal();
-                    MessageBox.Show("등록이 완료되었습니다.");
-                    this.Close();
-                }
             }
         }
 

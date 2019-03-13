@@ -1,6 +1,6 @@
-﻿namespace CatswordsTab.Server
+﻿namespace CatswordsTab.Server.Winform
 {
-    partial class CatswordsTabWriter
+    partial class Writer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatswordsTabWriter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Writer));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.txtMessage = new System.Windows.Forms.TextBox();
@@ -80,7 +80,7 @@
             this.btnSend.TabIndex = 14;
             this.btnSend.Text = "btnSend";
             this.btnSend.UseVisualStyleBackColor = false;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.btnSend.Click += new System.EventHandler(this.OnClick_btnSend);
             // 
             // cbAgreement
             // 
@@ -107,7 +107,7 @@
             this.txtReplyEmail.Name = "txtReplyEmail";
             this.txtReplyEmail.Size = new System.Drawing.Size(358, 21);
             this.txtReplyEmail.TabIndex = 19;
-            this.txtReplyEmail.TextChanged += new System.EventHandler(this.txtReplyEmail_TextChanged);
+            this.txtReplyEmail.TextChanged += new System.EventHandler(this.OnChanged_txtReplyEmail);
             // 
             // CatswordsTabWriter
             // 
@@ -129,7 +129,7 @@
             this.MinimizeBox = false;
             this.Name = "CatswordsTabWriter";
             this.Text = "CatswordTabWriter";
-            this.Load += new System.EventHandler(this.CatswordsTabWriter_Load);
+            this.Load += new System.EventHandler(this.OnLoad_Writer);
             this.ResumeLayout(false);
             this.PerformLayout();
 

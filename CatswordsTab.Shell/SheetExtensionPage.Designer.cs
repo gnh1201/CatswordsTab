@@ -38,6 +38,7 @@
             this.btnAdd.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnAdd.Image = global::CatswordsTab.Shell.Properties.Resources.icondb_white_edit_32;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -53,9 +54,10 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Location = new System.Drawing.Point(74, 55);
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(62, 52);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(56, 12);
+            this.labelTitle.Size = new System.Drawing.Size(126, 37);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "labelTitle";
             // 
@@ -63,6 +65,7 @@
             // 
             this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTerminal.Enabled = false;
+            this.txtTerminal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTerminal.Location = new System.Drawing.Point(15, 122);
             this.txtTerminal.Multiline = true;
             this.txtTerminal.Name = "txtTerminal";
@@ -71,7 +74,7 @@
             this.txtTerminal.Size = new System.Drawing.Size(366, 335);
             this.txtTerminal.TabIndex = 3;
             // 
-            // CatswordsTabPage
+            // SheetExtensionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,7 +84,7 @@
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.btnAdd);
-            this.Name = "CatswordsTabPage";
+            this.Name = "SheetExtensionPage";
             this.Size = new System.Drawing.Size(396, 500);
             this.Load += new System.EventHandler(this.OnLoad_CatswordsTabPage);
             this.ResumeLayout(false);

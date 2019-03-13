@@ -108,7 +108,7 @@
             this.btnGet.TabIndex = 2;
             this.btnGet.Text = "Do Get";
             this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
+            this.btnGet.Click += new System.EventHandler(this.OnClick_btnGet);
             // 
             // txtLanguage
             // 
@@ -242,7 +242,7 @@
             this.btnAnalyze.TabIndex = 1;
             this.btnAnalyze.Text = "Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
-            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
+            this.btnAnalyze.Click += new System.EventHandler(this.OnClick_btnAnalyze);
             // 
             // txtAnalytics
             // 
@@ -266,7 +266,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.OnClick_btnLogin);
             // 
             // CatswordsTabExpert
             // 
@@ -284,7 +284,7 @@
             this.MinimizeBox = false;
             this.Name = "CatswordsTabExpert";
             this.Text = "CatswordsTabExpert";
-            this.Load += new System.EventHandler(this.CatswordsTabExpert_Load);
+            this.Load += new System.EventHandler(this.OnLoad_Expert);
             this.tabExpert.ResumeLayout(false);
             this.tabPageQuery.ResumeLayout(false);
             this.tabPageQuery.PerformLayout();

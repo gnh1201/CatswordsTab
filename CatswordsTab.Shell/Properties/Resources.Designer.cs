@@ -61,6 +61,24 @@ namespace CatswordsTab.Shell.Properties {
         }
         
         /// <summary>
+        ///   Write a comment과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string btnAdd_en {
+            get {
+                return ResourceManager.GetString("btnAdd_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   의견작성과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string btnAdd_ko {
+            get {
+                return ResourceManager.GetString("btnAdd_ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Bitmap icon_icons_retro_flower_fire_2_24692_16 {
@@ -87,6 +105,78 @@ namespace CatswordsTab.Shell.Properties {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_simpline_45_2305617", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Community과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string labelTitle_en {
+            get {
+                return ResourceManager.GetString("labelTitle_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   커뮤니티과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string labelTitle_ko {
+            get {
+                return ResourceManager.GetString("labelTitle_ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Open with Community...과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string menuText_en {
+            get {
+                return ResourceManager.GetString("menuText_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   커뮤니티에서 열기...과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string menuText_ko {
+            get {
+                return ResourceManager.GetString("menuText_ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Community과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string PageTitle_en {
+            get {
+                return ResourceManager.GetString("PageTitle_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   커뮤니티과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string PageTitle_ko {
+            get {
+                return ResourceManager.GetString("PageTitle_ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Loading...과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string txtTerminal_en {
+            get {
+                return ResourceManager.GetString("txtTerminal_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   불러오는 중...과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string txtTerminal_ko {
+            get {
+                return ResourceManager.GetString("txtTerminal_ko", resourceCulture);
             }
         }
     }

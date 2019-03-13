@@ -2,7 +2,9 @@
 using NetMQ.Sockets;
 using SharpShell.SharpPropertySheet;
 using System;
+using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
@@ -10,47 +12,62 @@ namespace CatswordsTab.Shell
     {
         private string FilePath = "";
 
-        public void SendMessage(string message)
-        {
-            using (var client = new RequestSocket(">tcp://localhost:26112"))
-            {
-                client.SendFrame(message);
-            }
-        }
-
         public SheetExtensionPage()
         {
             InitializeComponent();
         }
 
+        public void SetFilePath(string filepath)
+        {
+            FilePath = filepath;
+        }
+
         protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
         {
-            FilePath = parent.SelectedItemPaths.First();
-            this.SendMessage(FilePath);
-            this.SendMessage("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
+            SetFilePath(parent.SelectedItemPaths.First());
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
+            MessageClient.Commit();
         }
 
         protected override void OnPropertySheetApply()
         {
-            this.SendMessage("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
+            MessageClient.Commit();
         }
 
         protected override void OnPropertySheetOK()
         {
-            this.SendMessage("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
+            MessageClient.Commit();
         }
 
         private void OnClick_btnAdd(object sender, EventArgs e)
         {
-            this.SendMessage("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
+            MessageClient.Commit();
         }
 
         private void OnLoad_CatswordsTabPage(object sender, EventArgs e)
         {
-            PageTitle = "커뮤니티";
-            btnAdd.Text = "의견작성";
-            labelTitle.Text = "커뮤니티";
-            this.SendMessage("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
+            string language = MessageClient.GetLanguage();
+
+            PageTitle = Properties.Resources.PageTitle_en;
+
+            labelTitle.Text = Properties.Resources.labelTitle_en;
+            btnAdd.Text = Properties.Resources.btnAdd_en;
+            txtTerminal.Text = Properties.Resources.txtTerminal_en;
+            
+            if (language == "ko")
+            {
+                PageTitle = Properties.Resources.PageTitle_ko;
+                labelTitle.Text = Properties.Resources.labelTitle_ko;
+                btnAdd.Text = Properties.Resources.btnAdd_ko;
+                txtTerminal.Text = Properties.Resources.txtTerminal_ko;
+            }
+
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
+            MessageClient.Commit();
         }
+
     }
 }

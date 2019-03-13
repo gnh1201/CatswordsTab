@@ -127,4 +127,34 @@
   <data name="icon_icons_retro_flower_fire_2_24692_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon-icons_retro_flower_fire_2_24692_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnAdd_en" xml:space="preserve">
+    <value>Write a comment</value>
+  </data>
+  <data name="btnAdd_ko" xml:space="preserve">
+    <value>의견작성</value>
+  </data>
+  <data name="labelTitle_en" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="labelTitle_ko" xml:space="preserve">
+    <value>커뮤니티</value>
+  </data>
+  <data name="menuText_en" xml:space="preserve">
+    <value>Open with Community...</value>
+  </data>
+  <data name="menuText_ko" xml:space="preserve">
+    <value>커뮤니티에서 열기...</value>
+  </data>
+  <data name="PageTitle_en" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="PageTitle_ko" xml:space="preserve">
+    <value>커뮤니티</value>
+  </data>
+  <data name="txtTerminal_en" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="txtTerminal_ko" xml:space="preserve">
+    <value>불러오는 중...</value>
+  </data>
 </root>

@@ -15,18 +15,9 @@ namespace CatswordsTab.Server.Winform
 {
     public partial class Auth : Form
     {
-        private CatswordsTabWriter CatswordsTabWriter = null;
-
-        private void Initialize()
-        {
-            InitializeComponent();
-            InitializeLocalization();
-            InitializeFont();
-        }
-
         public Auth()
         {
-            Initialize();
+            InitializeComponent();
         }
 
         private void InitializeLocalization()
@@ -38,22 +29,11 @@ namespace CatswordsTab.Server.Winform
             labelCopyright.Text = "(c) 2019 Catswords Research.";
             this.Text = "인증";
         }
-
-        private void InitializeFont()
-        {
-
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        
+        private void OnClick_btnLogin(object sender, EventArgs e)
         {
             try { 
                 MessageBox.Show("로그인 하였습니다.");
-
-                if (CatswordsTabWriter != null)
-                {
-                    CatswordsTabWriter.setTxtReplyEmail(txtUsername.Text);
-                }
-
                 this.Close();
             } catch
             {
@@ -62,9 +42,9 @@ namespace CatswordsTab.Server.Winform
             
         }
 
-        private void CatswordsTabAuth_Load(object sender, EventArgs e)
+        private void OnLoad_Auth(object sender, EventArgs e)
         {
-
+            // nothing
         }
     }
 }

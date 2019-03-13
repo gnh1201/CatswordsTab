@@ -87,7 +87,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.OnClick_btnLogin);
             // 
             // labelTitle
             // 
@@ -128,7 +128,7 @@
             this.MinimizeBox = false;
             this.Name = "CatswordsTabAuth";
             this.Text = "CatswordsTabAuth";
-            this.Load += new System.EventHandler(this.CatswordsTabAuth_Load);
+            this.Load += new System.EventHandler(this.OnLoad_Auth);
             this.ResumeLayout(false);
             this.PerformLayout();
 

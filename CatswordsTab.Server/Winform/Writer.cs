@@ -12,25 +12,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CatswordsTab.Server
+namespace CatswordsTab.Server.Winform
 {
-    public partial class CatswordsTabWriter : Form
+    public partial class Writer : Form
     {
-        private string dataReport = "";
-   
-        private void Initialize()
+        public Writer()
         {
             InitializeComponent();
-            InitializeLocalization();
-            InitializeFont();
         }
 
-        public CatswordsTabWriter()
-        {
-            Initialize();
-        }
-
-        public void setTxtReplyEmail(string email)
+        public void SetTxtReplyEmail(string email)
         {
             txtReplyEmail.Text = email;
         }
@@ -44,47 +35,24 @@ namespace CatswordsTab.Server
             labelReplyEmail.Text = "회신 전자우편 주소 (선택)";
             this.Text = "의견작성";
         }
-
-        private void InitializeFont()
+        
+        private void OnLoad_Writer(object sender, EventArgs e)
         {
-
+            // nothing
         }
 
-        private void OpenAuthWindow()
-        {
-
-        }
-
-        private void OpenExpertWindow()
-        {
-
-        }
-
-        private void CatswordsTabWriter_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSend_Click(object sender, EventArgs e)
+        private void OnClick_btnSend(object sender, EventArgs e)
         {
             btnSend.Enabled = false;
             if (cbAgreement.Checked == false)
             {
                 MessageBox.Show("개인정보 수집 및 이용 약관에 동의하셔야 합니다.");
             }
-            else
-            {
-            }
         }
 
-        private void txtReplyEmail_TextChanged(object sender, EventArgs e)
+        private void OnChanged_txtReplyEmail(object sender, EventArgs e)
         {
             string email = txtReplyEmail.Text.ToLower();
-
-            if(email == "/expert")
-            {
-                OpenExpertWindow();
-            }
         }
     }
 }

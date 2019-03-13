@@ -12,16 +12,9 @@ namespace CatswordsTab.Server.Winform
 {
     public partial class Expert : Form
     {
-        private void Initialize()
-        {
-            InitializeComponent();
-            InitializeLocalzation();
-            InitializeFont();
-        }
-
         public Expert()
         {
-            Initialize();
+            InitializeComponent();
         }
 
         private void InitializeLocalzation()
@@ -31,26 +24,16 @@ namespace CatswordsTab.Server.Winform
             btnLogin.Text = "로그인";
         }
 
-        private void InitializeFont()
+        private void OnClick_btnLogin(object sender, EventArgs e)
         {
 
         }
 
-        private void OpenAuthWindow()
-        {
-
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            OpenAuthWindow();
-        }
-
-        private void CatswordsTabExpert_Load(object sender, EventArgs e)
+        private void OnLoad_Expert(object sender, EventArgs e)
         {
         }
 
-        private void btnGet_Click(object sender, EventArgs e)
+        private void OnClick_btnGet(object sender, EventArgs e)
         {
             JObject obj = new JObject
             {
@@ -64,8 +47,9 @@ namespace CatswordsTab.Server.Winform
             };
         }
 
-        private void btnAnalyze_Click(object sender, EventArgs e)
+        private void OnClick_btnAnalyze(object sender, EventArgs e)
         {
+
         }
     }
 }

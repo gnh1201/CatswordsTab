@@ -1,10 +1,6 @@
-﻿using NetMQ;
-using NetMQ.Sockets;
-using SharpShell.SharpPropertySheet;
+﻿using SharpShell.SharpPropertySheet;
 using System;
-using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
@@ -24,9 +20,20 @@ namespace CatswordsTab.Shell
 
         protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
         {
+            // Set Language
+            MessageClient.Push("SetLanguage");
+            MessageClient.Push(MessageClient.GetLanguage());
+            MessageClient.Commit();
+
+            // Analyze File
             SetFilePath(parent.SelectedItemPaths.First());
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
+            MessageClient.Push(FilePath);
             MessageClient.Commit();
+
+            // Print response
+            SetTxtTerminal(MessageClient.Pull());
+            txtTerminal.Enabled = true;
         }
 
         protected override void OnPropertySheetApply()
@@ -45,6 +52,11 @@ namespace CatswordsTab.Shell
         {
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
             MessageClient.Commit();
+        }
+
+        public void SetTxtTerminal(string text)
+        {
+            txtTerminal.Text = text;
         }
 
         private void OnLoad_CatswordsTabPage(object sender, EventArgs e)

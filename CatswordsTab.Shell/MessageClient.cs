@@ -1,13 +1,8 @@
 ﻿using NetMQ;
 using NetMQ.Sockets;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
@@ -45,7 +40,8 @@ namespace CatswordsTab.Shell
             {
                 try
                 {
-                    if(TxQueue.Count > 0) {
+                    while (TxQueue.Count > 0)
+                    {
                         string message = TxQueue.Dequeue();
                         client.SendFrame(message);
 

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using ELFSharp.ELF;
 using ELFSharp.ELF.Sections;
 using PeNet;
@@ -113,6 +111,20 @@ namespace CatswordsTab.Server.Response
             }
 
             return hash_sha256;
+        }
+
+        public static string GetLanguage()
+        {
+            string language = "en";
+            string locale = CultureInfo.CurrentUICulture.Name;
+            string[] terms = locale.Split('-');
+
+            if (terms.Length > 0)
+            {
+                language = terms[0];
+            }
+
+            return language;
         }
 
         public void DoPE(string filename)

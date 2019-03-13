@@ -15,7 +15,7 @@ namespace CatswordsTab.Server
     {
         private static string AuthType = "bearer";
         private static string AuthToken = string.Empty;
-        private static string BaseUri = "https://2s.re.kr";
+        private static string BaseUri = "https://catswords.re.kr";
 
         public static void DoLogin(string username, string password)
         {
@@ -37,7 +37,7 @@ namespace CatswordsTab.Server
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(BaseUri + uri);
             request.Method = "GET";
             request.Timeout = 30 * 1000;
-            request.UserAgent = "CatswordsTab/1.1 (https://catswords.com)";
+            request.UserAgent = "CatswordsTab/2.0 (https://catswords.com)";
             if (!GetAuthToken().Equals(string.Empty))
             {
                 request.Headers.Add("Authorization", GetAuthorization());
@@ -64,7 +64,7 @@ namespace CatswordsTab.Server
             request.Method = "POST";
             request.ContentType = "application/json";
             request.Timeout = 30 * 1000;
-            request.UserAgent = "CatswordsTab/1.1 (https://catswords.com)";
+            request.UserAgent = "CatswordsTab/2.0 (https://catswords.com)";
             if (!GetAuthToken().Equals(string.Empty))
             {
                 request.Headers.Add("Authorization", GetAuthorization());

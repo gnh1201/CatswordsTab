@@ -8,7 +8,7 @@ namespace CatswordsTab.Shell
     public partial class SheetExtensionPage : SharpPropertyPage
     {
         private string FilePath = "";
-        
+
         public SheetExtensionPage()
         {
             InitializeComponent();
@@ -27,32 +27,26 @@ namespace CatswordsTab.Shell
             MessageClient.Push(MessageClient.GetLanguage());
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
             MessageClient.Push(FilePath);
-
-            Action actionA = new Action(() =>
+            MessageClient.Commit(new Action(() =>
             {
                 SetTxtTerminal(MessageClient.Pull());
                 txtTerminal.Enabled = true;
-            });
-
-            MessageClient.CommitTask(actionA).Start();
+            }));
         }
 
         protected override void OnPropertySheetApply()
         {
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
-            MessageClient.CommitTask().Start();
+            MessageClient.Commit("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
         }
 
         protected override void OnPropertySheetOK()
         {
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
-            MessageClient.CommitTask().Start();
+            MessageClient.Commit("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
         }
 
         private void OnClick_btnAdd(object sender, EventArgs e)
         {
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
-            MessageClient.CommitTask().Start();
+            MessageClient.Commit("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
         }
 
         public void SetTxtTerminal(string text)
@@ -80,6 +74,5 @@ namespace CatswordsTab.Shell
 
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
         }
-
     }
 }

@@ -52,9 +52,22 @@ namespace CatswordsTab.Shell
                 }
                 catch (InvalidOperationException)
                 {
-                    // nothing
+                    Push("InvalidOperationException");
                 }
             }
+        }
+
+        public static void Commit(Action callback)
+        {
+            Task taskA = CommitTask(callback);
+            taskA.Start();
+        }
+
+        public static void Commit(string message)
+        {
+            Push(message);
+            Task taskA = CommitTask();
+            taskA.Start();
         }
 
         public static Task CommitTask()

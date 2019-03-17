@@ -51,6 +51,10 @@ namespace CatswordsTab.Server
                     Exit();
                     break;
 
+                case "InvalidOperationException":
+                    // nothing
+                    break;
+
                 default:
                     // Get Response
                     flag = flags.IndexOf("OnPropertyPageInitialised");

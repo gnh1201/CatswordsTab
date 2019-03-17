@@ -22,16 +22,16 @@ namespace CatswordsTab.Server
         private static string fileHead32;
         private static string fileSha256;
         private static string fileExtension;
-        private static string userLanguage = "en";
+        private static string locale = "en";
 
         private static string GetResponseString(string message)
         {
-            string response = "Hello";
+            string response = "";
 
             switch(message)
             {
-                case "SetLanguage":
-                    flags.Add("SetLanguage");
+                case "SetLocale":
+                    flags.Add("SetLocale");
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd":
@@ -61,10 +61,10 @@ namespace CatswordsTab.Server
                     }
 
                     // Set Language
-                    flag = flags.IndexOf("SetLanguage");
+                    flag = flags.IndexOf("SetLocale");
                     if(flag > -1)
                     {
-                        userLanguage = message;
+                        locale = message;
                         ResetFlag(flag);
                     }
                     break;
@@ -92,6 +92,8 @@ namespace CatswordsTab.Server
 
         private static string GetResponse(string message)
         {
+            string response = "";
+
             Analyze analyzer = new Analyze();
             fileMd5 = analyzer.GetMD5(message);
             fileSha1 = analyzer.GetSHA1(message);
@@ -108,11 +110,13 @@ namespace CatswordsTab.Server
                 { "hash_sha256", fileSha256 },
                 { "hash_head32", fileHead32 },
                 { "extension", fileExtension },
-                { "language", userLanguage }
+                { "language", locale }
             };
-            string response = Communicate.RequestPost("/portal/?route=tab", obj.ToString());
+            response = Communicate.RequestPost("/portal/?route=tab", obj.ToString());
 
-            return message;
+            Console.WriteLine("response: " + response);
+
+            return obj.ToString();
         }
 
         public static void Main(string[] args)

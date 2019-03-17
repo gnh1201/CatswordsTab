@@ -1,13 +1,14 @@
 ﻿using SharpShell.SharpPropertySheet;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
     public partial class SheetExtensionPage : SharpPropertyPage
     {
         private string FilePath = "";
-
+        
         public SheetExtensionPage()
         {
             InitializeComponent();
@@ -20,38 +21,38 @@ namespace CatswordsTab.Shell
 
         protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
         {
-            // Set Language
-            MessageClient.Push("SetLanguage");
-            MessageClient.Push(MessageClient.GetLanguage());
-            MessageClient.Commit();
-
-            // Analyze File
             SetFilePath(parent.SelectedItemPaths.First());
+            
+            MessageClient.Push("SetLocale");
+            MessageClient.Push(MessageClient.GetLanguage());
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
             MessageClient.Push(FilePath);
-            MessageClient.Commit();
 
-            // Print response
-            SetTxtTerminal(MessageClient.Pull());
-            txtTerminal.Enabled = true;
+            Action actionA = new Action(() =>
+            {
+                SetTxtTerminal(MessageClient.Pull());
+                txtTerminal.Enabled = true;
+            });
+
+            MessageClient.CommitTask(actionA).Start();
         }
 
         protected override void OnPropertySheetApply()
         {
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
-            MessageClient.Commit();
+            MessageClient.CommitTask().Start();
         }
 
         protected override void OnPropertySheetOK()
         {
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
-            MessageClient.Commit();
+            MessageClient.CommitTask().Start();
         }
 
         private void OnClick_btnAdd(object sender, EventArgs e)
         {
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
-            MessageClient.Commit();
+            MessageClient.CommitTask().Start();
         }
 
         public void SetTxtTerminal(string text)
@@ -78,7 +79,6 @@ namespace CatswordsTab.Shell
             }
 
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
-            MessageClient.Commit();
         }
 
     }

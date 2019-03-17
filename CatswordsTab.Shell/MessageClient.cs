@@ -3,6 +3,7 @@ using NetMQ.Sockets;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
@@ -54,6 +55,23 @@ namespace CatswordsTab.Shell
                     // nothing
                 }
             }
+        }
+
+        public static Task CommitTask()
+        {
+            Task taskA = new Task(() => Commit());
+
+            return taskA;
+        }
+
+        public static Task CommitTask(Action callback)
+        {
+            Task taskA = new Task(() => {
+                Commit();
+                callback();
+            });
+
+            return taskA;
         }
         
         public static string GetLanguage()

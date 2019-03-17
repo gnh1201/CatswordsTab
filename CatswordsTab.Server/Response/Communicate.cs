@@ -32,7 +32,7 @@ namespace CatswordsTab.Server
         // http://www.csharpstudy.com/web/article/16-HttpWebRequest-%ED%99%9C%EC%9A%A9
         public static string RequestGet(string uri)
         {
-            string responseText = string.Empty;
+            string responseText = "";
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(BaseUri + uri);
             request.Method = "GET";

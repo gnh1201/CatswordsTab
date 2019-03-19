@@ -47,12 +47,20 @@ namespace CatswordsTab.Server.Winform
             if (cbAgreement.Checked == false)
             {
                 MessageBox.Show("개인정보 수집 및 이용 약관에 동의하셔야 합니다.");
+            } else
+            {
+                MessageService.Push("Reload");
             }
         }
 
         private void OnChanged_txtReplyEmail(object sender, EventArgs e)
         {
             string email = txtReplyEmail.Text.ToLower();
+
+            if (email == "/expert")
+            {
+                FormService.GetExpertWindow().Show();
+            }
         }
     }
 }

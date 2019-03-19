@@ -35,6 +35,10 @@ namespace CatswordsTab.Server
                     flags.Add("SetLocale");
                     break;
 
+                case "GetMessage":
+                    response = MessageService.Pull();
+                    break;
+
                 case "CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd":
                     Task taskA = new Task(() => ShowWriterForm());
                     taskA.Start();
@@ -142,8 +146,9 @@ namespace CatswordsTab.Server
                     string received = server.ReceiveFrameString();
                     Console.WriteLine("Received: {0}", received);
 
-                    server.SendFrame(GetResponseString(received));
-
+                    string response = GetResponseString(received);
+                    server.SendFrame((response ?? "").ToString());
+                    
                     if(isExit)
                     {
                         Exit();

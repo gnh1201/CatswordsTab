@@ -19,7 +19,7 @@ namespace CatswordsTab.Shell
         protected override ContextMenuStrip CreateMenu()
         {
             var menu = new ContextMenuStrip();
-            var language = MessageClient.GetLocale();
+            var language = MessageService.GetLocale();
             var menuText = Properties.Resources.menuText_en;
 
             if (language == "ko")
@@ -52,8 +52,8 @@ namespace CatswordsTab.Shell
             }
 
             //  Push to Server
-            MessageClient.Push("CatswordsTab.Shell.ContextMenuExtension.OnClick");
-            MessageClient.Commit();
+            MessageService.Push("CatswordsTab.Shell.ContextMenuExtension.OnClick");
+            MessageService.Commit();
         }
     }
 }

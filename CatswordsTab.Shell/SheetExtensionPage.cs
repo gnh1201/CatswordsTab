@@ -1,13 +1,14 @@
 ﻿using SharpShell.SharpPropertySheet;
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
     public partial class SheetExtensionPage : SharpPropertyPage
     {
-        private string FilePath = "";
+        private string FilePath;
 
         public SheetExtensionPage()
         {
@@ -23,43 +24,73 @@ namespace CatswordsTab.Shell
         {
             SetFilePath(parent.SelectedItemPaths.First());
             
-            MessageClient.Push("SetLocale");
-            MessageClient.Push(MessageClient.GetLocale());
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
-            MessageClient.Push(FilePath);
-            MessageClient.Commit();
+            MessageService.Push("SetLocale");
+            MessageService.Push(MessageService.GetLocale());
 
-            string response = MessageClient.Pull();
-            SetTxtTerminal(response);
-            txtTerminal.Enabled = true;
+            MessageListener().Start();
         }
 
         protected override void OnPropertySheetApply()
         {
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
-            MessageClient.Commit();
+            MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
+            MessageService.Commit();
         }
 
         protected override void OnPropertySheetOK()
         {
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
-            MessageClient.Commit();
+            MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
+            MessageService.Commit();
+        }
+
+        private void Reload()
+        {
+            if (FilePath == null)
+            {
+                SetTxtTerminal("File could not recognized.");
+            }
+            else
+            {
+                MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
+                MessageService.Push(FilePath);
+                MessageService.Commit();
+
+                string response = MessageService.Pull();
+                SetTxtTerminal(response);
+                txtTerminal.Enabled = true;
+            }
+        }
+
+        private Task MessageListener()
+        {
+            return new Task(() =>
+            {
+                Reload(); // first contact
+
+                while (true)
+                {
+                    MessageService.Push("GetMessage");
+                    MessageService.Commit();
+                    string response = MessageService.Pull();
+
+                    if (response == "Reload")
+                    {
+                        Reload();
+                    }
+
+                    Thread.Sleep(30000);
+                }
+            });
         }
 
         private void OnClick_btnAdd(object sender, EventArgs e)
         {
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
-            MessageClient.Commit();
-        }
-
-        public void SetTxtTerminal(string text)
-        {
-            txtTerminal.Text = text;
+            MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
+            MessageService.Commit();
         }
 
         private void OnLoad_CatswordsTabPage(object sender, EventArgs e)
         {
-            string language = MessageClient.GetLocale();
+            string language = MessageService.GetLocale();
 
             PageTitle = Properties.Resources.PageTitle_en;
 
@@ -75,8 +106,13 @@ namespace CatswordsTab.Shell
                 txtTerminal.Text = Properties.Resources.txtTerminal_ko;
             }
 
-            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
-            MessageClient.Commit();
+            MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
+            MessageService.Commit();
+        }
+
+        public void SetTxtTerminal(string text)
+        {
+            txtTerminal.Text = text;
         }
     }
 }

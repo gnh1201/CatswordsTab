@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CatswordsTab.Shell
 {
-    static class MessageClient
+    static class MessageService
     {
         private static Queue<string> TxQueue;
         private static Queue<string> RxQueue;
 
-        static MessageClient() {
+        static MessageService() {
             TxQueue = new Queue<string>();
             RxQueue = new Queue<string>();
         }

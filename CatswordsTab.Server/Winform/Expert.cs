@@ -26,11 +26,12 @@ namespace CatswordsTab.Server.Winform
 
         private void OnClick_btnLogin(object sender, EventArgs e)
         {
-
+            FormService.GetAuthWindow().Show();
         }
 
         private void OnLoad_Expert(object sender, EventArgs e)
         {
+            // nothing
         }
 
         private void OnClick_btnGet(object sender, EventArgs e)

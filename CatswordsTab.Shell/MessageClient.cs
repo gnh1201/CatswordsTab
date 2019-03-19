@@ -52,6 +52,7 @@ namespace CatswordsTab.Shell
                 }
                 catch (Exception e)
                 {
+                    Push("Exception");
                     Push(e.StackTrace);
                 }
             }

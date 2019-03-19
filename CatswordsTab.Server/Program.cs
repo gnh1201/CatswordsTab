@@ -51,8 +51,8 @@ namespace CatswordsTab.Server
                     Exit();
                     break;
 
-                case "InvalidOperationException":
-                    // nothing
+                case "Exception":
+                    flags.Add("Exception");
                     break;
 
                 default:
@@ -71,6 +71,14 @@ namespace CatswordsTab.Server
                         locale = message;
                         ResetFlag(flag);
                     }
+
+                    // When Exception
+                    flag = flags.IndexOf("Exception");
+                    if (flag > -1)
+                    {
+                        ResetFlag(flag);
+                    }
+
                     break;
             }
             

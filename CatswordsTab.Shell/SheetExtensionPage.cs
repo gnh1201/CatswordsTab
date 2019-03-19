@@ -24,29 +24,32 @@ namespace CatswordsTab.Shell
             SetFilePath(parent.SelectedItemPaths.First());
             
             MessageClient.Push("SetLocale");
-            MessageClient.Push(MessageClient.GetLanguage());
+            MessageClient.Push(MessageClient.GetLocale());
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised");
             MessageClient.Push(FilePath);
-            MessageClient.Commit(new Action(() =>
-            {
-                SetTxtTerminal(MessageClient.Pull());
-                txtTerminal.Enabled = true;
-            }));
+            MessageClient.Commit();
+
+            string response = MessageClient.Pull();
+            SetTxtTerminal(response);
+            txtTerminal.Enabled = true;
         }
 
         protected override void OnPropertySheetApply()
         {
-            MessageClient.Commit("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
+            MessageClient.Commit();
         }
 
         protected override void OnPropertySheetOK()
         {
-            MessageClient.Commit("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
+            MessageClient.Commit();
         }
 
         private void OnClick_btnAdd(object sender, EventArgs e)
         {
-            MessageClient.Commit("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
+            MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd");
+            MessageClient.Commit();
         }
 
         public void SetTxtTerminal(string text)
@@ -56,7 +59,7 @@ namespace CatswordsTab.Shell
 
         private void OnLoad_CatswordsTabPage(object sender, EventArgs e)
         {
-            string language = MessageClient.GetLanguage();
+            string language = MessageClient.GetLocale();
 
             PageTitle = Properties.Resources.PageTitle_en;
 
@@ -73,6 +76,7 @@ namespace CatswordsTab.Shell
             }
 
             MessageClient.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
+            MessageClient.Commit();
         }
     }
 }

@@ -45,11 +45,12 @@
     <AssemblyOriginatorKeyFile>MyKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AsyncIO, Version=0.1.25.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
-      <HintPath>..\packages\AsyncIO.0.1.26.0\lib\net40\AsyncIO.dll</HintPath>
+    <Reference Include="AsyncIO, Version=0.1.69.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\AsyncIO.0.1.69\lib\net40\AsyncIO.dll</HintPath>
     </Reference>
-    <Reference Include="NetMQ, Version=4.0.0.1, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\NetMQ.4.0.0.1\lib\net40\NetMQ.dll</HintPath>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NetMQ, Version=4.0.0.207, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetMQ.4.0.0.207-pre\lib\net40\NetMQ.dll</HintPath>
     </Reference>
     <Reference Include="ServerRegistrationManager, Version=2.7.1.0, Culture=neutral, PublicKeyToken=68bd4561cc3495fc, processorArchitecture=MSIL">
       <HintPath>..\packages\ServerRegistrationManager.2.7.1\lib\net45\ServerRegistrationManager.exe</HintPath>
@@ -99,16 +100,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CatswordsTab.Server\CatswordsTab.Server.csproj">
-      <Project>{6e31e4fc-69fc-4e33-95a5-76aacee89863}</Project>
-      <Name>CatswordsTab.Server</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CatswordsTab.Test\CatswordsTab.Test.csproj">
-      <Project>{0ec5d547-2be3-439c-ba5b-2a5d5bb9d7d0}</Project>
-      <Name>CatswordsTab.Test</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icon-icons_retro_flower_fire_2_24692_16.png" />

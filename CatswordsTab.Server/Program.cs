@@ -118,9 +118,9 @@ namespace CatswordsTab.Server
             };
             response = Communicate.RequestPost("/portal/?route=tab", obj.ToString());
 
-            Console.WriteLine("response: " + response);
+            Console.WriteLine("Response: " + response);
 
-            return obj.ToString();
+            return response;
         }
 
         public static void Main(string[] args)

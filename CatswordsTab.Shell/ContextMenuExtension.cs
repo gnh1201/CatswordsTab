@@ -19,7 +19,7 @@ namespace CatswordsTab.Shell
         protected override ContextMenuStrip CreateMenu()
         {
             var menu = new ContextMenuStrip();
-            var language = MessageClient.GetLanguage();
+            var language = MessageClient.GetLocale();
             var menuText = Properties.Resources.menuText_en;
 
             if (language == "ko")

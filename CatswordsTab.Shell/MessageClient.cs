@@ -50,55 +50,25 @@ namespace CatswordsTab.Shell
                         RxQueue.Enqueue(received);
                     }
                 }
-                catch (InvalidOperationException)
+                catch (Exception e)
                 {
-                    Push("InvalidOperationException");
+                    Push(e.StackTrace);
                 }
             }
         }
 
-        public static void Commit(Action callback)
+        public static string GetLocale()
         {
-            Task taskA = CommitTask(callback);
-            taskA.Start();
-        }
-
-        public static void Commit(string message)
-        {
-            Push(message);
-            Task taskA = CommitTask();
-            taskA.Start();
-        }
-
-        public static Task CommitTask()
-        {
-            Task taskA = new Task(() => Commit());
-
-            return taskA;
-        }
-
-        public static Task CommitTask(Action callback)
-        {
-            Task taskA = new Task(() => {
-                Commit();
-                callback();
-            });
-
-            return taskA;
-        }
-        
-        public static string GetLanguage()
-        {
-            string language = "en";
-            string locale = CultureInfo.CurrentUICulture.Name;
-            string[] terms = locale.Split('-');
+            string locale = "en";
+            string culture = CultureInfo.CurrentUICulture.Name;
+            string[] terms = culture.Split('-');
 
             if (terms.Length > 0)
             {
-                language = terms[0];
+                locale = terms[0];
             }
 
-            return language;
+            return locale;
         }
     }
 }

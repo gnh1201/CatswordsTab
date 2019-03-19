@@ -23,6 +23,7 @@ namespace CatswordsTab.Server
         private static string fileSha256;
         private static string fileExtension;
         private static string locale = "en";
+        private static bool isExit = false;
 
         private static string GetResponseString(string message)
         {
@@ -44,11 +45,11 @@ namespace CatswordsTab.Server
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply":
-                    Exit();
+                    isExit = true;
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK":
-                    Exit();
+                    isExit = true;
                     break;
 
                 case "Exception":
@@ -126,7 +127,7 @@ namespace CatswordsTab.Server
             };
             response = Communicate.RequestPost("/portal/?route=tab", obj.ToString());
 
-            Console.WriteLine("Response: " + response);
+            Console.WriteLine("Response: {0}", response);
 
             return response;
         }
@@ -142,7 +143,13 @@ namespace CatswordsTab.Server
                     Console.WriteLine("Received: {0}", received);
 
                     server.SendFrame(GetResponseString(received));
-                    Thread.Sleep(1);
+
+                    if(isExit)
+                    {
+                        Exit();
+                    }
+
+                    Thread.Sleep(0);
                 }
             }
         }

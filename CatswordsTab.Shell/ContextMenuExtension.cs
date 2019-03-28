@@ -46,13 +46,12 @@ namespace CatswordsTab.Shell
 
         private void OnClick()
         {
+            MessageService.Push("CatswordsTab.Shell.ContextMenuExtension.OnClick");
             foreach (string filePath in SelectedItemPaths)
             {
-                MessageBox.Show("https://catswords.com");
+                MessageService.Push(filePath);
             }
-
-            //  Push to Server
-            MessageService.Push("CatswordsTab.Shell.ContextMenuExtension.OnClick");
+            MessageService.Push("End");
             MessageService.Commit();
         }
     }

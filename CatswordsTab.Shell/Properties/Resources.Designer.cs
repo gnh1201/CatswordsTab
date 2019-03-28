@@ -145,6 +145,24 @@ namespace CatswordsTab.Shell.Properties {
         }
         
         /// <summary>
+        ///   File could not recognized.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string msgNotRecognized_en {
+            get {
+                return ResourceManager.GetString("msgNotRecognized_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   파일을 인식할 수 없습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string msgNotRecognized_ko {
+            get {
+                return ResourceManager.GetString("msgNotRecognized_ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Community과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string PageTitle_en {

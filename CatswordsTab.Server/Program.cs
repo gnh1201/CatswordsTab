@@ -56,6 +56,9 @@ namespace CatswordsTab.Server
                     isExit = true;
                     break;
 
+                case "CatswordsTab.Shell.ContextMenuExtension.OnClick":
+                    break;
+
                 case "Exception":
                     flags.Add("Exception");
                     break;

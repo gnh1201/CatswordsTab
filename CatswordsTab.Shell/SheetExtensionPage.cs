@@ -9,10 +9,14 @@ namespace CatswordsTab.Shell
     public partial class SheetExtensionPage : SharpPropertyPage
     {
         private string FilePath;
+        private Task MessageListener;
+        private bool IsStopMessage = false;
+        private string language = MessageService.GetLocale();
 
         public SheetExtensionPage()
         {
             InitializeComponent();
+            InitializeMessageListener();
         }
 
         public void SetFilePath(string filepath)
@@ -27,26 +31,33 @@ namespace CatswordsTab.Shell
             MessageService.Push("SetLocale");
             MessageService.Push(MessageService.GetLocale());
 
-            MessageListener().Start();
+            MessageListener.Start();
         }
 
         protected override void OnPropertySheetApply()
         {
             MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
             MessageService.Commit();
+            IsStopMessage = true;
         }
 
         protected override void OnPropertySheetOK()
         {
             MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
             MessageService.Commit();
+            IsStopMessage = true;
         }
 
         private void Reload()
         {
             if (FilePath == null)
             {
-                SetTxtTerminal("File could not recognized.");
+                SetTxtTerminal(Properties.Resources.msgNotRecognized_en);
+
+                if(language == "ko")
+                {
+                    SetTxtTerminal(Properties.Resources.msgNotRecognized_ko);
+                }
             }
             else
             {
@@ -60,13 +71,13 @@ namespace CatswordsTab.Shell
             }
         }
 
-        private Task MessageListener()
+        private void InitializeMessageListener()
         {
-            return new Task(() =>
+            MessageListener = new Task(() =>
             {
-                Reload(); // first contact
+                Reload();
 
-                while (true)
+                while (!IsStopMessage)
                 {
                     MessageService.Push("GetMessage");
                     MessageService.Commit();
@@ -90,8 +101,6 @@ namespace CatswordsTab.Shell
 
         private void OnLoad_CatswordsTabPage(object sender, EventArgs e)
         {
-            string language = MessageService.GetLocale();
-
             PageTitle = Properties.Resources.PageTitle_en;
 
             labelTitle.Text = Properties.Resources.labelTitle_en;

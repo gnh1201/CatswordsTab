@@ -157,4 +157,10 @@
   <data name="txtTerminal_ko" xml:space="preserve">
     <value>불러오는 중...</value>
   </data>
+  <data name="msgNotRecognized_en" xml:space="preserve">
+    <value>File could not recognized.</value>
+  </data>
+  <data name="msgNotRecognized_ko" xml:space="preserve">
+    <value>파일을 인식할 수 없습니다.</value>
+  </data>
 </root>

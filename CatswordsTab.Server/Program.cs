@@ -57,6 +57,7 @@ namespace CatswordsTab.Server
                     break;
 
                 case "CatswordsTab.Shell.ContextMenuExtension.OnClick":
+                    flags.Add("ContextMenuExtension");
                     break;
 
                 case "Exception":
@@ -78,6 +79,13 @@ namespace CatswordsTab.Server
                     {
                         locale = message;
                         ResetFlag(flag);
+                    }
+
+                    // If ContextMenuExtension
+                    flag = flags.IndexOf("ContextMenuExtension");
+                    if(flag >= -1)
+                    {
+                        Console.WriteLine("Received File Path: " + message);
                     }
 
                     // When Exception

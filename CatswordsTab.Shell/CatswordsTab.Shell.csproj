@@ -106,7 +106,12 @@
     <Content Include="Resources\icondb-white-edit-32.png" />
     <Content Include="Resources\iconfinder_simpline_45_2305617.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CatswordsTab.Server\CatswordsTab.Server.csproj">
+      <Project>{6e31e4fc-69fc-4e33-95a5-76aacee89863}</Project>
+      <Name>CatswordsTab.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

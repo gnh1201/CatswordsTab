@@ -57,7 +57,7 @@ namespace CatswordsTab.Server
                     break;
 
                 case "CatswordsTab.Shell.ContextMenuExtension.OnClick":
-                    flags.Add("ContextMenuExtension");
+                    flags.Add("ContextMenuExtension.OnClick");
                     break;
 
                 case "Exception":
@@ -82,10 +82,17 @@ namespace CatswordsTab.Server
                     }
 
                     // If ContextMenuExtension
-                    flag = flags.IndexOf("ContextMenuExtension");
+                    flag = flags.IndexOf("ContextMenuExtension.OnClick");
                     if(flag >= -1)
                     {
-                        Console.WriteLine("Received File Path: " + message);
+                        if (message == "End")
+                        {
+                            ResetFlag(flag);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Received File Path: " + message);
+                        }
                     }
 
                     // When Exception

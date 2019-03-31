@@ -10,7 +10,7 @@ namespace CatswordsTab.Shell
     {
         private string FilePath;
         private Task MessageListener;
-        private bool IsStopMessage = false;
+        private bool IsStopListen = false;
         private string language = MessageService.GetLocale();
 
         public SheetExtensionPage()
@@ -38,14 +38,14 @@ namespace CatswordsTab.Shell
         {
             MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply");
             MessageService.Commit();
-            IsStopMessage = true;
+            IsStopListen = true;
         }
 
         protected override void OnPropertySheetOK()
         {
             MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK");
             MessageService.Commit();
-            IsStopMessage = true;
+            IsStopListen = true;
         }
 
         private void Reload()
@@ -77,7 +77,7 @@ namespace CatswordsTab.Shell
             {
                 Reload();
 
-                while (!IsStopMessage)
+                while (!IsStopListen)
                 {
                     MessageService.Push("GetMessage");
                     MessageService.Commit();
@@ -99,7 +99,7 @@ namespace CatswordsTab.Shell
             MessageService.Commit();
         }
 
-        private void OnLoad_CatswordsTabPage(object sender, EventArgs e)
+        private void OnLoad_SheetExtensionPage(object sender, EventArgs e)
         {
             PageTitle = Properties.Resources.PageTitle_en;
 
@@ -115,7 +115,7 @@ namespace CatswordsTab.Shell
                 txtTerminal.Text = Properties.Resources.txtTerminal_ko;
             }
 
-            MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_CatswordsTabPage");
+            MessageService.Push("CatswordsTab.Shell.SheetExtensionPage.OnLoad_SheetExtensionPage");
             MessageService.Commit();
         }
 

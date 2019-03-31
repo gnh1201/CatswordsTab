@@ -86,7 +86,7 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "SheetExtensionPage";
             this.Size = new System.Drawing.Size(396, 500);
-            this.Load += new System.EventHandler(this.OnLoad_CatswordsTabPage);
+            this.Load += new System.EventHandler(this.OnLoad_SheetExtensionPage);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -39,6 +39,9 @@ namespace CatswordsTab.Server
                     response = MessageService.Pull();
                     break;
 
+                case "CatswordsTab.Shell.SheetExtensionPage.OnLoad_SheetExtensionPage":
+                    break;
+
                 case "CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd":
                     Task taskA = new Task(() => ShowWriterForm());
                     taskA.Start();
@@ -85,13 +88,13 @@ namespace CatswordsTab.Server
                     flag = flags.IndexOf("ContextMenuExtension.OnClick");
                     if(flag >= -1)
                     {
-                        if (message == "End")
+                        if (message == "return")
                         {
                             ResetFlag(flag);
                         }
                         else
                         {
-                            Console.WriteLine("Received File Path: " + message);
+                            Console.WriteLine("Clicked: {0}",  message);
                         }
                     }
 

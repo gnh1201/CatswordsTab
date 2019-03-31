@@ -51,7 +51,7 @@ namespace CatswordsTab.Shell
             {
                 MessageService.Push(filePath);
             }
-            MessageService.Push("End");
+            MessageService.Push("return");
             MessageService.Commit();
         }
     }

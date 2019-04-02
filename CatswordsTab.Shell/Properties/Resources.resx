@@ -163,4 +163,34 @@
   <data name="msgNotRecognized_ko" xml:space="preserve">
     <value>파일을 인식할 수 없습니다.</value>
   </data>
+  <data name="become_a_patron_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\become_a_patron_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="become_a_patron_button_2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\become_a_patron_button@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icondb_white_edit_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icondb-white-edit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconfinder_General_Office_48_3592847" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconfinder_general_office_48_3592847.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconfinder_pencil_01_374624" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconfinder_pencil-01_374624.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconfinder_shining_mix_wrench_1059388" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconfinder_shining_mix_wrench_1059388.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconfinder_simpline_24_2305594" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconfinder_simpline_24_2305594.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconfinder_simpline_45_23056171" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconfinder_simpline_45_2305617.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconsdb_white_account_login_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconsdb-white-account-login-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconsdb_white_check_mark_3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\iconsdb-white-check-mark-3-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

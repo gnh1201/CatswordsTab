@@ -61,6 +61,26 @@ namespace CatswordsTab.Shell.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap become_a_patron_button {
+            get {
+                object obj = ResourceManager.GetObject("become_a_patron_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap become_a_patron_button_2x {
+            get {
+                object obj = ResourceManager.GetObject("become_a_patron_button_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Write a comment과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string btnAdd_en {
@@ -101,9 +121,89 @@ namespace CatswordsTab.Shell.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap icondb_white_edit_321 {
+            get {
+                object obj = ResourceManager.GetObject("icondb_white_edit_321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_General_Office_48_3592847 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_General_Office_48_3592847", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_pencil_01_374624 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_pencil_01_374624", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_shining_mix_wrench_1059388 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_shining_mix_wrench_1059388", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_simpline_24_2305594 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_simpline_24_2305594", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_simpline_45_2305617 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_simpline_45_2305617", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_simpline_45_23056171 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_simpline_45_23056171", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconsdb_white_account_login_32 {
+            get {
+                object obj = ResourceManager.GetObject("iconsdb_white_account_login_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconsdb_white_check_mark_3_32 {
+            get {
+                object obj = ResourceManager.GetObject("iconsdb_white_check_mark_3_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

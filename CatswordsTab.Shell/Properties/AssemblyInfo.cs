@@ -1,17 +1,20 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 어셈블리에 대한 일반 정보는 다음 특성 집합을 통해 
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
 [assembly: AssemblyTitle("CatswordsTab.Shell")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Catswords Research")]
+[assembly: AssemblyDescription("Create your own community on the Windows Explorer")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+[assembly: AssemblyCompany("Catswords Research. OSL.")]
 [assembly: AssemblyProduct("CatswordsTab,Shell")]
-[assembly: AssemblyCopyright("Copyright (c) 2019 Catswords Research.")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright (c) 2019 Catswords Research. OSL.")]
+[assembly: AssemblyTrademark("Catswords Community")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 

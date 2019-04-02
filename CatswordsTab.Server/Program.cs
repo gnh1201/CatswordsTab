@@ -2,8 +2,6 @@
 using System.Threading;
 using NetMQ;
 using NetMQ.Sockets;
-using CatswordsTab.Server.Winform;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using CatswordsTab.Server.Response;
@@ -12,16 +10,7 @@ namespace CatswordsTab.Server
 {
     public class Program
     {
-        private static Writer writerForm;
         private static List<string> flags = new List<string>();
-        private static int flag = -1;
-
-        private static string fileMd5;
-        private static string fileSha1;
-        private static string fileCrc32;
-        private static string fileHead32;
-        private static string fileSha256;
-        private static string fileExtension;
         private static string locale = "en";
         private static bool isExit = false;
 
@@ -34,87 +23,113 @@ namespace CatswordsTab.Server
                 case "SetLocale":
                     flags.Add("SetLocale");
                     break;
-
-                case "GetMessage":
-                    response = MessageService.Pull();
-                    break;
-
+                
                 case "CatswordsTab.Shell.SheetExtensionPage.OnLoad_SheetExtensionPage":
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnClick_btnAdd":
-                    Task taskA = new Task(() => ShowWriterForm());
-                    taskA.Start();
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertyPageInitialised":
-                    flags.Add("OnPropertyPageInitialised");
+                    flags.Add("Initalized");
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply":
-                    isExit = true;
+                    flags.Add("Exit");
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK":
-                    isExit = true;
+                    flags.Add("Exit");
+                    break;
+
+                case "CatswordsTab.Shell.Winform.Auth.OnClick_btnLogin":
+                    flags.Add("DoLogin");
+                    break;
+
+                case "CatswordsTab.Shell.Winform.Writer.OnClick_btnSend":
+                    flags.Add("DoComment");
+                    break;
+                
+                case "CatswordsTab.Shell.Winform.Writer.OnClick_btnDonate":
+                    System.Diagnostics.Process.Start("https://www.patreon.com/posts/catswordstab-25295231");
                     break;
 
                 case "CatswordsTab.Shell.ContextMenuExtension.OnClick":
-                    flags.Add("ContextMenuExtension.OnClick");
+                    flags.Add("ClickedContextMenu");
                     break;
 
                 case "Exception":
                     flags.Add("Exception");
                     break;
-
+                    
                 default:
-                    // Get Response
-                    flag = flags.IndexOf("OnPropertyPageInitialised");
-                    if(flag > -1)
-                    {
-                        response = GetResponse(message);
-                        ResetFlag(flag);
-                    }
-
-                    // Set Language
-                    flag = flags.IndexOf("SetLocale");
-                    if(flag > -1)
-                    {
-                        locale = message;
-                        ResetFlag(flag);
-                    }
-
-                    // If ContextMenuExtension
-                    flag = flags.IndexOf("ContextMenuExtension.OnClick");
-                    if(flag >= -1)
-                    {
-                        if (message == "return")
-                        {
-                            ResetFlag(flag);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Clicked: {0}",  message);
-                        }
-                    }
-
-                    // When Exception
-                    flag = flags.IndexOf("Exception");
-                    if (flag > -1)
-                    {
-                        ResetFlag(flag);
-                    }
-
+                    response = DoFlags(message);
                     break;
             }
             
             return response;
         }
 
-        private static void ShowWriterForm()
+        private static string DoFlags(string message)
         {
-            writerForm = new Writer();
-            writerForm.ShowDialog();
+            string response = "";
+            List<int> flagIndexes = new List<int>();
+
+            // process flags
+            foreach (string flagName in flags)
+            {
+                int flagIndex = flags.IndexOf(flagName);
+
+                if (message == "Commit")
+                {
+                    flagIndexes.Add(flagIndex);
+                }
+                else
+                {
+                    switch (flagName)
+                    {
+                        case "SetLocale":
+                            locale = message;
+                            break;
+
+                        case "Initalized":
+                            response = GetResponse(message);
+                            break;
+
+                        case "ClickedContextMenu":
+                            Console.WriteLine("Clicked ContextMenu: {0}", message);
+                            break;
+
+                        case "DoLogin":
+                            // todo
+                            break;
+                        
+                        case "DoComment":
+                            // todo
+                            break;
+
+                        case "Exception":
+                            Console.WriteLine(message);
+                            break;
+
+                        case "Exit":
+                            isExit = true;
+                            break;
+
+                        default:
+                            flagIndexes.Add(flagIndex);
+                            break;
+                    }
+                }
+            }
+
+            // clear flags when commit
+            foreach(int flagIndex in flagIndexes)
+            {
+                flags.RemoveAt(flagIndex);
+            }
+
+            return response;
         }
 
         private static void Exit()
@@ -122,36 +137,26 @@ namespace CatswordsTab.Server
             Environment.Exit(0);
         }
 
-        private static void ResetFlag(int flag)
-        {
-            flags.RemoveAt(flag);
-            flag = -1;
-        }
-
         private static string GetResponse(string message)
         {
             string response = "";
 
-            Analyze analyzer = new Analyze();
-            fileMd5 = analyzer.GetMD5(message);
-            fileSha1 = analyzer.GetSHA1(message);
-            fileCrc32 = analyzer.GetCRC32(message);
-            fileSha256 = analyzer.GetSHA256(message);
-            fileHead32 = analyzer.GetHEAD32(message);
-            fileExtension = analyzer.GetExtension(message);
-
-            JObject obj = new JObject
+            Analyze analyze = new Analyze(message);
+            Dictionary<string, string> analyzed = analyze.GetAnalyzed();
+            string jsonText = new JObject
             {
-                { "hash_md5", fileMd5 },
-                { "hash_sha1", fileSha1 },
-                { "hash_crc32", fileCrc32 },
-                { "hash_sha256", fileSha256 },
-                { "hash_head32", fileHead32 },
-                { "extension", fileExtension },
-                { "language", locale }
-            };
-            response = Communicate.RequestPost("/portal/?route=tab", obj.ToString());
+                { "hash_md5",     analyzed["md5"] },
+                { "hash_sha1",    analyzed["sha1"] },
+                { "hash_crc32",   analyzed["crc32"] },
+                { "hash_sha256",  analyzed["sha256"] },
+                { "hash_head32",  analyzed["head32"] },
+                { "extension",    analyzed["extension"] },
+                { "language",     analyzed["language"] },
+                { "analyzed_pe",  analyzed["pe"] },
+                { "analyzed_elf", analyzed["elf"] },
+            }.ToString();
 
+            response = Communicate.RequestPost("/portal/?route=tab", jsonText);
             Console.WriteLine("Response: {0}", response);
 
             return response;
@@ -159,21 +164,19 @@ namespace CatswordsTab.Server
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Welcome. We're CatswordsTab.");
+            Console.WriteLine("Create your own community on the Windows Explorer.");
             Console.WriteLine("Start...!");
-            using (var server = new ResponseSocket("@tcp://localhost:26112")) // bind
+
+            using (ResponseSocket server = new ResponseSocket("@tcp://localhost:26112"))
             {
-                while (true)
+                while (!isExit)
                 {
                     string received = server.ReceiveFrameString();
                     Console.WriteLine("Received: {0}", received);
 
                     string response = GetResponseString(received);
                     server.SendFrame((response ?? "").ToString());
-                    
-                    if(isExit)
-                    {
-                        Exit();
-                    }
 
                     Thread.Sleep(0);
                 }

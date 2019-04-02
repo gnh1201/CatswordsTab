@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextMenuExtension.cs" />
+    <Compile Include="WinformService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -85,6 +86,24 @@
     </Compile>
     <Compile Include="SheetExtensionPage.Designer.cs">
       <DependentUpon>SheetExtensionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Auth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Auth.Designer.cs">
+      <DependentUpon>Auth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Expert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Expert.Designer.cs">
+      <DependentUpon>Expert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Writer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Writer.Designer.cs">
+      <DependentUpon>Writer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -100,11 +119,28 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Auth.resx">
+      <DependentUpon>Auth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Expert.resx">
+      <DependentUpon>Expert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Writer.resx">
+      <DependentUpon>Writer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\become_a_patron_button%402x.png" />
+    <None Include="Resources\become_a_patron_button.png" />
     <Content Include="Resources\icon-icons_retro_flower_fire_2_24692_16.png" />
     <Content Include="Resources\icondb-white-edit-32.png" />
+    <Content Include="Resources\iconfinder_General_Office_48_3592847.png" />
+    <Content Include="Resources\iconfinder_pencil-01_374624.png" />
+    <Content Include="Resources\iconfinder_shining_mix_wrench_1059388.png" />
+    <Content Include="Resources\iconfinder_simpline_24_2305594.png" />
     <Content Include="Resources\iconfinder_simpline_45_2305617.png" />
+    <Content Include="Resources\iconsdb-white-account-login-32.png" />
+    <Content Include="Resources\iconsdb-white-check-mark-3-32.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CatswordsTab.Server\CatswordsTab.Server.csproj">

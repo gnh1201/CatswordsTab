@@ -72,7 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
@@ -90,24 +89,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseBase.cs" />
-    <Compile Include="Winform\Auth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Winform\Auth.Designer.cs">
-      <DependentUpon>Auth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Winform\Expert.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Winform\Expert.Designer.cs">
-      <DependentUpon>Expert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Winform\Writer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Winform\Writer.Designer.cs">
-      <DependentUpon>Writer.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -118,18 +99,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Winform\Auth.resx">
-      <DependentUpon>Auth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Winform\Expert.resx">
-      <DependentUpon>Expert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Winform\Writer.resx">
-      <DependentUpon>Writer.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Crc32.NET\Crc32.NET.csproj">
+      <Project>{d2cd2407-76a9-4a87-8940-873b59e7f5c5}</Project>
+      <Name>Crc32.NET</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

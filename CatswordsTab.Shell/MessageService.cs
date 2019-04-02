@@ -37,6 +37,8 @@ namespace CatswordsTab.Shell
         }
 
         public static void Commit() {
+            Push("Commit");
+
             using (var client = new RequestSocket(">tcp://localhost:26112"))  // connect
             {
                 try
@@ -54,6 +56,7 @@ namespace CatswordsTab.Shell
                 {
                     Push("Exception");
                     Push(e.StackTrace);
+                    Commit();
                 }
             }
         }

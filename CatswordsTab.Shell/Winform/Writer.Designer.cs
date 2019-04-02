@@ -1,4 +1,4 @@
-﻿namespace CatswordsTab.Server.Winform
+﻿namespace CatswordsTab.Shell.Winform
 {
     partial class Writer
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Writer));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.txtMessage = new System.Windows.Forms.TextBox();
@@ -36,6 +35,7 @@
             this.cbAgreement = new System.Windows.Forms.CheckBox();
             this.labelReplyEmail = new System.Windows.Forms.Label();
             this.txtReplyEmail = new System.Windows.Forms.TextBox();
+            this.btnDonate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -72,7 +72,7 @@
             this.btnSend.FlatAppearance.BorderSize = 0;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSend.Image = global::CatswordsTab.Server.Properties.Resources.iconsdb_white_check_mark_3_32;
+            this.btnSend.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnSend.Location = new System.Drawing.Point(259, 43);
             this.btnSend.Name = "btnSend";
@@ -109,14 +109,26 @@
             this.txtReplyEmail.TabIndex = 19;
             this.txtReplyEmail.TextChanged += new System.EventHandler(this.OnChanged_txtReplyEmail);
             // 
-            // CatswordsTabWriter
+            // btnDonate
+            // 
+            this.btnDonate.Image = global::CatswordsTab.Shell.Properties.Resources.become_a_patron_button;
+            this.btnDonate.Location = new System.Drawing.Point(27, 383);
+            this.btnDonate.Name = "btnDonate";
+            this.btnDonate.Size = new System.Drawing.Size(219, 38);
+            this.btnDonate.TabIndex = 20;
+            this.btnDonate.Text = "btnDonate";
+            this.btnDonate.UseVisualStyleBackColor = true;
+            this.btnDonate.Click += new System.EventHandler(this.OnClick_btnDonate);
+            // 
+            // Writer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImage = global::CatswordsTab.Server.Properties.Resources.iconfinder_pencil_01_374624;
+            this.BackgroundImage = global::CatswordsTab.Shell.Properties.Resources.iconfinder_pencil_01_374624;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(420, 390);
+            this.ClientSize = new System.Drawing.Size(420, 444);
+            this.Controls.Add(this.btnDonate);
             this.Controls.Add(this.txtReplyEmail);
             this.Controls.Add(this.labelReplyEmail);
             this.Controls.Add(this.cbAgreement);
@@ -124,10 +136,9 @@
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.labelTitle);
-            this.Icon = ((System.Drawing.Icon)(global::CatswordsTab.Server.Properties.Resources.icon_icons_retro_flower_fire_2_24692));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "CatswordsTabWriter";
+            this.Name = "Writer";
             this.Text = "CatswordTabWriter";
             this.Load += new System.EventHandler(this.OnLoad_Writer);
             this.ResumeLayout(false);
@@ -144,5 +155,6 @@
         private System.Windows.Forms.CheckBox cbAgreement;
         private System.Windows.Forms.Label labelReplyEmail;
         private System.Windows.Forms.TextBox txtReplyEmail;
+        private System.Windows.Forms.Button btnDonate;
     }
 }

@@ -6,111 +6,99 @@ using System.Security.Cryptography;
 using ELFSharp.ELF;
 using ELFSharp.ELF.Sections;
 using PeNet;
+using Force.Crc32;
+using System.Collections.Generic;
 
 namespace CatswordsTab.Server.Response
 {
     class Analyze : ResponseBase
     {
-        private PeFile pe;
-        private IELF elf;
-        private string extension;
-        private string hash_md5;
-        private string hash_sha1;
-        private string hash_crc32;
-        private string hash_head32;
-        private string hash_sha256;
+        private Dictionary<string, string> analyzed;
 
-        public string GetExtension(string FilePath)
+        public Analyze(string filePath)
         {
-            extension = Path.GetExtension(FilePath).Substring(1).ToUpper();
-            AppandResponseText(extension);
-
-            return extension;
+            analyzed = new Dictionary<string, string>
+            {
+                { "extension", GetExtension(filePath) },
+                { "md5", GetMD5(filePath) },
+                { "sha1", GetSHA1(filePath) },
+                { "head32", GetSHA1(filePath) },
+                { "crc32", GetCRC32(filePath) },
+                { "sha256", GetSHA256(filePath) },
+                { "language", GetLanguage() },
+                { "pe", GetAnalyzedPE(filePath) },
+                { "elf", GetAnalyzedELF(filePath) }
+            };
         }
 
-        // https://stackoverflow.com/questions/10520048/calculate-md5-checksum-for-a-file
+        public Dictionary<string, string> GetAnalyzed()
+        {
+            return analyzed;
+        }
+
+        public string GetExtension(string filename)
+        {
+            return Path.GetExtension(filename).Substring(1).ToUpper();
+        }
+
         public string GetMD5(string filename)
         {
-            using (var md5 = MD5.Create())
+            string checksum = "";
+
+            using (var hasher = MD5.Create())
             {
                 using (var stream = File.OpenRead(filename))
                 {
-                    var hash = md5.ComputeHash(stream);
-                    hash_md5 = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-
-                    AppandResponseText("## HASH MD5");
-                    AppandResponseText(hash_md5);
+                    var hash = hasher.ComputeHash(stream);
+                    checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
 
-            return hash_md5;
+            return checksum;
         }
 
         public string GetSHA1(string filename)
         {
-            using (var sha1 = SHA1.Create())
+            string checksum = "";
+
+            using (var hasher = SHA1.Create())
             {
                 using (var stream = File.OpenRead(filename))
                 {
-                    var hash = sha1.ComputeHash(stream);
-                    hash_sha1 = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-
-                    AppandResponseText("## HASH SHA1");
-                    AppandResponseText(hash_sha1);
+                    var hash = hasher.ComputeHash(stream);
+                    checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
 
-            return hash_sha1;
-        }
-        
-        // https://stackoverflow.com/questions/7514101/how-do-i-read-exactly-n-bytes-from-a-stream
-        public string GetHEAD32(string filename)
-        {
-            using (var stream = File.OpenRead(filename))
-            {
-                int count = 32;
-
-                byte[] buffer = new byte[count];
-                int offset = 0;
-                while (offset < count)
-                {
-                    int read = stream.Read(buffer, offset, count - offset);
-                    if (read == 0)
-                        throw new System.IO.EndOfStreamException();
-                    offset += read;
-                }
-                System.Diagnostics.Debug.Assert(offset == count);
-
-                hash_head32 = Convert.ToBase64String(buffer);
-
-                AppandResponseText("## HASH HEAD32");
-                AppandResponseText(hash_head32);
-            }
-
-            return hash_head32;
+            return checksum;
         }
 
         public string GetCRC32(string filename)
         {
-            hash_crc32 = "";
-            return hash_crc32;
+            string checksum = "";
+
+            using (var stream = File.OpenRead(filename))
+            {
+                checksum = String.Format("{0:x}", Crc32Algorithm.Compute(stream));
+            }
+
+            return checksum;
         }
 
         public string GetSHA256(string filename)
         {
-            using (var sha256 = SHA256.Create())
+            string checksum = "";
+
+            using (var hasher = SHA256.Create())
             {
                 using (var stream = File.OpenRead(filename))
                 {
-                    var hash = sha256.ComputeHash(stream);
-                    hash_sha256 = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-
-                    AppandResponseText("## HASH HEAD256");
-                    AppandResponseText(hash_sha256);
+                    var hash = hasher.ComputeHash(stream);
+                    checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
 
-            return hash_sha256;
+            return checksum;
         }
 
         public static string GetLanguage()
@@ -127,32 +115,48 @@ namespace CatswordsTab.Server.Response
             return language;
         }
 
-        public void DoPE(string filename)
+        public string GetAnalyzedPE(string filename)
         {
-            pe = new PeNet.PeFile(filename);
+            string text = "";
 
-            AppandResponseText("## PE Header");
-            AppandResponseText(pe.ToString());
+            try
+            {
+                PeFile pe = new PeNet.PeFile(filename);
+                text = pe.ToString();
+            } catch (Exception e)
+            {
+                text = e.Message;
+            }
+
+            return text;
         }
 
-        public void DoELF(string filename)
+        public string GetAnalyzedELF(string filename)
         {
-            elf = ELFReader.Load(filename);
+            string text = "";
 
-            // ELF Section Header
-            AppandResponseText("## ELF Section Header");
-            foreach (ISection header in elf.Sections)
+            try
             {
-                AppandResponseText(header.ToString());
+                IELF elf = ELFReader.Load(filename);
+
+                foreach (ISection header in elf.Sections)
+                {
+                    text += header.ToString() + "\r\n";
+                }
+
+                var functions = ((ISymbolTable)elf.GetSection(".symtab")).Entries.Where(
+                    x => x.Type == SymbolType.Function
+                );
+                foreach (ISymbolEntry f in functions)
+                {
+                    text += f.Name + "\r\n";
+                }
+            } catch(Exception e)
+            {
+                text = e.Message;
             }
 
-            // ELF Functions
-            AppandResponseText("## ELF Function");
-            var functions = ((ISymbolTable)elf.GetSection(".symtab")).Entries.Where(x => x.Type == SymbolType.Function);
-            foreach (ISymbolEntry f in functions)
-            {
-                AppandResponseText(f.Name);
-            }
+            return text;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CatswordsTab.Server.Winform
+﻿namespace CatswordsTab.Shell.Winform
 {
     partial class Auth
     {
@@ -79,7 +79,7 @@
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnLogin.Image = global::CatswordsTab.Server.Properties.Resources.iconsdb_white_account_login_32;
+            //this.btnLogin.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_account_login_32;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.Location = new System.Drawing.Point(31, 222);
             this.btnLogin.Name = "btnLogin";
@@ -113,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImage = global::CatswordsTab.Server.Properties.Resources.iconfinder_simpline_24_2305594;
+            this.BackgroundImage = global::CatswordsTab.Shell.Properties.Resources.iconfinder_simpline_24_2305594;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(272, 328);
             this.Controls.Add(this.labelCopyright);
@@ -123,7 +123,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
-            this.Icon = ((System.Drawing.Icon)(global::CatswordsTab.Server.Properties.Resources.icon_icons_retro_flower_fire_2_24692));
+            //this.Icon = ((System.Drawing.Icon)(global::CatswordsTab.Shell.Properties.Resources.icon_icons_retro_flower_fire_2_24692));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CatswordsTabAuth";

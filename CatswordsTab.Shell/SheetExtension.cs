@@ -12,16 +12,16 @@ namespace CatswordsTab.Shell
     {
         protected override bool CanShowSheet()
         {
-            //  We will only show the resources pages if we have ONE file selected.
+            // We will only show the resources pages if we have ONE file selected.
             return SelectedItemPaths.Count() == 1;
         }
 
         protected override IEnumerable<SharpPropertyPage> CreatePages()
         {
-            //  Create the property sheet page.
+            // Create the property sheet page.
             var page = new SheetExtensionPage();
 
-            //  Return the pages we've created.
+            // Return the pages we've created.
             return new[] { page };
         }
     }

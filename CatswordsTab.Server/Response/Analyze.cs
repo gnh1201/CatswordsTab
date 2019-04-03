@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -27,10 +26,9 @@ namespace CatswordsTab.Server.Response
                 { "extension", extension },
                 { "md5",       GetMD5(filePath) },
                 { "sha1",      GetSHA1(filePath) },
-                { "head32",    GetSHA1(filePath) },
+                { "head32",    GetHEAD32(filePath) },
                 { "crc32",     GetCRC32(filePath) },
                 { "sha256",    GetSHA256(filePath) },
-                { "language",  GetLanguage() },
                 { "pe",        GetAnalyzedPE(filePath) },
                 { "elf",       GetAnalyzedELF(filePath) },
                 { "exif",      GetAnalyzedEXIF(filePath) },
@@ -108,20 +106,27 @@ namespace CatswordsTab.Server.Response
             return checksum;
         }
 
-        public static string GetLanguage()
+        public static string GetHEAD32(string filename)
         {
-            string language = "en";
-            string locale = CultureInfo.CurrentUICulture.Name;
-            string[] terms = locale.Split('-');
-
-            if (terms.Length > 0)
+            using (var stream = File.OpenRead(filename))
             {
-                language = terms[0];
+                int count = 32;
+
+                byte[] buffer = new byte[count];
+                int offset = 0;
+                while (offset < count)
+                {
+                    int read = stream.Read(buffer, offset, count - offset);
+                    if (read == 0)
+                        throw new System.IO.EndOfStreamException();
+                    offset += read;
+                }
+                System.Diagnostics.Debug.Assert(offset == count);
+
+                return Convert.ToBase64String(buffer);
             }
-
-            return language;
         }
-
+        
         public string GetAnalyzedPE(string filename)
         {
             string text = "";
@@ -129,10 +134,10 @@ namespace CatswordsTab.Server.Response
             try
             {
                 PeFile pe = new PeNet.PeFile(filename);
-                text = pe.ToString();
+                text += pe.ToString();
             } catch (Exception e)
             {
-                text = e.Message;
+                text += string.Format("{0}\r\n", e.Message);
             }
 
             return text;
@@ -194,6 +199,7 @@ namespace CatswordsTab.Server.Response
 
             if (extension.ToLower() != "apk")
             {
+                text += "This is not a Android Application Package.\r\n";
                 return text;
             }
 

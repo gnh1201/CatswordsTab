@@ -5,6 +5,7 @@ using NetMQ.Sockets;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using CatswordsTab.Server.Response;
+using System.Globalization;
 
 namespace CatswordsTab.Server
 {
@@ -13,6 +14,7 @@ namespace CatswordsTab.Server
         private static List<string> flags = new List<string>();
         private static string locale = "en";
         private static bool isExit = false;
+        private static Dictionary<string, string> analyzed;
 
         private static string GetResponseString(string message)
         {
@@ -35,11 +37,13 @@ namespace CatswordsTab.Server
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply":
-                    flags.Add("Exit");
+                    isExit = true;
+                    response = "Exit";
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK":
-                    flags.Add("Exit");
+                    isExit = true;
+                    response = "Exit";
                     break;
 
                 case "CatswordsTab.Shell.Winform.Auth.OnClick_btnLogin":
@@ -112,10 +116,6 @@ namespace CatswordsTab.Server
                             Console.WriteLine(message);
                             break;
 
-                        case "Exit":
-                            isExit = true;
-                            break;
-
                         default:
                             flagIndexes.Add(flagIndex);
                             break;
@@ -142,7 +142,7 @@ namespace CatswordsTab.Server
             string response = "";
 
             Analyze analyze = new Analyze(message);
-            Dictionary<string, string> analyzed = analyze.GetAnalyzed();
+            analyzed = analyze.GetAnalyzed();
             string jsonText = new JObject
             {
                 { "hash_md5",        analyzed["md5"] },
@@ -151,17 +151,33 @@ namespace CatswordsTab.Server
                 { "hash_sha256",     analyzed["sha256"] },
                 { "hash_head32",     analyzed["head32"] },
                 { "extension",       analyzed["extension"] },
-                { "language",        analyzed["language"] },
-                { "analyzed_pe",     analyzed["pe"] },
-                { "analyzed_elf",    analyzed["elf"] },
-                { "analyzed_exif",   analyzed["exif"] },
-                { "analyzed_apk",    analyzed["apk"] },
+                { "language",        GetLanguage() },
             }.ToString();
 
             response = Communicate.RequestPost("/portal/?route=tab", jsonText);
             Console.WriteLine("Response: {0}", response);
 
+            foreach (KeyValuePair<string, string> entry in analyzed)
+            {
+                Console.WriteLine(entry.Key);
+                Console.WriteLine(entry.Value);
+            }
+
             return response;
+        }
+
+        public static string GetLanguage()
+        {
+            string language = "en";
+            string locale = CultureInfo.CurrentUICulture.Name;
+            string[] terms = locale.Split('-');
+
+            if (terms.Length > 0)
+            {
+                language = terms[0];
+            }
+
+            return language;
         }
 
         public static void Main(string[] args)
@@ -172,13 +188,13 @@ namespace CatswordsTab.Server
 
             using (ResponseSocket server = new ResponseSocket("@tcp://localhost:26112"))
             {
-                while (!isExit)
+                while (true)
                 {
                     string received = server.ReceiveFrameString();
                     Console.WriteLine("Received: {0}", received);
 
                     string response = GetResponseString(received);
-                    server.SendFrame((response ?? "").ToString());
+                    server.SendFrame(response);
 
                     Thread.Sleep(0);
                 }

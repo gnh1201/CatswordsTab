@@ -8,6 +8,9 @@ using ELFSharp.ELF.Sections;
 using PeNet;
 using Force.Crc32;
 using System.Collections.Generic;
+using ExifLibrary;
+using CatswordsTab.Server.Helper;
+using Iteedee.ApkReader;
 
 namespace CatswordsTab.Server.Response
 {
@@ -17,17 +20,21 @@ namespace CatswordsTab.Server.Response
 
         public Analyze(string filePath)
         {
+            string extension = GetExtension(filePath);
+
             analyzed = new Dictionary<string, string>
             {
-                { "extension", GetExtension(filePath) },
-                { "md5", GetMD5(filePath) },
-                { "sha1", GetSHA1(filePath) },
-                { "head32", GetSHA1(filePath) },
-                { "crc32", GetCRC32(filePath) },
-                { "sha256", GetSHA256(filePath) },
-                { "language", GetLanguage() },
-                { "pe", GetAnalyzedPE(filePath) },
-                { "elf", GetAnalyzedELF(filePath) }
+                { "extension", extension },
+                { "md5",       GetMD5(filePath) },
+                { "sha1",      GetSHA1(filePath) },
+                { "head32",    GetSHA1(filePath) },
+                { "crc32",     GetCRC32(filePath) },
+                { "sha256",    GetSHA256(filePath) },
+                { "language",  GetLanguage() },
+                { "pe",        GetAnalyzedPE(filePath) },
+                { "elf",       GetAnalyzedELF(filePath) },
+                { "exif",      GetAnalyzedEXIF(filePath) },
+                { "apk",       GetAnalyzedAPK(filePath, extension) }
             };
         }
 
@@ -45,11 +52,11 @@ namespace CatswordsTab.Server.Response
         {
             string checksum = "";
 
-            using (var hasher = MD5.Create())
+            using (MD5 hasher = MD5.Create())
             {
-                using (var stream = File.OpenRead(filename))
+                using (FileStream stream = File.OpenRead(filename))
                 {
-                    var hash = hasher.ComputeHash(stream);
+                    byte[] hash = hasher.ComputeHash(stream);
                     checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
@@ -61,11 +68,11 @@ namespace CatswordsTab.Server.Response
         {
             string checksum = "";
 
-            using (var hasher = SHA1.Create())
+            using (SHA1 hasher = SHA1.Create())
             {
-                using (var stream = File.OpenRead(filename))
+                using (FileStream stream = File.OpenRead(filename))
                 {
-                    var hash = hasher.ComputeHash(stream);
+                    byte[] hash = hasher.ComputeHash(stream);
                     checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
@@ -77,9 +84,9 @@ namespace CatswordsTab.Server.Response
         {
             string checksum = "";
 
-            using (var stream = File.OpenRead(filename))
+            using (FileStream stream = File.OpenRead(filename))
             {
-                checksum = String.Format("{0:x}", Crc32Algorithm.Compute(stream));
+                checksum = string.Format("{0:x}", Crc32Algorithm.Compute(stream));
             }
 
             return checksum;
@@ -89,9 +96,9 @@ namespace CatswordsTab.Server.Response
         {
             string checksum = "";
 
-            using (var hasher = SHA256.Create())
+            using (SHA256 hasher = SHA256.Create())
             {
-                using (var stream = File.OpenRead(filename))
+                using (FileStream stream = File.OpenRead(filename))
                 {
                     var hash = hasher.ComputeHash(stream);
                     checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
@@ -139,22 +146,94 @@ namespace CatswordsTab.Server.Response
             {
                 IELF elf = ELFReader.Load(filename);
 
+                text += "Sections:\r\n";
                 foreach (ISection header in elf.Sections)
                 {
-                    text += header.ToString() + "\r\n";
+                    text += string.Format("   {0}\r\n", header.ToString());
                 }
 
+                text += "Functions:\r\n";
                 var functions = ((ISymbolTable)elf.GetSection(".symtab")).Entries.Where(
                     x => x.Type == SymbolType.Function
                 );
                 foreach (ISymbolEntry f in functions)
                 {
-                    text += f.Name + "\r\n";
+                    text += string.Format("   {0}\r\n", f.Name);
                 }
-            } catch(Exception e)
+            } catch (Exception e)
             {
-                text = e.Message;
+                text += string.Format("{0}\r\n", e.Message);
             }
+
+            return text;
+        }
+
+        public string GetAnalyzedEXIF(string filename)
+        {
+            string text = "";
+
+            try
+            {
+                text += "Properties:\r\n";
+                ImageFile data = ImageFile.FromFile(filename);
+                foreach (ExifProperty item in data.Properties)
+                {
+                    text += string.Format("   {0}\r\n", item.ToString());
+                }
+            } catch (Exception e)
+            {
+                text += string.Format("{0}\r\n", e.Message);
+            }
+
+            return text;
+        }
+
+       public string GetAnalyzedAPK(string filename, string extension = "apk")
+        {
+            string text = "";
+
+            if (extension.ToLower() != "apk")
+            {
+                return text;
+            }
+
+            try {
+                AndroidMetadata apk = new AndroidMetadata(filename);
+                ApkReader apkReader = new ApkReader();
+                ApkInfo info = apkReader.extractInfo(apk.GetManifestData(), apk.GetResourcesData());
+
+                text += string.Format("Package Name: {0}\r\n", info.packageName);
+                text += string.Format("Version Name: {0}\r\n", info.versionName);
+                text += string.Format("Version Code: {0}\r\n", info.versionCode);
+                text += string.Format("App Has Icon: {0}\r\n", info.hasIcon);
+                if (info.iconFileName.Count > 0) {
+                    text += string.Format("App Icon: {0}\r\n", info.iconFileName[0]);
+                }
+                text += string.Format("Min SDK Version: {0}\r\n", info.minSdkVersion);
+                text += string.Format("Target SDK Version: {0}\r\n", info.targetSdkVersion);
+
+                if (info.Permissions != null && info.Permissions.Count > 0)
+                {
+                    text += "Permissions:\r\n";
+                    info.Permissions.ForEach(f =>
+                    {
+                        text += string.Format("   {0}\r\n", f);
+                    });
+                }
+                else
+                {
+                    text += "No Permissions Found\r\n";
+                }
+
+                text += string.Format("Supports Any Density: {0}\r\n", info.supportAnyDensity);
+                text += string.Format("Supports Large Screens: {0}\r\n", info.supportLargeScreens);
+                text += string.Format("Supports Normal Screens: {0}\r\n", info.supportNormalScreens);
+                text += string.Format("Supports Small Screens: {0}\r\n", info.supportSmallScreens);
+            } catch (Exception e)
+            {
+                text += string.Format("{0}\r\n", e.Message);
+            }
+
 
             return text;
         }

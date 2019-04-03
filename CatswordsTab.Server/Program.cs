@@ -145,15 +145,17 @@ namespace CatswordsTab.Server
             Dictionary<string, string> analyzed = analyze.GetAnalyzed();
             string jsonText = new JObject
             {
-                { "hash_md5",     analyzed["md5"] },
-                { "hash_sha1",    analyzed["sha1"] },
-                { "hash_crc32",   analyzed["crc32"] },
-                { "hash_sha256",  analyzed["sha256"] },
-                { "hash_head32",  analyzed["head32"] },
-                { "extension",    analyzed["extension"] },
-                { "language",     analyzed["language"] },
-                { "analyzed_pe",  analyzed["pe"] },
-                { "analyzed_elf", analyzed["elf"] },
+                { "hash_md5",        analyzed["md5"] },
+                { "hash_sha1",       analyzed["sha1"] },
+                { "hash_crc32",      analyzed["crc32"] },
+                { "hash_sha256",     analyzed["sha256"] },
+                { "hash_head32",     analyzed["head32"] },
+                { "extension",       analyzed["extension"] },
+                { "language",        analyzed["language"] },
+                { "analyzed_pe",     analyzed["pe"] },
+                { "analyzed_elf",    analyzed["elf"] },
+                { "analyzed_exif",   analyzed["exif"] },
+                { "analyzed_apk",    analyzed["apk"] },
             }.ToString();
 
             response = Communicate.RequestPost("/portal/?route=tab", jsonText);

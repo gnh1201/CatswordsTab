@@ -38,12 +38,10 @@ namespace CatswordsTab.Server
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetApply":
                     isExit = true;
-                    response = "Exit";
                     break;
 
                 case "CatswordsTab.Shell.SheetExtensionPage.OnPropertySheetOK":
                     isExit = true;
-                    response = "Exit";
                     break;
 
                 case "CatswordsTab.Shell.Winform.Auth.OnClick_btnLogin":

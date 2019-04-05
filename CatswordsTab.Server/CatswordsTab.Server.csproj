@@ -136,6 +136,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helper\AndroidMetadata.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

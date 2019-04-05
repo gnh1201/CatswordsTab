@@ -9,20 +9,10 @@ namespace CatswordsTab.Server
     class ResponseBase
     {
         private readonly string EOL = "\r\n";
-        private string ResponseText = "";
 
-        public void AppandResponseText(string text, bool newline = true)
+        protected string _eol(string str)
         {
-            ResponseText += text;
-            if (newline == true)
-            {
-                ResponseText += EOL;
-            }
-        }
-
-        public string GetResponseText()
-        {
-            return ResponseText;
+            return str + EOL;
         }
     }
 }

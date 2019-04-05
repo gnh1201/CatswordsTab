@@ -151,23 +151,23 @@ namespace CatswordsTab.Server.Response
             {
                 IELF elf = ELFReader.Load(filename);
 
-                text += "Sections:\r\n";
+                text += _eol("Sections:");
                 foreach (ISection header in elf.Sections)
                 {
-                    text += string.Format("   {0}\r\n", header.ToString());
+                    text += string.Format(_eol("   {0}"), header.ToString());
                 }
 
-                text += "Functions:\r\n";
+                text += _eol("Functions:");
                 var functions = ((ISymbolTable)elf.GetSection(".symtab")).Entries.Where(
                     x => x.Type == SymbolType.Function
                 );
                 foreach (ISymbolEntry f in functions)
                 {
-                    text += string.Format("   {0}\r\n", f.Name);
+                    text += string.Format(_eol("   {0}"), f.Name);
                 }
             } catch (Exception e)
             {
-                text += string.Format("{0}\r\n", e.Message);
+                text += string.Format(_eol("{0}"), e.Message);
             }
 
             return text;
@@ -179,15 +179,15 @@ namespace CatswordsTab.Server.Response
 
             try
             {
-                text += "Properties:\r\n";
+                text += _eol("Properties:");
                 ImageFile data = ImageFile.FromFile(filename);
                 foreach (ExifProperty item in data.Properties)
                 {
-                    text += string.Format("   {0}\r\n", item.ToString());
+                    text += string.Format(_eol("   {0}"), item.ToString());
                 }
             } catch (Exception e)
             {
-                text += string.Format("{0}\r\n", e.Message);
+                text += string.Format(_eol("{0}"), e.Message);
             }
 
             return text;
@@ -199,7 +199,7 @@ namespace CatswordsTab.Server.Response
 
             if (extension.ToLower() != "apk")
             {
-                text += "This is not a Android Application Package.\r\n";
+                text += _eol("This is not a Android Application Package.");
                 return text;
             }
 
@@ -208,36 +208,36 @@ namespace CatswordsTab.Server.Response
                 ApkReader apkReader = new ApkReader();
                 ApkInfo info = apkReader.extractInfo(apk.GetManifestData(), apk.GetResourcesData());
 
-                text += string.Format("Package Name: {0}\r\n", info.packageName);
-                text += string.Format("Version Name: {0}\r\n", info.versionName);
-                text += string.Format("Version Code: {0}\r\n", info.versionCode);
-                text += string.Format("App Has Icon: {0}\r\n", info.hasIcon);
+                text += string.Format(_eol("Package Name: {0}"), info.packageName);
+                text += string.Format(_eol("Version Name: {0}"), info.versionName);
+                text += string.Format(_eol("Version Code: {0}"), info.versionCode);
+                text += string.Format(_eol("App Has Icon: {0}"), info.hasIcon);
                 if (info.iconFileName.Count > 0) {
-                    text += string.Format("App Icon: {0}\r\n", info.iconFileName[0]);
+                    text += string.Format(_eol("App Icon: {0}"), info.iconFileName[0]);
                 }
-                text += string.Format("Min SDK Version: {0}\r\n", info.minSdkVersion);
-                text += string.Format("Target SDK Version: {0}\r\n", info.targetSdkVersion);
+                text += string.Format(_eol("Min SDK Version: {0}"), info.minSdkVersion);
+                text += string.Format(_eol("Target SDK Version: {0}"), info.targetSdkVersion);
 
                 if (info.Permissions != null && info.Permissions.Count > 0)
                 {
-                    text += "Permissions:\r\n";
+                    text += _eol("Permissions:");
                     info.Permissions.ForEach(f =>
                     {
-                        text += string.Format("   {0}\r\n", f);
+                        text += string.Format(_eol("   {0}"), f);
                     });
                 }
                 else
                 {
-                    text += "No Permissions Found\r\n";
+                    text += _eol("No Permissions Found");
                 }
 
-                text += string.Format("Supports Any Density: {0}\r\n", info.supportAnyDensity);
-                text += string.Format("Supports Large Screens: {0}\r\n", info.supportLargeScreens);
-                text += string.Format("Supports Normal Screens: {0}\r\n", info.supportNormalScreens);
-                text += string.Format("Supports Small Screens: {0}\r\n", info.supportSmallScreens);
+                text += string.Format(_eol("Supports Any Density: {0}"), info.supportAnyDensity);
+                text += string.Format(_eol("Supports Large Screens: {0}"), info.supportLargeScreens);
+                text += string.Format(_eol("Supports Normal Screens: {0}"), info.supportNormalScreens);
+                text += string.Format(_eol("Supports Small Screens: {0}"), info.supportSmallScreens);
             } catch (Exception e)
             {
-                text += string.Format("{0}\r\n", e.Message);
+                text += string.Format(_eol("{0}"), e.Message);
             }
 
 

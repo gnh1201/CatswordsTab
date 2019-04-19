@@ -21,6 +21,10 @@ namespace CatswordsTab.Shell.Winform
         {
             MessageService.Push("CatswordsTab.Shell.Winform.Expert.OnLoad_Expert");
             MessageService.Commit();
+
+            labelTitle.Text = "Expert";
+            btnSubmit.Text = "Submit";
+            btnAuth.Text = "Authenticate";
         }
 
         private void OnClick_btnSubmit(object sender, EventArgs e)

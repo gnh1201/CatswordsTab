@@ -15,6 +15,11 @@ namespace CatswordsTab.Shell.Winform
             MessageService.Push("CatswordsTab.Shell.Winform.Writer.OnLoad_Writer");
             MessageService.Commit();
 
+            labelTitle.Text = "Comment";
+            labelMessage.Text = "Message:";
+            labelReplyEmail.Text = "Reply email (Optional):";
+            cbAgreement.Text = "I accept the Terms and Conditions and Privacy Policy.";
+            btnSend.Text = "Send";
             btnDonate.Text = "";
         }
 

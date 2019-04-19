@@ -14,7 +14,11 @@ namespace CatswordsTab.Server
         private static List<string> flags = new List<string>();
         private static string locale = "en";
         private static bool isExit = false;
+        private static Dictionary<string, string> kvdata;
         private static Dictionary<string, string> analyzed;
+        private static string host = "localhost";
+        private static int port = 26112;
+        private static string oslLink = "https://www.patreon.com/posts/catswordstab-25295231";
 
         private static string GetResponseString(string message)
         {
@@ -22,6 +26,10 @@ namespace CatswordsTab.Server
 
             switch(message)
             {
+                case "Ping":
+                    flags.Add("Ping");
+                    break;
+
                 case "SetLocale":
                     flags.Add("SetLocale");
                     break;
@@ -45,89 +53,100 @@ namespace CatswordsTab.Server
                     break;
 
                 case "CatswordsTab.Shell.Winform.Auth.OnClick_btnLogin":
-                    flags.Add("DoLogin");
+                    flags.Add("Login");
                     break;
 
                 case "CatswordsTab.Shell.Winform.Writer.OnClick_btnSend":
-                    flags.Add("DoComment");
+                    flags.Add("Comment");
                     break;
                 
                 case "CatswordsTab.Shell.Winform.Writer.OnClick_btnDonate":
-                    System.Diagnostics.Process.Start("https://www.patreon.com/posts/catswordstab-25295231");
+                    System.Diagnostics.Process.Start(oslLink);
                     break;
 
-                case "CatswordsTab.Shell.ContextMenuExtension.OnClick":
-                    flags.Add("ClickedContextMenu");
+                case "CatswordsTab.Shell.Winform.Expert.OnClick_btnSubmit":
+                    flags.Add("Submit");
                     break;
 
                 case "Exception":
                     flags.Add("Exception");
                     break;
-                    
+
+                case "Commit":
+                    response = ExecFlags(message);
+                    flags = new List<string>(); // Reset all flags
+                    break;
+
                 default:
-                    response = DoFlags(message);
+                    response = ExecFlags(message);
                     break;
             }
             
             return response;
         }
 
-        private static string DoFlags(string message)
+        private static string ExecFlags(string message)
         {
             string response = "";
-            List<int> flagIndexes = new List<int>();
+            Dictionary<string, string> parsed_kv = ParseMessage(message);
 
-            // process flags
-            foreach (string flagName in flags)
+            foreach (string flag in flags)
             {
-                int flagIndex = flags.IndexOf(flagName);
-
-                if (message == "Commit")
+                switch (flag)
                 {
-                    flagIndexes.Add(flagIndex);
+                    case "Ping":
+                        response = "Pong";
+                        break;
+
+                    case "SetLocale":
+                        locale = "Accept. " + message;
+                        break;
+
+                    case "Initalized":
+                        response = GetResponse(message);
+                        break;
+
+                    case "Login":
+                    case "Comment":
+                    case "Submit":
+                        if (parsed_kv["key"].Equals(""))
+                        {
+                            kvdata.Add(parsed_kv["key"], parsed_kv["value"]);
+
+                            Console.WriteLine("key: " + parsed_kv["key"]);
+                            Console.WriteLine("value: " + parsed_kv["value"]);
+                        }
+                        break;
+
+                    case "Exception":
+                        Console.WriteLine(message);
+                        break;
+
+                    default:
+                        break;
                 }
-                else
-                {
-                    switch (flagName)
-                    {
-                        case "SetLocale":
-                            locale = message;
-                            break;
-
-                        case "Initalized":
-                            response = GetResponse(message);
-                            break;
-
-                        case "ClickedContextMenu":
-                            Console.WriteLine("Clicked ContextMenu: {0}", message);
-                            break;
-
-                        case "DoLogin":
-                            // todo
-                            break;
-                        
-                        case "DoComment":
-                            // todo
-                            break;
-
-                        case "Exception":
-                            Console.WriteLine(message);
-                            break;
-
-                        default:
-                            flagIndexes.Add(flagIndex);
-                            break;
-                    }
-                }
-            }
-
-            // clear flags when commit
-            foreach(int flagIndex in flagIndexes)
-            {
-                flags.RemoveAt(flagIndex);
             }
 
             return response;
+        }
+
+        public static Dictionary<string, string> ParseMessage(string message)
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            int pos = message.IndexOf(':');
+
+            if (pos > 0)
+            {
+                data["key"] = message.Substring(0, pos + 1).Trim();
+                data["value"] = message.Substring(pos).Trim();
+            }
+            else
+            {
+                data["key"] = "";
+                data["value"] = message;
+            }
+            
+            return data;
         }
 
         private static void Exit()
@@ -184,7 +203,7 @@ namespace CatswordsTab.Server
             Console.WriteLine("Create your own community on the Windows Explorer.");
             Console.WriteLine("Start...!");
 
-            using (ResponseSocket server = new ResponseSocket("@tcp://localhost:26112"))
+            using (ResponseSocket server = new ResponseSocket(string.Format("@tcp://{0}:{1}", host, port)))
             {
                 while (true)
                 {

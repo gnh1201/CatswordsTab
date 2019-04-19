@@ -42,23 +42,26 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Location = new System.Drawing.Point(77, 43);
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(41, 46);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(56, 12);
+            this.labelTitle.Size = new System.Drawing.Size(126, 37);
             this.labelTitle.TabIndex = 5;
             this.labelTitle.Text = "labelTitle";
             // 
             // labelMessage
             // 
             this.labelMessage.AutoSize = true;
+            this.labelMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.Location = new System.Drawing.Point(26, 135);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(85, 12);
+            this.labelMessage.Size = new System.Drawing.Size(78, 15);
             this.labelMessage.TabIndex = 8;
             this.labelMessage.Text = "labelMessage";
             // 
             // txtMessage
             // 
+            this.txtMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMessage.Location = new System.Drawing.Point(28, 155);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
@@ -71,6 +74,7 @@
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSend.FlatAppearance.BorderSize = 0;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSend.ForeColor = System.Drawing.SystemColors.Window;
             this.btnSend.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -85,9 +89,10 @@
             // cbAgreement
             // 
             this.cbAgreement.AutoSize = true;
+            this.cbAgreement.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAgreement.Location = new System.Drawing.Point(27, 340);
             this.cbAgreement.Name = "cbAgreement";
-            this.cbAgreement.Size = new System.Drawing.Size(99, 16);
+            this.cbAgreement.Size = new System.Drawing.Size(98, 19);
             this.cbAgreement.TabIndex = 17;
             this.cbAgreement.Text = "cbAgreement";
             this.cbAgreement.UseVisualStyleBackColor = true;
@@ -95,22 +100,25 @@
             // labelReplyEmail
             // 
             this.labelReplyEmail.AutoSize = true;
+            this.labelReplyEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelReplyEmail.Location = new System.Drawing.Point(25, 275);
             this.labelReplyEmail.Name = "labelReplyEmail";
-            this.labelReplyEmail.Size = new System.Drawing.Size(96, 12);
+            this.labelReplyEmail.Size = new System.Drawing.Size(90, 15);
             this.labelReplyEmail.TabIndex = 18;
             this.labelReplyEmail.Text = "labelReplyEmail";
             // 
             // txtReplyEmail
             // 
+            this.txtReplyEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReplyEmail.Location = new System.Drawing.Point(27, 295);
             this.txtReplyEmail.Name = "txtReplyEmail";
-            this.txtReplyEmail.Size = new System.Drawing.Size(358, 21);
+            this.txtReplyEmail.Size = new System.Drawing.Size(358, 23);
             this.txtReplyEmail.TabIndex = 19;
             this.txtReplyEmail.TextChanged += new System.EventHandler(this.OnChanged_txtReplyEmail);
             // 
             // btnDonate
             // 
+            this.btnDonate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonate.Image = global::CatswordsTab.Shell.Properties.Resources.become_a_patron_button;
             this.btnDonate.Location = new System.Drawing.Point(27, 383);
             this.btnDonate.Name = "btnDonate";

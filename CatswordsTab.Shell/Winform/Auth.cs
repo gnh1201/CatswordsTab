@@ -22,6 +22,12 @@ namespace CatswordsTab.Shell.Winform
         {
             MessageService.Push("CatswordsTab.Shell.Winform.Auth.OnLoad_Auth");
             MessageService.Commit();
+
+            labelTitle.Text = "Authenticate";
+            labelUsername.Text = "Username:";
+            labelPassword.Text = "Password:";
+            labelCopyright.Text = "(c) Catswords, OSL";
+            btnLogin.Text = "Log in";
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Auth));
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -42,9 +41,10 @@
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.BackColor = System.Drawing.Color.Transparent;
+            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.Location = new System.Drawing.Point(29, 106);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(90, 12);
+            this.labelUsername.Size = new System.Drawing.Size(85, 15);
             this.labelUsername.TabIndex = 1;
             this.labelUsername.Text = "labelUsername";
             // 
@@ -52,25 +52,28 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.BackColor = System.Drawing.Color.Transparent;
+            this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(29, 162);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(89, 12);
+            this.labelPassword.Size = new System.Drawing.Size(82, 15);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "labelPassword";
             // 
             // txtUsername
             // 
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(31, 124);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(199, 21);
+            this.txtUsername.Size = new System.Drawing.Size(199, 23);
             this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(31, 180);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(199, 21);
+            this.txtPassword.Size = new System.Drawing.Size(199, 23);
             this.txtPassword.TabIndex = 4;
             // 
             // btnLogin
@@ -78,8 +81,8 @@
             this.btnLogin.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Window;
-            //this.btnLogin.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_account_login_32;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.Location = new System.Drawing.Point(31, 222);
             this.btnLogin.Name = "btnLogin";
@@ -93,22 +96,24 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Location = new System.Drawing.Point(63, 46);
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(38, 50);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(56, 12);
+            this.labelTitle.Size = new System.Drawing.Size(126, 37);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "labelTitle";
             // 
             // labelCopyright
             // 
             this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCopyright.Location = new System.Drawing.Point(29, 285);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(86, 12);
+            this.labelCopyright.Size = new System.Drawing.Size(85, 15);
             this.labelCopyright.TabIndex = 6;
             this.labelCopyright.Text = "labelCopyright";
             // 
-            // CatswordsTabAuth
+            // Auth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,10 +128,9 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
-            //this.Icon = ((System.Drawing.Icon)(global::CatswordsTab.Shell.Properties.Resources.icon_icons_retro_flower_fire_2_24692));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "CatswordsTabAuth";
+            this.Name = "Auth";
             this.Text = "CatswordsTabAuth";
             this.Load += new System.EventHandler(this.OnLoad_Auth);
             this.ResumeLayout(false);

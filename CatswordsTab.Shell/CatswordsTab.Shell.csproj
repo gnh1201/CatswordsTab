@@ -71,7 +71,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextMenuExtension.cs" />
     <Compile Include="WinformService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

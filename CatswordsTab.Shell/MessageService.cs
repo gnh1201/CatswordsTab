@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CatswordsTab.Shell
 {
@@ -11,6 +12,7 @@ namespace CatswordsTab.Shell
     {
         private static Queue<string> TxQueue;
         private static Queue<string> RxQueue;
+        private static bool status = false;
 
         static MessageService() {
             TxQueue = new Queue<string>();
@@ -41,24 +43,52 @@ namespace CatswordsTab.Shell
 
             using (var client = new RequestSocket(">tcp://localhost:26112"))  // connect
             {
-                try
+                string s = "Ping";
+                if (client.TrySendFrame(TimeSpan.FromSeconds(1), s))
                 {
-                    while (TxQueue.Count > 0)
+                    if (client.TryReceiveFrameString(TimeSpan.FromSeconds(1), out s))
                     {
-                        string message = TxQueue.Dequeue();
-                        client.SendFrame(message);
+                        status = true;
+                    }
+                    else
+                    {
+                        RxQueue.Enqueue("Failed to receive the response.");
+                    }
+                } else
+                {
+                    RxQueue.Enqueue("Failed to send the request.");
+                }
 
-                        string received = client.ReceiveFrameString();
-                        RxQueue.Enqueue(received);
+                if (status == true)
+                {
+                    try
+                    {
+                        while (TxQueue.Count > 0)
+                        {
+                            string message = TxQueue.Dequeue();
+                            client.SendFrame(message);
+
+                            string received = client.ReceiveFrameString();
+                            RxQueue.Enqueue(received);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Push("Exception");
+                        Push(e.StackTrace);
+                        Commit();
                     }
                 }
-                catch (Exception e)
+                else
                 {
-                    Push("Exception");
-                    Push(e.StackTrace);
-                    Commit();
+                    RxQueue.Enqueue("No connection.");
                 }
             }
+        }
+
+        public static bool GetStatus()
+        {
+            return status;
         }
 
         public static string GetLocale()

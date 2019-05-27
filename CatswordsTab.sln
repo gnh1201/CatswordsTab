@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.Test", "Catswo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crc32.NET", "Crc32.NET\Crc32.NET.csproj", "{D2CD2407-76A9-4A87-8940-873B59E7F5C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.App", "CatswordsTab.App\CatswordsTab.App.csproj", "{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Build|Any CPU = Build|Any CPU
@@ -42,6 +44,12 @@ Global
 		{D2CD2407-76A9-4A87-8940-873B59E7F5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2CD2407-76A9-4A87-8940-873B59E7F5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2CD2407-76A9-4A87-8940-873B59E7F5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Build|Any CPU.ActiveCfg = Release|Any CPU
+		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Build|Any CPU.Build.0 = Release|Any CPU
+		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

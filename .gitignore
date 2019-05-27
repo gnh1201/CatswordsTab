@@ -346,4 +346,7 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
+# bash.exe stackdump
+bash.exe.stackdump
+
 # End of https://www.gitignore.io/api/visualstudio

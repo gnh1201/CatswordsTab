@@ -41,7 +41,7 @@ namespace CatswordsTab.Shell
         public static void Commit() {
             Push("Commit");
 
-            using (var client = new RequestSocket(">tcp://localhost:26112"))  // connect
+            using (RequestSocket client = new RequestSocket(">tcp://localhost:26112"))  // connect
             {
                 string s = "Ping";
                 if (client.TrySendFrame(TimeSpan.FromSeconds(1), s))

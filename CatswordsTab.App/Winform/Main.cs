@@ -103,5 +103,15 @@ namespace CatswordsTab.App
             SetResult();
             SetTxtTerminal(GetResult());
         }
+
+        private void OnClick_linkLabel1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://catswords.com");
+        }
+
+        private void OnClick_linkLabel2(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/gnh1201/CatswordsTab");
+        }
     }
 }

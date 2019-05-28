@@ -243,6 +243,16 @@ namespace CatswordsTab.App.Properties {
         }
         
         /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon Ph03nyx_Super_Mario_Retro_Flower_Fire_2 {
+            get {
+                object obj = ResourceManager.GetObject("Ph03nyx_Super_Mario_Retro_Flower_Fire_2", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Loading...과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string txtTerminal_en {

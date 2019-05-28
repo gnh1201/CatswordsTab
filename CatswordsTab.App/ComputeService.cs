@@ -114,7 +114,7 @@ namespace CatswordsTab.App
 
         private static string GetSystemLocale()
         {
-            return CultureInfo.CurrentCulture.ThreeLetterISOLanguageName;
+            return CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
         }
     }
 }

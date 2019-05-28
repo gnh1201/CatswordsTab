@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Expert));
             this.labelTitle = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.txtLanguage = new System.Windows.Forms.TextBox();
+            this.txtLocale = new System.Windows.Forms.TextBox();
             this.txtExtension = new System.Windows.Forms.TextBox();
             this.txtHashSha256 = new System.Windows.Forms.TextBox();
             this.txtHashHead32 = new System.Windows.Forms.TextBox();
             this.txtHashCrc32 = new System.Windows.Forms.TextBox();
             this.txtHashSha1 = new System.Windows.Forms.TextBox();
             this.txtHashMd5 = new System.Windows.Forms.TextBox();
-            this.labelLanguage = new System.Windows.Forms.Label();
+            this.labelLocale = new System.Windows.Forms.Label();
             this.labelExtension = new System.Windows.Forms.Label();
             this.labelSha256 = new System.Windows.Forms.Label();
             this.labelHead32 = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(50, 58);
+            this.labelTitle.Location = new System.Drawing.Point(122, 58);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(126, 37);
             this.labelTitle.TabIndex = 0;
@@ -74,13 +75,13 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.OnClick_btnSubmit);
             // 
-            // txtLanguage
+            // txtLocale
             // 
-            this.txtLanguage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLanguage.Location = new System.Drawing.Point(150, 338);
-            this.txtLanguage.Name = "txtLanguage";
-            this.txtLanguage.Size = new System.Drawing.Size(331, 23);
-            this.txtLanguage.TabIndex = 1;
+            this.txtLocale.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLocale.Location = new System.Drawing.Point(150, 338);
+            this.txtLocale.Name = "txtLocale";
+            this.txtLocale.Size = new System.Drawing.Size(331, 23);
+            this.txtLocale.TabIndex = 1;
             // 
             // txtExtension
             // 
@@ -130,15 +131,15 @@
             this.txtHashMd5.Size = new System.Drawing.Size(331, 23);
             this.txtHashMd5.TabIndex = 1;
             // 
-            // labelLanguage
+            // labelLocale
             // 
-            this.labelLanguage.AutoSize = true;
-            this.labelLanguage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLanguage.Location = new System.Drawing.Point(35, 342);
-            this.labelLanguage.Name = "labelLanguage";
-            this.labelLanguage.Size = new System.Drawing.Size(59, 15);
-            this.labelLanguage.TabIndex = 0;
-            this.labelLanguage.Text = "Language";
+            this.labelLocale.AutoSize = true;
+            this.labelLocale.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLocale.Location = new System.Drawing.Point(35, 342);
+            this.labelLocale.Name = "labelLocale";
+            this.labelLocale.Size = new System.Drawing.Size(41, 15);
+            this.labelLocale.TabIndex = 0;
+            this.labelLocale.Text = "Locale";
             // 
             // labelExtension
             // 
@@ -209,7 +210,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(514, 382);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.txtLanguage);
+            this.Controls.Add(this.txtLocale);
             this.Controls.Add(this.txtExtension);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.txtHashSha256);
@@ -222,14 +223,17 @@
             this.Controls.Add(this.labelHead32);
             this.Controls.Add(this.txtHashMd5);
             this.Controls.Add(this.labelSha256);
-            this.Controls.Add(this.labelLanguage);
+            this.Controls.Add(this.labelLocale);
             this.Controls.Add(this.labelExtension);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Expert";
             this.Text = "CatswordsTabExpert";
             this.Load += new System.EventHandler(this.OnLoad_Expert);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Expert);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,14 +242,14 @@
         #endregion
 
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.TextBox txtLanguage;
+        private System.Windows.Forms.TextBox txtLocale;
         private System.Windows.Forms.TextBox txtExtension;
         private System.Windows.Forms.TextBox txtHashSha256;
         private System.Windows.Forms.TextBox txtHashHead32;
         private System.Windows.Forms.TextBox txtHashCrc32;
         private System.Windows.Forms.TextBox txtHashSha1;
         private System.Windows.Forms.TextBox txtHashMd5;
-        private System.Windows.Forms.Label labelLanguage;
+        private System.Windows.Forms.Label labelLocale;
         private System.Windows.Forms.Label labelExtension;
         private System.Windows.Forms.Label labelSha256;
         private System.Windows.Forms.Label labelHead32;

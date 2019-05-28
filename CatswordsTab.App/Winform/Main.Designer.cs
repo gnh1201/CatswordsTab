@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnWriter = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.txtTerminal = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnWriter
@@ -60,6 +62,7 @@
             this.labelTitle.Size = new System.Drawing.Size(126, 37);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "labelTitle";
+            this.labelTitle.DoubleClick += new System.EventHandler(this.OnDblClick_labelTitle);
             // 
             // txtTerminal
             // 
@@ -74,6 +77,16 @@
             this.txtTerminal.Size = new System.Drawing.Size(366, 335);
             this.txtTerminal.TabIndex = 3;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(245, 460);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(136, 12);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://catswords.com";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -81,16 +94,20 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_simpline_45_2305617;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(395, 474);
+            this.ClientSize = new System.Drawing.Size(395, 488);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.btnWriter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "CatswordsTabMain";
             this.Load += new System.EventHandler(this.OnLoad_Main);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Main);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +117,6 @@
         private System.Windows.Forms.Button btnWriter;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.TextBox txtTerminal;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

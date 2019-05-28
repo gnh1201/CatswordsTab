@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Writer));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.txtMessage = new System.Windows.Forms.TextBox();
@@ -131,11 +132,14 @@
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Writer";
             this.Text = "CatswordTabWriter";
             this.Load += new System.EventHandler(this.OnLoad_Writer);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Writer);
             this.ResumeLayout(false);
             this.PerformLayout();
 

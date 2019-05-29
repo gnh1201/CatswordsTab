@@ -17,23 +17,33 @@ namespace CatswordsTab.App.Winform
 
         private void OnLoad_Writer(object sender, EventArgs e)
         {
-            labelTitle.Text = "Comment";
-            labelMessage.Text = "Message:";
-            labelReplyEmail.Text = "Reply email (Optional):";
-            cbAgreement.Text = "I accept the Terms and Conditions and Privacy Policy.";
-            btnSend.Text = "Send";
+            _computed = WinformService.GetMainWindow().GetComputed();
+
+            if (_computed["locale"] == "ko")
+            {
+                this.Text = "의견작성";
+                labelTitle.Text = "의견작성";
+                labelMessage.Text = "의견:";
+                labelReplyEmail.Text = "회신 전자우편 (선택):";
+                cbAgreement.Text = "이용약관 및 개인정보보호정책에 동의합니다.";
+                btnSend.Text = "보내기";
+            }
         }
 
         private void OnClick_btnSend(object sender, EventArgs e)
         {
             if(!cbAgreement.Checked)
             {
-                MessageBox.Show("You must accept to the Terms and Conditions and Privacy Policy.");
+                if (_computed["locale"] == "ko")
+                {
+                    MessageBox.Show("이용약관 및 개인정보보호정책에 동의하여야 합니다.");
+                } else {
+                    MessageBox.Show("You must accept to the Terms and Conditions and Privacy Policy.");
+                }
             }
             else
             {
                 btnSend.Enabled = false;
-                _computed = WinformService.GetMainWindow().GetComputed();
 
                 RestClient client = new RestClient("https://catswords.re.kr/ep/?route=tab");
                 RestRequest request = new RestRequest(Method.POST);

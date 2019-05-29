@@ -43,11 +43,11 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(41, 46);
+            this.labelTitle.Location = new System.Drawing.Point(48, 46);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(126, 37);
+            this.labelTitle.Size = new System.Drawing.Size(134, 37);
             this.labelTitle.TabIndex = 5;
-            this.labelTitle.Text = "labelTitle";
+            this.labelTitle.Text = "Comment";
             // 
             // labelMessage
             // 
@@ -55,9 +55,9 @@
             this.labelMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.Location = new System.Drawing.Point(26, 135);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(78, 15);
+            this.labelMessage.Size = new System.Drawing.Size(56, 15);
             this.labelMessage.TabIndex = 8;
-            this.labelMessage.Text = "labelMessage";
+            this.labelMessage.Text = "Message:";
             // 
             // txtMessage
             // 
@@ -82,7 +82,7 @@
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(127, 40);
             this.btnSend.TabIndex = 14;
-            this.btnSend.Text = "btnSend";
+            this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.OnClick_btnSend);
             // 
@@ -92,9 +92,9 @@
             this.cbAgreement.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAgreement.Location = new System.Drawing.Point(27, 340);
             this.cbAgreement.Name = "cbAgreement";
-            this.cbAgreement.Size = new System.Drawing.Size(98, 19);
+            this.cbAgreement.Size = new System.Drawing.Size(320, 19);
             this.cbAgreement.TabIndex = 17;
-            this.cbAgreement.Text = "cbAgreement";
+            this.cbAgreement.Text = "I accept the `Terms and Conditions` and `Privacy Policy`.";
             this.cbAgreement.UseVisualStyleBackColor = true;
             // 
             // labelReplyEmail
@@ -103,9 +103,9 @@
             this.labelReplyEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelReplyEmail.Location = new System.Drawing.Point(25, 275);
             this.labelReplyEmail.Name = "labelReplyEmail";
-            this.labelReplyEmail.Size = new System.Drawing.Size(90, 15);
+            this.labelReplyEmail.Size = new System.Drawing.Size(126, 15);
             this.labelReplyEmail.TabIndex = 18;
-            this.labelReplyEmail.Text = "labelReplyEmail";
+            this.labelReplyEmail.Text = "Reply email (optional):";
             // 
             // txtReplyEmail
             // 

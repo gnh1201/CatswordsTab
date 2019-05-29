@@ -49,7 +49,7 @@
             this.btnWriter.Name = "btnWriter";
             this.btnWriter.Size = new System.Drawing.Size(127, 40);
             this.btnWriter.TabIndex = 1;
-            this.btnWriter.Text = "btnWriter";
+            this.btnWriter.Text = "Comment";
             this.btnWriter.UseVisualStyleBackColor = false;
             this.btnWriter.Click += new System.EventHandler(this.OnClick_btnWriter);
             // 
@@ -60,9 +60,9 @@
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(44, 52);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(126, 37);
+            this.labelTitle.Size = new System.Drawing.Size(155, 37);
             this.labelTitle.TabIndex = 2;
-            this.labelTitle.Text = "labelTitle";
+            this.labelTitle.Text = "Community";
             this.labelTitle.DoubleClick += new System.EventHandler(this.OnDblClick_labelTitle);
             // 
             // txtTerminal
@@ -119,7 +119,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
-            this.Text = "CatswordsTabMain";
+            this.Text = "Community";
             this.Load += new System.EventHandler(this.OnLoad_Main);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Main);
             this.ResumeLayout(false);

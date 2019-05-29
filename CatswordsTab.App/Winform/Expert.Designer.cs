@@ -54,9 +54,9 @@
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(122, 58);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(126, 37);
+            this.labelTitle.Size = new System.Drawing.Size(91, 37);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "labelTitle";
+            this.labelTitle.Text = "Expert";
             // 
             // btnSubmit
             // 
@@ -71,7 +71,7 @@
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(127, 40);
             this.btnSubmit.TabIndex = 2;
-            this.btnSubmit.Text = "btnSubmit";
+            this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.OnClick_btnSubmit);
             // 
@@ -231,7 +231,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Expert";
-            this.Text = "CatswordsTabExpert";
+            this.Text = "Expert";
             this.Load += new System.EventHandler(this.OnLoad_Expert);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Expert);
             this.ResumeLayout(false);

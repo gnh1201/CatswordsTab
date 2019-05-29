@@ -18,8 +18,13 @@ namespace CatswordsTab.App.Winform
         {
             _computed = WinformService.GetMainWindow().GetComputed();
 
-            labelTitle.Text = "Expert";
-            btnSubmit.Text = "Submit";
+            if(_computed["locale"] == "ko")
+            {
+                this.Text = "전문가";
+                labelTitle.Text = "전문가";
+                btnSubmit.Text = "보내기";
+            }
+
             txtExtension.Text = _computed["extension"];
             txtHashMd5.Text = _computed["md5"];
             txtHashSha1.Text = _computed["sha1"];

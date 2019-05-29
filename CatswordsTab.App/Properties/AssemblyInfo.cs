@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
 [assembly: AssemblyTitle("CatswordsTab.App")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("CatswordsTab makes own your file community")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Catswords Research. Co.")]
 [assembly: AssemblyProduct("CatswordsTab.App")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Catswords Research. Co., 2019")]
+[assembly: AssemblyTrademark("Catswords Community")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 

@@ -65,8 +65,13 @@ namespace CatswordsTab.App
 
         private void OnLoad_Main(object sender, EventArgs e)
         {
-            labelTitle.Text = Properties.Resources.labelTitle_en;
-            btnWriter.Text = Properties.Resources.btnWriter_en;
+            if(_computed["locale"] == "ko")
+            {
+                this.Text = "커뮤니티";
+                labelTitle.Text = "커뮤니티";
+                btnWriter.Text = "의견작성";
+                linkLabel2.Text = "이 프로젝트에 기여";
+            }
         }
 
         private void OnDblClick_labelTitle(object sender, EventArgs e)

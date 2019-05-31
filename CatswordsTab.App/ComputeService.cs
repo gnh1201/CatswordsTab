@@ -1,4 +1,6 @@
-﻿using Force.Crc32;
+﻿using BencodeNET.Parsing;
+using BencodeNET.Torrents;
+using Force.Crc32;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,14 +16,16 @@ namespace CatswordsTab.App
     {
         public static Dictionary<string, string> Compute(string filename)
         {
+            string extension = GetExtension(filename);
             return new Dictionary<string, string>
             {
-                { "extension", GetExtension(filename) },
+                { "extension", extension },
                 { "md5",       GetMD5(filename) },
                 { "sha1",      GetSHA1(filename) },
                 { "head32",    GetHEAD32(filename) },
                 { "crc32",     GetCRC32(filename) },
                 { "sha256",    GetSHA256(filename) },
+                { "infohash",  GetInfoHash(filename, extension) },
                 { "locale",    GetSystemLocale() }
             };
         }
@@ -110,6 +114,20 @@ namespace CatswordsTab.App
 
                 return Convert.ToBase64String(buffer);
             }
+        }
+
+        private static string GetInfoHash(string filename, string extension)
+        {
+            string checksum = "";
+
+            if(extension == "TORRENT")
+            {
+                BencodeParser parser = new BencodeParser();
+                Torrent torrent = parser.Parse<Torrent>(filename);
+                checksum = BitConverter.ToString(torrent.GetInfoHashBytes()).Replace("-", "").ToLowerInvariant();
+            }
+
+            return checksum;
         }
 
         private static string GetSystemLocale()

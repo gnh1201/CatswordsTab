@@ -53,7 +53,8 @@ namespace CatswordsTab.App.Winform
                 request.AddParameter("hash_sha1", _computed["sha1"]);
                 request.AddParameter("hash_crc32", _computed["crc32"]);
                 request.AddParameter("hash_sha256", _computed["sha256"]);
-                request.AddParameter("hash_extension", _computed["extension"]);
+                request.AddParameter("extension", _computed["extension"]);
+                request.AddParameter("infohash", _computed["infohash"]);
                 request.AddParameter("locale", _computed["locale"]);
                 request.AddParameter("message", txtMessage.Text);
                 request.AddParameter("reply_email", txtReplyEmail.Text);

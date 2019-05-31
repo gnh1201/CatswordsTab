@@ -47,6 +47,7 @@ namespace CatswordsTab.App
             request.AddParameter("hash_crc32", _computed["crc32"]);
             request.AddParameter("hash_sha256", _computed["sha256"]);
             request.AddParameter("extension", _computed["extension"]);
+            request.AddParameter("infohash", _computed["infohash"]);
             request.AddParameter("locale", _computed["locale"]);
 
             IRestResponse response = client.Execute(request);

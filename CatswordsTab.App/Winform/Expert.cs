@@ -31,6 +31,7 @@ namespace CatswordsTab.App.Winform
             txtHashCrc32.Text = _computed["crc32"];
             txtHashSha256.Text = _computed["sha256"];
             txtHashHead32.Text = _computed["head32"];
+            txtInfoHash.Text = _computed["infohash"];
             txtLocale.Text = _computed["locale"];
         }
 
@@ -44,6 +45,7 @@ namespace CatswordsTab.App.Winform
             request.AddParameter("hash_crc32", txtHashCrc32.Text);
             request.AddParameter("hash_sha256", txtHashSha256.Text);
             request.AddParameter("hash_extension", txtExtension.Text);
+            request.AddParameter("infohash", txtInfoHash.Text);
             request.AddParameter("locale", txtLocale.Text);
 
             IRestResponse response = client.Execute(request);

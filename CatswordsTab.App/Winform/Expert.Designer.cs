@@ -45,6 +45,8 @@
             this.labelCrc32 = new System.Windows.Forms.Label();
             this.labelSha1 = new System.Windows.Forms.Label();
             this.labelMd5 = new System.Windows.Forms.Label();
+            this.labelInfoHash = new System.Windows.Forms.Label();
+            this.txtInfoHash = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -78,7 +80,7 @@
             // txtLocale
             // 
             this.txtLocale.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocale.Location = new System.Drawing.Point(150, 338);
+            this.txtLocale.Location = new System.Drawing.Point(150, 372);
             this.txtLocale.Name = "txtLocale";
             this.txtLocale.Size = new System.Drawing.Size(331, 23);
             this.txtLocale.TabIndex = 1;
@@ -135,7 +137,7 @@
             // 
             this.labelLocale.AutoSize = true;
             this.labelLocale.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLocale.Location = new System.Drawing.Point(35, 342);
+            this.labelLocale.Location = new System.Drawing.Point(35, 376);
             this.labelLocale.Name = "labelLocale";
             this.labelLocale.Size = new System.Drawing.Size(41, 15);
             this.labelLocale.TabIndex = 0;
@@ -201,6 +203,24 @@
             this.labelMd5.TabIndex = 0;
             this.labelMd5.Text = "MD5";
             // 
+            // labelInfoHash
+            // 
+            this.labelInfoHash.AutoSize = true;
+            this.labelInfoHash.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfoHash.Location = new System.Drawing.Point(35, 343);
+            this.labelInfoHash.Name = "labelInfoHash";
+            this.labelInfoHash.Size = new System.Drawing.Size(55, 15);
+            this.labelInfoHash.TabIndex = 0;
+            this.labelInfoHash.Text = "InfoHash";
+            // 
+            // txtInfoHash
+            // 
+            this.txtInfoHash.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfoHash.Location = new System.Drawing.Point(150, 339);
+            this.txtInfoHash.Name = "txtInfoHash";
+            this.txtInfoHash.Size = new System.Drawing.Size(331, 23);
+            this.txtInfoHash.TabIndex = 1;
+            // 
             // Expert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -208,8 +228,9 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_shining_mix_wrench_1059388;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(514, 382);
+            this.ClientSize = new System.Drawing.Size(514, 427);
             this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.txtInfoHash);
             this.Controls.Add(this.txtLocale);
             this.Controls.Add(this.txtExtension);
             this.Controls.Add(this.labelTitle);
@@ -223,6 +244,7 @@
             this.Controls.Add(this.labelHead32);
             this.Controls.Add(this.txtHashMd5);
             this.Controls.Add(this.labelSha256);
+            this.Controls.Add(this.labelInfoHash);
             this.Controls.Add(this.labelLocale);
             this.Controls.Add(this.labelExtension);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -257,5 +279,7 @@
         private System.Windows.Forms.Label labelSha1;
         private System.Windows.Forms.Label labelMd5;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label labelInfoHash;
+        private System.Windows.Forms.TextBox txtInfoHash;
     }
 }

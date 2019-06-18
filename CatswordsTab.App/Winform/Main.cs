@@ -1,5 +1,4 @@
-﻿using HexControlLibrary;
-using RestSharp;
+﻿using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -70,7 +69,8 @@ namespace CatswordsTab.App
                 linkLabel2.Text = "이 프로젝트에 기여";
             }
 
-            textBox1.Text = ComputeService.GetHexView(ComputeService.GetFileBytes(_path, 1024));
+            // Gex HEX data (limit 8K)
+            textBox1.Text = ComputeService.GetHexView(ComputeService.GetFileBytes(_path, 8192));
         }
 
         private void OnDblClick_labelTitle(object sender, EventArgs e)

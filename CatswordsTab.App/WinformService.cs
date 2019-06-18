@@ -7,7 +7,7 @@ namespace CatswordsTab.App
         private static Main MainWindow;
         private static Expert ExpertWindow;
         private static Writer WriterWindow;
-        
+
         public static void SetMainWindow(Main window)
         {
             MainWindow = window;

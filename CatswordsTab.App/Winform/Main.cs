@@ -1,7 +1,7 @@
-﻿using RestSharp;
+﻿using HexControlLibrary;
+using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace CatswordsTab.App
@@ -50,13 +50,9 @@ namespace CatswordsTab.App
             request.AddParameter("infohash", _computed["infohash"]);
             request.AddParameter("locale", _computed["locale"]);
 
+            // get summary
             IRestResponse response = client.Execute(request);
             _result = response.Content;
-        }
-
-        private void SetPath(string path)
-        {
-            _path = path;
         }
 
         private void OnClick_btnWriter(object sender, EventArgs e)
@@ -73,6 +69,8 @@ namespace CatswordsTab.App
                 btnWriter.Text = "의견작성";
                 linkLabel2.Text = "이 프로젝트에 기여";
             }
+
+            textBox1.Text = ComputeService.GetHexView(ComputeService.GetFileBytes(_path, 1024));
         }
 
         private void OnDblClick_labelTitle(object sender, EventArgs e)
@@ -86,6 +84,16 @@ namespace CatswordsTab.App
             {
                 this.Close();
             }
+        }
+
+        public void SetPath(string path)
+        {
+            _path = path;
+        }
+
+        public string GetPath()
+        {
+            return _path;
         }
 
         public void SetTxtTerminal(string text)

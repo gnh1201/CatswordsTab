@@ -31,9 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnWriter = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.txtTerminal = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtTerminal = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnWriter
@@ -45,7 +52,7 @@
             this.btnWriter.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnWriter.Image = global::CatswordsTab.App.Properties.Resources.icondb_white_edit_32;
             this.btnWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWriter.Location = new System.Drawing.Point(254, 49);
+            this.btnWriter.Location = new System.Drawing.Point(345, 49);
             this.btnWriter.Name = "btnWriter";
             this.btnWriter.Size = new System.Drawing.Size(127, 40);
             this.btnWriter.TabIndex = 1;
@@ -65,23 +72,10 @@
             this.labelTitle.Text = "Community";
             this.labelTitle.DoubleClick += new System.EventHandler(this.OnDblClick_labelTitle);
             // 
-            // txtTerminal
-            // 
-            this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTerminal.Enabled = false;
-            this.txtTerminal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTerminal.Location = new System.Drawing.Point(15, 122);
-            this.txtTerminal.Multiline = true;
-            this.txtTerminal.Name = "txtTerminal";
-            this.txtTerminal.ReadOnly = true;
-            this.txtTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTerminal.Size = new System.Drawing.Size(366, 335);
-            this.txtTerminal.TabIndex = 3;
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(245, 460);
+            this.linkLabel1.Location = new System.Drawing.Point(336, 490);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(136, 12);
             this.linkLabel1.TabIndex = 4;
@@ -92,13 +86,68 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(13, 460);
+            this.linkLabel2.Location = new System.Drawing.Point(13, 490);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(131, 12);
             this.linkLabel2.TabIndex = 5;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Contiribute this project";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnClick_linkLabel2);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.txtTerminal);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(452, 342);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Summary";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtTerminal
+            // 
+            this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTerminal.Enabled = false;
+            this.txtTerminal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTerminal.Location = new System.Drawing.Point(6, 6);
+            this.txtTerminal.Multiline = true;
+            this.txtTerminal.Name = "txtTerminal";
+            this.txtTerminal.ReadOnly = true;
+            this.txtTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtTerminal.Size = new System.Drawing.Size(440, 330);
+            this.txtTerminal.TabIndex = 3;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 119);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(460, 368);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(452, 342);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "HexView";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 6);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(443, 330);
+            this.textBox1.TabIndex = 0;
             // 
             // Main
             // 
@@ -107,10 +156,10 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_simpline_45_2305617;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(395, 488);
+            this.ClientSize = new System.Drawing.Size(484, 519);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.btnWriter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -122,6 +171,11 @@
             this.Text = "Community";
             this.Load += new System.EventHandler(this.OnLoad_Main);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Main);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,8 +184,12 @@
         #endregion
         private System.Windows.Forms.Button btnWriter;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.TextBox txtTerminal;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox txtTerminal;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

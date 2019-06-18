@@ -3,17 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.Shell", "CatswordsTab.Shell\CatswordsTab.Shell.csproj", "{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.Server", "CatswordsTab.Server\CatswordsTab.Server.csproj", "{6E31E4FC-69FC-4E33-95A5-76AACEE89863}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.Test", "CatswordsTab.Test\CatswordsTab.Test.csproj", "{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crc32.NET", "Crc32.NET\Crc32.NET.csproj", "{D2CD2407-76A9-4A87-8940-873B59E7F5C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.App", "CatswordsTab.App\CatswordsTab.App.csproj", "{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexControlLibrary", "..\..\Downloads\simplehexviewcontrol\sourceCode\sourceCode\HexControlLibrary\HexControlLibrary.csproj", "{02DF89C8-A523-4A0F-A7C5-20DD043652CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,24 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}.Build|Any CPU.ActiveCfg = Release|Any CPU
-		{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}.Build|Any CPU.Build.0 = Release|Any CPU
-		{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EBCF256-72CC-498B-A46B-EA08FEE0EF39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E31E4FC-69FC-4E33-95A5-76AACEE89863}.Build|Any CPU.ActiveCfg = Release|Any CPU
-		{6E31E4FC-69FC-4E33-95A5-76AACEE89863}.Build|Any CPU.Build.0 = Release|Any CPU
-		{6E31E4FC-69FC-4E33-95A5-76AACEE89863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E31E4FC-69FC-4E33-95A5-76AACEE89863}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E31E4FC-69FC-4E33-95A5-76AACEE89863}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E31E4FC-69FC-4E33-95A5-76AACEE89863}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}.Build|Any CPU.ActiveCfg = Release|Any CPU
-		{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}.Build|Any CPU.Build.0 = Release|Any CPU
-		{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EC5D547-2BE3-439C-BA5B-2A5D5BB9D7D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2CD2407-76A9-4A87-8940-873B59E7F5C5}.Build|Any CPU.ActiveCfg = Build|Any CPU
 		{D2CD2407-76A9-4A87-8940-873B59E7F5C5}.Build|Any CPU.Build.0 = Build|Any CPU
 		{D2CD2407-76A9-4A87-8940-873B59E7F5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,12 +26,6 @@ Global
 		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02DF89C8-A523-4A0F-A7C5-20DD043652CC}.Build|Any CPU.ActiveCfg = Release|Any CPU
-		{02DF89C8-A523-4A0F-A7C5-20DD043652CC}.Build|Any CPU.Build.0 = Release|Any CPU
-		{02DF89C8-A523-4A0F-A7C5-20DD043652CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02DF89C8-A523-4A0F-A7C5-20DD043652CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02DF89C8-A523-4A0F-A7C5-20DD043652CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02DF89C8-A523-4A0F-A7C5-20DD043652CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -63,10 +63,15 @@ namespace CatswordsTab.App
         {
             if(_computed["locale"] == "ko")
             {
-                this.Text = "커뮤니티";
+                this.Text = "캐츠워즈 탭: 커뮤니티";
                 labelTitle.Text = "커뮤니티";
                 btnWriter.Text = "의견작성";
                 linkLabel2.Text = "이 프로젝트에 기여";
+                tabPage1.Text = "요약";
+                tabPage2.Text = "16진수";
+            } else
+            {
+                this.Text = "CatswordsTab: Community";
             }
 
             // Gex HEX data (limit 8K)

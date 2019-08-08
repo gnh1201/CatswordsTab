@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Writer));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.txtMessage = new System.Windows.Forms.TextBox();
@@ -43,7 +42,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(48, 46);
+            this.labelTitle.Location = new System.Drawing.Point(41, 50);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(134, 37);
             this.labelTitle.TabIndex = 5;
@@ -53,7 +52,7 @@
             // 
             this.labelMessage.AutoSize = true;
             this.labelMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMessage.Location = new System.Drawing.Point(26, 135);
+            this.labelMessage.Location = new System.Drawing.Point(22, 146);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(56, 15);
             this.labelMessage.TabIndex = 8;
@@ -62,10 +61,10 @@
             // txtMessage
             // 
             this.txtMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMessage.Location = new System.Drawing.Point(28, 155);
+            this.txtMessage.Location = new System.Drawing.Point(24, 168);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(358, 97);
+            this.txtMessage.Size = new System.Drawing.Size(307, 105);
             this.txtMessage.TabIndex = 9;
             // 
             // btnSend
@@ -78,9 +77,9 @@
             this.btnSend.ForeColor = System.Drawing.SystemColors.Window;
             this.btnSend.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnSend.Location = new System.Drawing.Point(259, 43);
+            this.btnSend.Location = new System.Drawing.Point(222, 47);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(127, 40);
+            this.btnSend.Size = new System.Drawing.Size(109, 43);
             this.btnSend.TabIndex = 14;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
@@ -90,7 +89,7 @@
             // 
             this.cbAgreement.AutoSize = true;
             this.cbAgreement.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAgreement.Location = new System.Drawing.Point(27, 340);
+            this.cbAgreement.Location = new System.Drawing.Point(23, 368);
             this.cbAgreement.Name = "cbAgreement";
             this.cbAgreement.Size = new System.Drawing.Size(320, 19);
             this.cbAgreement.TabIndex = 17;
@@ -101,7 +100,7 @@
             // 
             this.labelReplyEmail.AutoSize = true;
             this.labelReplyEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelReplyEmail.Location = new System.Drawing.Point(25, 275);
+            this.labelReplyEmail.Location = new System.Drawing.Point(21, 298);
             this.labelReplyEmail.Name = "labelReplyEmail";
             this.labelReplyEmail.Size = new System.Drawing.Size(126, 15);
             this.labelReplyEmail.TabIndex = 18;
@@ -110,20 +109,20 @@
             // txtReplyEmail
             // 
             this.txtReplyEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReplyEmail.Location = new System.Drawing.Point(27, 295);
+            this.txtReplyEmail.Location = new System.Drawing.Point(23, 320);
             this.txtReplyEmail.Name = "txtReplyEmail";
-            this.txtReplyEmail.Size = new System.Drawing.Size(358, 23);
+            this.txtReplyEmail.Size = new System.Drawing.Size(307, 23);
             this.txtReplyEmail.TabIndex = 19;
             this.txtReplyEmail.TextChanged += new System.EventHandler(this.OnChanged_txtReplyEmail);
             // 
             // Writer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_pencil_01_374624;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(420, 388);
+            this.ClientSize = new System.Drawing.Size(360, 420);
             this.Controls.Add(this.txtReplyEmail);
             this.Controls.Add(this.labelReplyEmail);
             this.Controls.Add(this.cbAgreement);
@@ -132,7 +131,6 @@
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

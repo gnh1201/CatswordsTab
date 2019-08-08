@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Expert));
             this.labelTitle = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtLocale = new System.Windows.Forms.TextBox();
@@ -54,7 +53,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(122, 58);
+            this.labelTitle.Location = new System.Drawing.Point(105, 63);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(91, 37);
             this.labelTitle.TabIndex = 0;
@@ -69,9 +68,9 @@
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnSubmit.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnSubmit.Location = new System.Drawing.Point(354, 55);
+            this.btnSubmit.Location = new System.Drawing.Point(303, 60);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(127, 40);
+            this.btnSubmit.Size = new System.Drawing.Size(109, 43);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -80,64 +79,64 @@
             // txtLocale
             // 
             this.txtLocale.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocale.Location = new System.Drawing.Point(150, 372);
+            this.txtLocale.Location = new System.Drawing.Point(129, 403);
             this.txtLocale.Name = "txtLocale";
-            this.txtLocale.Size = new System.Drawing.Size(331, 23);
+            this.txtLocale.Size = new System.Drawing.Size(284, 23);
             this.txtLocale.TabIndex = 1;
             // 
             // txtExtension
             // 
             this.txtExtension.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExtension.Location = new System.Drawing.Point(150, 306);
+            this.txtExtension.Location = new System.Drawing.Point(129, 332);
             this.txtExtension.Name = "txtExtension";
-            this.txtExtension.Size = new System.Drawing.Size(331, 23);
+            this.txtExtension.Size = new System.Drawing.Size(284, 23);
             this.txtExtension.TabIndex = 1;
             // 
             // txtHashSha256
             // 
             this.txtHashSha256.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHashSha256.Location = new System.Drawing.Point(150, 273);
+            this.txtHashSha256.Location = new System.Drawing.Point(129, 296);
             this.txtHashSha256.Name = "txtHashSha256";
-            this.txtHashSha256.Size = new System.Drawing.Size(331, 23);
+            this.txtHashSha256.Size = new System.Drawing.Size(284, 23);
             this.txtHashSha256.TabIndex = 1;
             // 
             // txtHashHead32
             // 
             this.txtHashHead32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHashHead32.Location = new System.Drawing.Point(150, 240);
+            this.txtHashHead32.Location = new System.Drawing.Point(129, 260);
             this.txtHashHead32.Name = "txtHashHead32";
-            this.txtHashHead32.Size = new System.Drawing.Size(331, 23);
+            this.txtHashHead32.Size = new System.Drawing.Size(284, 23);
             this.txtHashHead32.TabIndex = 1;
             // 
             // txtHashCrc32
             // 
             this.txtHashCrc32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHashCrc32.Location = new System.Drawing.Point(150, 207);
+            this.txtHashCrc32.Location = new System.Drawing.Point(129, 224);
             this.txtHashCrc32.Name = "txtHashCrc32";
-            this.txtHashCrc32.Size = new System.Drawing.Size(331, 23);
+            this.txtHashCrc32.Size = new System.Drawing.Size(284, 23);
             this.txtHashCrc32.TabIndex = 1;
             // 
             // txtHashSha1
             // 
             this.txtHashSha1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHashSha1.Location = new System.Drawing.Point(150, 175);
+            this.txtHashSha1.Location = new System.Drawing.Point(129, 190);
             this.txtHashSha1.Name = "txtHashSha1";
-            this.txtHashSha1.Size = new System.Drawing.Size(331, 23);
+            this.txtHashSha1.Size = new System.Drawing.Size(284, 23);
             this.txtHashSha1.TabIndex = 1;
             // 
             // txtHashMd5
             // 
             this.txtHashMd5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHashMd5.Location = new System.Drawing.Point(150, 144);
+            this.txtHashMd5.Location = new System.Drawing.Point(129, 156);
             this.txtHashMd5.Name = "txtHashMd5";
-            this.txtHashMd5.Size = new System.Drawing.Size(331, 23);
+            this.txtHashMd5.Size = new System.Drawing.Size(284, 23);
             this.txtHashMd5.TabIndex = 1;
             // 
             // labelLocale
             // 
             this.labelLocale.AutoSize = true;
             this.labelLocale.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLocale.Location = new System.Drawing.Point(35, 376);
+            this.labelLocale.Location = new System.Drawing.Point(30, 407);
             this.labelLocale.Name = "labelLocale";
             this.labelLocale.Size = new System.Drawing.Size(41, 15);
             this.labelLocale.TabIndex = 0;
@@ -147,7 +146,7 @@
             // 
             this.labelExtension.AutoSize = true;
             this.labelExtension.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExtension.Location = new System.Drawing.Point(35, 309);
+            this.labelExtension.Location = new System.Drawing.Point(30, 335);
             this.labelExtension.Name = "labelExtension";
             this.labelExtension.Size = new System.Drawing.Size(57, 15);
             this.labelExtension.TabIndex = 0;
@@ -157,7 +156,7 @@
             // 
             this.labelSha256.AutoSize = true;
             this.labelSha256.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSha256.Location = new System.Drawing.Point(35, 276);
+            this.labelSha256.Location = new System.Drawing.Point(30, 299);
             this.labelSha256.Name = "labelSha256";
             this.labelSha256.Size = new System.Drawing.Size(48, 15);
             this.labelSha256.TabIndex = 0;
@@ -167,7 +166,7 @@
             // 
             this.labelHead32.AutoSize = true;
             this.labelHead32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHead32.Location = new System.Drawing.Point(35, 243);
+            this.labelHead32.Location = new System.Drawing.Point(30, 263);
             this.labelHead32.Name = "labelHead32";
             this.labelHead32.Size = new System.Drawing.Size(50, 15);
             this.labelHead32.TabIndex = 0;
@@ -177,7 +176,7 @@
             // 
             this.labelCrc32.AutoSize = true;
             this.labelCrc32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCrc32.Location = new System.Drawing.Point(35, 210);
+            this.labelCrc32.Location = new System.Drawing.Point(30, 228);
             this.labelCrc32.Name = "labelCrc32";
             this.labelCrc32.Size = new System.Drawing.Size(42, 15);
             this.labelCrc32.TabIndex = 0;
@@ -187,7 +186,7 @@
             // 
             this.labelSha1.AutoSize = true;
             this.labelSha1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSha1.Location = new System.Drawing.Point(35, 178);
+            this.labelSha1.Location = new System.Drawing.Point(30, 193);
             this.labelSha1.Name = "labelSha1";
             this.labelSha1.Size = new System.Drawing.Size(36, 15);
             this.labelSha1.TabIndex = 0;
@@ -197,7 +196,7 @@
             // 
             this.labelMd5.AutoSize = true;
             this.labelMd5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMd5.Location = new System.Drawing.Point(35, 147);
+            this.labelMd5.Location = new System.Drawing.Point(30, 159);
             this.labelMd5.Name = "labelMd5";
             this.labelMd5.Size = new System.Drawing.Size(32, 15);
             this.labelMd5.TabIndex = 0;
@@ -207,7 +206,7 @@
             // 
             this.labelInfoHash.AutoSize = true;
             this.labelInfoHash.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfoHash.Location = new System.Drawing.Point(35, 343);
+            this.labelInfoHash.Location = new System.Drawing.Point(30, 372);
             this.labelInfoHash.Name = "labelInfoHash";
             this.labelInfoHash.Size = new System.Drawing.Size(55, 15);
             this.labelInfoHash.TabIndex = 0;
@@ -216,19 +215,19 @@
             // txtInfoHash
             // 
             this.txtInfoHash.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfoHash.Location = new System.Drawing.Point(150, 339);
+            this.txtInfoHash.Location = new System.Drawing.Point(129, 367);
             this.txtInfoHash.Name = "txtInfoHash";
-            this.txtInfoHash.Size = new System.Drawing.Size(331, 23);
+            this.txtInfoHash.Size = new System.Drawing.Size(284, 23);
             this.txtInfoHash.TabIndex = 1;
             // 
             // Expert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_shining_mix_wrench_1059388;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(514, 427);
+            this.ClientSize = new System.Drawing.Size(441, 463);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtInfoHash);
             this.Controls.Add(this.txtLocale);
@@ -248,7 +247,6 @@
             this.Controls.Add(this.labelLocale);
             this.Controls.Add(this.labelExtension);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

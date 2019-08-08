@@ -11,27 +11,13 @@ namespace CatswordsTab.App
         private Dictionary<string, string> _computed;
         private string _result = Properties.Resources.txtTerminal_en;
 
-        public Main()
+        public Main(string _path)
         {
-            ChooseTargetFile();
             InitializeComponent();
             WinformService.SetMainWindow(this);
+            SetPath(_path);
+            SetResult();
             SetTxtTerminal(GetResult());
-        }
-
-        private void ChooseTargetFile()
-        {
-            OpenFileDialog fd = new OpenFileDialog();
-            fd.Title = "Open Target File";
-            if (fd.ShowDialog() == DialogResult.OK)
-            {
-                SetPath(fd.FileName);
-                SetResult();
-            }
-            else
-            {
-                ChooseTargetFile();
-            }
         }
 
         private void SetResult()
@@ -125,12 +111,12 @@ namespace CatswordsTab.App
 
         private void OnClick_linkLabel1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://catswords.com");
+            System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
         }
 
         private void OnClick_linkLabel2(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/gnh1201/CatswordsTab");
+            System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
         }
     }
 }

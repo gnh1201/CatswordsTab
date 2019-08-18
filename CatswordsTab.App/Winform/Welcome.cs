@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CatswordsTab.App.Winform
@@ -15,6 +8,11 @@ namespace CatswordsTab.App.Winform
         public Welcome()
         {
             InitializeComponent();
+        }
+
+        private void OnLoad_Welcome(object sender, EventArgs e)
+        {
+            this.txtTerminal.Enabled = true;
         }
 
         private void ChooseFile()
@@ -42,5 +40,6 @@ namespace CatswordsTab.App.Winform
         {
             System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
         }
+
     }
 }

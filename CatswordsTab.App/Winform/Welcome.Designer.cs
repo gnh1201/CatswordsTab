@@ -49,8 +49,9 @@
             // txtTerminal
             // 
             this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTerminal.Enabled = false;
             this.txtTerminal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTerminal.Location = new System.Drawing.Point(12, 123);
+            this.txtTerminal.Location = new System.Drawing.Point(12, 127);
             this.txtTerminal.Multiline = true;
             this.txtTerminal.Name = "txtTerminal";
             this.txtTerminal.ReadOnly = true;
@@ -63,7 +64,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 220);
+            this.linkLabel1.Location = new System.Drawing.Point(12, 228);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(109, 13);
             this.linkLabel1.TabIndex = 5;
@@ -74,7 +75,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(288, 220);
+            this.linkLabel2.Location = new System.Drawing.Point(288, 228);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(100, 13);
             this.linkLabel2.TabIndex = 6;
@@ -107,7 +108,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_Warning_3870073;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(404, 246);
+            this.ClientSize = new System.Drawing.Size(404, 255);
             this.Controls.Add(this.btnAgree);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -115,6 +116,7 @@
             this.Controls.Add(this.labelTitle);
             this.Name = "Welcome";
             this.Text = "CatswordsTabWelcome";
+            this.Load += new System.EventHandler(this.OnLoad_Welcome);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,13 +16,13 @@ namespace CatswordsTab.App
             InitializeComponent();
             WinformService.SetMainWindow(this);
             SetPath(_path);
-            SetResult();
-            SetTxtTerminal(GetResult());
+            ReloadResult();
         }
 
         private void SetResult()
         {
             _computed = ComputeService.Compute(_path);
+            _result = "";
 
             RestClient client = new RestClient("https://catswords.re.kr/ep/?route=tab");
             RestRequest request = new RestRequest(Method.POST);
@@ -37,7 +37,25 @@ namespace CatswordsTab.App
 
             // get summary
             IRestResponse response = client.Execute(request);
-            _result = response.Content;
+            if(response.StatusCode == System.Net.HttpStatusCode.OK) {
+                WriteResultLine(response.Content);
+            }
+            else
+            {
+                WriteResultLine("MD5: " + _computed["md5"]);
+                WriteResultLine("SHA1: " + _computed["sha1"]);
+                WriteResultLine("CRC32: " + _computed["crc32"]);
+                WriteResultLine("Extension: " + _computed["extension"]);
+                WriteResultLine();
+                if (_computed["locale"] == "ko")
+                {
+                    WriteResultLine("인터넷 연결이 원활하지 않으니 확인 바랍니다.");
+                }
+                else
+                {
+                    WriteResultLine("Please check your internet connection.");
+                }
+            }
         }
 
         private void OnClick_btnWriter(object sender, EventArgs e)
@@ -91,6 +109,11 @@ namespace CatswordsTab.App
         {
             txtTerminal.Text = text;
             txtTerminal.Enabled = true;
+        }
+        
+        public void WriteResultLine(string text = "")
+        {
+            _result = _result + text + "\r\n";
         }
 
         public Dictionary<string, string> GetComputed()

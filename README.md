@@ -1,5 +1,5 @@
 # CatswordsTab
-CatswordsTab is make own community for each your files   https://catswords.re.kr/wiki/catswords-tab
+CatswordsTab is file reputation extension on Windows Environment   https://catswords.re.kr/wiki/catswords-tab
 
 ## Demo
 https://youtu.be/cSdjamlY38I

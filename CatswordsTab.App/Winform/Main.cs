@@ -51,14 +51,7 @@ namespace CatswordsTab.App
                 WriteResultLine("- SHA1: " + _computed["sha1"]);
                 WriteResultLine("- CRC32: " + _computed["crc32"]);
                 WriteResultLine();
-                if (_computed["locale"] == "ko")
-                {
-                    WriteResultLine("인터넷 연결이 원활하지 않으니 확인 바랍니다.");
-                }
-                else
-                {
-                    WriteResultLine("Please check your internet connection.");
-                }
+                WriteResultLine(T._("Please check your internet connection"));
                 WriteResultLine();
                 WriteResultLine("# Comments (Offline)");
                 using (LiteDatabase db = new LiteDatabase("@AppData.db"))
@@ -81,26 +74,15 @@ namespace CatswordsTab.App
 
         private void OnLoad_Main(object sender, EventArgs e)
         {
-            if(_computed["locale"] == "ko")
-            {
-                this.Text = "캐츠워즈 탭: 커뮤니티";
-                labelTitle.Text = "커뮤니티";
-                btnWriter.Text = "의견작성";
-                linkLabel2.Text = "이 프로젝트에 기여";
-                tabPage1.Text = "요약";
-                tabPage2.Text = "16진수";
-            } else
-            {
-                this.Text = "CatswordsTab: Community";
-            }
+            this.Text = T._(this.Text, _computed["locale"]);
+            labelTitle.Text = T._(labelTitle.Text, _computed["locale"]);
+            btnWriter.Text = T._(btnWriter.Text, _computed["locale"]);
+            linkLabel2.Text = T._(linkLabel2.Text, _computed["locale"]);
+            tabPage1.Text = T._(tabPage1.Text, _computed["locale"]);
+            tabPage2.Text = T._(tabPage2.Text, _computed["locale"]);
 
             // Gex HEX data (limit 8K)
             textBox1.Text = ComputeService.GetHexView(ComputeService.GetFileBytes(_path, 8192));
-        }
-
-        private void OnDblClick_labelTitle(object sender, EventArgs e)
-        {
-            WinformService.GetExpertWindow().Show();
         }
 
         private void OnKeyDown_Main(object sender, KeyEventArgs e)
@@ -156,6 +138,11 @@ namespace CatswordsTab.App
         private void OnClick_linkLabel2(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
+        }
+
+        private void ExpertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WinformService.GetExpertWindow().Show();
         }
     }
 }

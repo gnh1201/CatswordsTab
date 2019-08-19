@@ -91,9 +91,9 @@
             this.cbAgreement.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAgreement.Location = new System.Drawing.Point(23, 368);
             this.cbAgreement.Name = "cbAgreement";
-            this.cbAgreement.Size = new System.Drawing.Size(320, 19);
+            this.cbAgreement.Size = new System.Drawing.Size(305, 19);
             this.cbAgreement.TabIndex = 17;
-            this.cbAgreement.Text = "I accept the `Terms and Conditions` and `Privacy Policy`.";
+            this.cbAgreement.Text = "I accept the Terms and Conditions and Privacy Policy";
             this.cbAgreement.UseVisualStyleBackColor = true;
             // 
             // labelReplyEmail
@@ -135,7 +135,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Writer";
-            this.Text = "CatswordTabWriter";
+            this.Text = "CatswordsTabWriter";
             this.Load += new System.EventHandler(this.OnLoad_Writer);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Writer);
             this.ResumeLayout(false);

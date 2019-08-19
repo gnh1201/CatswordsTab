@@ -251,7 +251,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Expert";
-            this.Text = "Expert";
+            this.Text = "CatswordsTabExpert";
             this.Load += new System.EventHandler(this.OnLoad_Expert);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Expert);
             this.ResumeLayout(false);

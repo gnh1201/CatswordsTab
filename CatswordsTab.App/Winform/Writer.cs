@@ -21,27 +21,19 @@ namespace CatswordsTab.App.Winform
         {
             _computed = WinformService.GetMainWindow().GetComputed();
 
-            if (_computed["locale"] == "ko")
-            {
-                this.Text = "의견작성";
-                labelTitle.Text = "의견작성";
-                labelMessage.Text = "의견:";
-                labelReplyEmail.Text = "회신 전자우편 (선택):";
-                cbAgreement.Text = "이용약관 및 개인정보보호정책에 동의합니다.";
-                btnSend.Text = "보내기";
-            }
+            this.Text = T._(this.Text, _computed["locale"]);
+            labelTitle.Text = T._(labelTitle.Text, _computed["locale"]);
+            labelMessage.Text = T._(labelMessage.Text, _computed["locale"]);
+            labelReplyEmail.Text = T._(labelReplyEmail.Text, _computed["locale"]);
+            cbAgreement.Text = T._(cbAgreement.Text, _computed["locale"]);
+            btnSend.Text = T._(btnSend.Text, _computed["locale"]);
         }
 
         private void OnClick_btnSend(object sender, EventArgs e)
         {
             if(!cbAgreement.Checked)
             {
-                if (_computed["locale"] == "ko")
-                {
-                    MessageBox.Show("이용약관 및 개인정보보호정책에 동의하여야 합니다.");
-                } else {
-                    MessageBox.Show("You must accept to the Terms and Conditions and Privacy Policy.");
-                }
+                MessageBox.Show(T._("You must accept to the Terms and Conditions and Privacy Policy", _computed["locale"]));
             }
             else
             {

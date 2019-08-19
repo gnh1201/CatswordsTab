@@ -48,7 +48,7 @@ namespace CatswordsTab.App.Winform
                 btnSend.Enabled = false;
 
                 // store message to offline database
-                using (var db = new LiteDatabase(@"Messages.db"))
+                using (LiteDatabase db = new LiteDatabase("@AppData.db"))
                 {
                     var messages = db.GetCollection<MessageModel>("messages");
                     MessageModel message = new MessageModel
@@ -87,20 +87,18 @@ namespace CatswordsTab.App.Winform
 
                 IRestResponse response = client.Execute(request);
                 _result = response.Content;
-                MessageBox.Show(_result);
+
                 if (_result == "success")
                 {
-                    MessageBox.Show("success");
-                    WinformService.GetMainWindow().ReloadResult();
-                    this.Close();
+                    MessageBox.Show("Success");
                 }
                 else
                 {
-                    btnSend.Enabled = true;
-                    MessageBox.Show("retry");
+                    MessageBox.Show("Offline mode");
                 }
 
-                
+                WinformService.GetMainWindow().ReloadResult();
+                this.Close();
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using CatswordsTab.App.Model;
+using LiteDB;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -35,17 +37,19 @@ namespace CatswordsTab.App
             request.AddParameter("infohash", _computed["infohash"]);
             request.AddParameter("locale", _computed["locale"]);
 
-            // get summary
+            // Get information when online
             IRestResponse response = client.Execute(request);
             if(response.StatusCode == System.Net.HttpStatusCode.OK) {
                 WriteResultLine(response.Content);
             }
+            // Get information when offline
             else
             {
-                WriteResultLine("MD5: " + _computed["md5"]);
-                WriteResultLine("SHA1: " + _computed["sha1"]);
-                WriteResultLine("CRC32: " + _computed["crc32"]);
-                WriteResultLine("Extension: " + _computed["extension"]);
+                WriteResultLine("# CatswordsTab Report (Offline)");
+                WriteResultLine();
+                WriteResultLine("- MD5: " + _computed["md5"]);
+                WriteResultLine("- SHA1: " + _computed["sha1"]);
+                WriteResultLine("- CRC32: " + _computed["crc32"]);
                 WriteResultLine();
                 if (_computed["locale"] == "ko")
                 {
@@ -54,6 +58,18 @@ namespace CatswordsTab.App
                 else
                 {
                     WriteResultLine("Please check your internet connection.");
+                }
+                WriteResultLine();
+                WriteResultLine("# Comments (Offline)");
+                using (LiteDatabase db = new LiteDatabase("@AppData.db"))
+                {
+                    LiteCollection<MessageModel> messages = db.GetCollection<MessageModel>("messages");
+                    IEnumerable<MessageModel> results = messages.Find(x => x.HashMD5.Equals(_computed["md5"]));
+                    messages.EnsureIndex(x => x.HashMD5);
+                    foreach (MessageModel entry in results)
+                    {
+                        WriteResultLine("- " + entry.Message + " @" + entry.CreatedOn.ToString());
+                    }
                 }
             }
         }

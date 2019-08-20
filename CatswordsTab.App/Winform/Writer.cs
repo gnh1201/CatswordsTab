@@ -21,24 +21,25 @@ namespace CatswordsTab.App.Winform
         {
             _computed = WinformService.GetMainWindow().GetComputed();
 
-            this.Text = T._(this.Text, _computed["locale"]);
-            labelTitle.Text = T._(labelTitle.Text, _computed["locale"]);
-            labelMessage.Text = T._(labelMessage.Text, _computed["locale"]);
-            labelReplyEmail.Text = T._(labelReplyEmail.Text, _computed["locale"]);
-            cbAgreement.Text = T._(cbAgreement.Text, _computed["locale"]);
-            btnSend.Text = T._(btnSend.Text, _computed["locale"]);
+            Text = T._(Text);
+            labelTitle.Text = T._(labelTitle.Text);
+            labelMessage.Text = T._(labelMessage.Text);
+            labelReplyEmail.Text = T._(labelReplyEmail.Text);
+            cbAgreement.Text = T._(cbAgreement.Text);
+            btnSend.Text = T._(btnSend.Text);
         }
 
         private void OnClick_btnSend(object sender, EventArgs e)
         {
-            if(!cbAgreement.Checked)
+            btnSend.Enabled = false;
+
+            if (!cbAgreement.Checked)
             {
-                MessageBox.Show(T._("You must accept to the Terms and Conditions and Privacy Policy", _computed["locale"]));
+                MessageBox.Show(T._("You must accept to the Terms and Conditions and Privacy Policy"));
+                btnSend.Enabled = true;
             }
             else
             {
-                btnSend.Enabled = false;
-
                 // store message to offline database
                 using (LiteDatabase db = new LiteDatabase("@AppData.db"))
                 {
@@ -73,7 +74,7 @@ namespace CatswordsTab.App.Winform
                 request.AddParameter("hash_head32", _computed["head32"]);
                 request.AddParameter("extension", _computed["extension"]);
                 request.AddParameter("infohash", _computed["infohash"]);
-                request.AddParameter("locale", _computed["locale"]);
+                request.AddParameter("locale", T.GetLocale());
                 request.AddParameter("message", txtMessage.Text);
                 request.AddParameter("reply_email", txtReplyEmail.Text);
 

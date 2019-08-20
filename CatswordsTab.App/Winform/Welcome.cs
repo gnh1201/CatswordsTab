@@ -12,13 +12,19 @@ namespace CatswordsTab.App.Winform
 
         private void OnLoad_Welcome(object sender, EventArgs e)
         {
-            this.txtTerminal.Enabled = true;
+            Text = T._(Text);
+            txtTerminal.Enabled = true;
+            labelTitle.Text = T._(labelTitle.Text);
+            txtTerminal.Text = T._(txtTerminal.Text);
+            btnAgree.Text = T._(btnAgree.Text);
+            linkLabel1.Text = T._(linkLabel1.Text);
+            linkLabel2.Text = T._(linkLabel2.Text);
         }
 
         private void ChooseFile()
         {
             OpenFileDialog fd = new OpenFileDialog();
-            fd.Title = "Choose your file...";
+            fd.Title = T._("Choose your file...");
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 WinformService.SetMainWindow(new Main(fd.FileName));

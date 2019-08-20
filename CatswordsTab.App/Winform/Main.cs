@@ -35,7 +35,7 @@ namespace CatswordsTab.App
             request.AddParameter("hash_sha256", _computed["sha256"]);
             request.AddParameter("extension", _computed["extension"]);
             request.AddParameter("infohash", _computed["infohash"]);
-            request.AddParameter("locale", _computed["locale"]);
+            request.AddParameter("locale", T.GetLocale());
 
             // Get information when online
             IRestResponse response = client.Execute(request);
@@ -74,12 +74,12 @@ namespace CatswordsTab.App
 
         private void OnLoad_Main(object sender, EventArgs e)
         {
-            this.Text = T._(this.Text, _computed["locale"]);
-            labelTitle.Text = T._(labelTitle.Text, _computed["locale"]);
-            btnWriter.Text = T._(btnWriter.Text, _computed["locale"]);
-            linkLabel2.Text = T._(linkLabel2.Text, _computed["locale"]);
-            tabPage1.Text = T._(tabPage1.Text, _computed["locale"]);
-            tabPage2.Text = T._(tabPage2.Text, _computed["locale"]);
+            this.Text = T._(this.Text);
+            labelTitle.Text = T._(labelTitle.Text);
+            btnWriter.Text = T._(btnWriter.Text);
+            linkLabel2.Text = T._(linkLabel2.Text);
+            tabPage1.Text = T._(tabPage1.Text);
+            tabPage2.Text = T._(tabPage2.Text);
 
             // Gex HEX data (limit 8K)
             textBox1.Text = ComputeService.GetHexView(ComputeService.GetFileBytes(_path, 8192));
@@ -140,7 +140,7 @@ namespace CatswordsTab.App
             System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
         }
 
-        private void ExpertToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnClick_LabelTitle(object sender, EventArgs e)
         {
             WinformService.GetExpertWindow().Show();
         }

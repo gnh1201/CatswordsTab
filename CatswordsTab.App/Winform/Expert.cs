@@ -18,9 +18,9 @@ namespace CatswordsTab.App.Winform
         {
             _computed = WinformService.GetMainWindow().GetComputed();
 
-            this.Text = T._(this.Text, _computed["locale"]);
-            labelTitle.Text = T._(labelTitle.Text, _computed["locale"]);
-            btnSubmit.Text = T._(btnSubmit.Text, _computed["locale"]);
+            this.Text = T._(this.Text);
+            labelTitle.Text = T._(labelTitle.Text);
+            btnSubmit.Text = T._(btnSubmit.Text);
 
             txtExtension.Text = _computed["extension"];
             txtHashMd5.Text = _computed["md5"];

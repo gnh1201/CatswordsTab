@@ -37,14 +37,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.expertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decryptorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnWriter
@@ -74,6 +69,7 @@
             this.labelTitle.Size = new System.Drawing.Size(155, 37);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "Community";
+            this.labelTitle.Click += new System.EventHandler(this.OnClick_LabelTitle);
             // 
             // linkLabel1
             // 
@@ -152,39 +148,6 @@
             this.textBox1.Size = new System.Drawing.Size(380, 357);
             this.textBox1.TabIndex = 0;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(415, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.expertToolStripMenuItem,
-            this.decryptorToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
-            // 
-            // expertToolStripMenuItem
-            // 
-            this.expertToolStripMenuItem.Name = "expertToolStripMenuItem";
-            this.expertToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.expertToolStripMenuItem.Text = "Expert";
-            this.expertToolStripMenuItem.Click += new System.EventHandler(this.ExpertToolStripMenuItem_Click);
-            // 
-            // decryptorToolStripMenuItem
-            // 
-            this.decryptorToolStripMenuItem.Name = "decryptorToolStripMenuItem";
-            this.decryptorToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.decryptorToolStripMenuItem.Text = "Decryptor";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,7 +161,6 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.btnWriter);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -212,8 +174,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,9 +189,5 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem expertToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem decryptorToolStripMenuItem;
     }
 }

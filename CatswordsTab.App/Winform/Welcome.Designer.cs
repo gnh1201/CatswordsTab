@@ -59,7 +59,7 @@
             this.txtTerminal.Size = new System.Drawing.Size(378, 90);
             this.txtTerminal.TabIndex = 4;
             this.txtTerminal.Text = "This program does not guarantee the accuracy of the data. The use of this program" +
-    " is at your sole discretion and responsibility. ";
+    " is at your sole discretion and responsibility";
             // 
             // linkLabel1
             // 

@@ -7,7 +7,6 @@ namespace CatswordsTab.App
 {
     class RegistryService
     {
-
         public static AssociationModel GetAssoiciationByExtension(string extension)
         {
             string skName = String.Format(".{0}", extension);
@@ -42,7 +41,7 @@ namespace CatswordsTab.App
             return association;
         }
 
-        public static List<AssociationModel> GetAssoiciationItems()
+        public static List<AssociationModel> GetAssoiciations()
         {
             List<AssociationModel> associations = new List<AssociationModel>();
 
@@ -57,6 +56,49 @@ namespace CatswordsTab.App
             }
 
             return associations;
+        }
+        public List<ApplicationModel> GetInstalledApps()
+        {
+            List<ApplicationModel> items = new List<ApplicationModel>();
+
+            List<RegistryKey> regKeys = new List<RegistryKey>
+            {
+                Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"),
+                Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"),
+                Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall")
+            };
+
+            foreach (RegistryKey rk in regKeys)
+            {
+                foreach (string skName in rk.GetSubKeyNames())
+                {
+                    using (RegistryKey sk = rk.OpenSubKey(skName))
+                    {
+                        try
+                        {
+                            items.Add(new ApplicationModel
+                            {
+                                ResourceName = (string)sk.GetValue("ResourceName"),
+                                Default = (string)sk.GetValue(null),
+                                InstallDate = (string)sk.GetValue("InstallDate"),
+                                InstallLocation = (string)sk.GetValue("InstallLocation"),
+                                Publisher = (string)sk.GetValue("Publisher"),
+                                DisplayIcon = (string)sk.GetValue("DisplayIcon"),
+                                DisplayName = (string)sk.GetValue("DisplayName"),
+                                DisplayVersion = (string)sk.GetValue("DisplayVersion"),
+                                HelpLink = (string)sk.GetValue("HelpLink"),
+                                UninstallString = (string)sk.GetValue("UninstallString")
+                            });
+                        }
+                        catch (Exception)
+                        {
+                            // nothing
+                        }
+                    }
+                }
+            }
+
+            return items;
         }
     }
 }

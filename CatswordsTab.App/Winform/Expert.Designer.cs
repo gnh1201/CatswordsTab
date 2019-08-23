@@ -46,6 +46,7 @@
             this.labelMd5 = new System.Windows.Forms.Label();
             this.labelInfoHash = new System.Windows.Forms.Label();
             this.txtInfoHash = new System.Windows.Forms.TextBox();
+            this.btnOpenSolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -220,6 +221,16 @@
             this.txtInfoHash.Size = new System.Drawing.Size(284, 23);
             this.txtInfoHash.TabIndex = 1;
             // 
+            // btnOpenSolver
+            // 
+            this.btnOpenSolver.Location = new System.Drawing.Point(129, 449);
+            this.btnOpenSolver.Name = "btnOpenSolver";
+            this.btnOpenSolver.Size = new System.Drawing.Size(284, 23);
+            this.btnOpenSolver.TabIndex = 3;
+            this.btnOpenSolver.Text = "Open protection solver...";
+            this.btnOpenSolver.UseVisualStyleBackColor = true;
+            this.btnOpenSolver.Click += new System.EventHandler(this.OnClick_btnOpenSolver);
+            // 
             // Expert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,7 +238,8 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_shining_mix_wrench_1059388;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(441, 463);
+            this.ClientSize = new System.Drawing.Size(441, 498);
+            this.Controls.Add(this.btnOpenSolver);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtInfoHash);
             this.Controls.Add(this.txtLocale);
@@ -279,5 +291,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label labelInfoHash;
         private System.Windows.Forms.TextBox txtInfoHash;
+        private System.Windows.Forms.Button btnOpenSolver;
     }
 }

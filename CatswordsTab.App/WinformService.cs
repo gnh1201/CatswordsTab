@@ -7,6 +7,7 @@ namespace CatswordsTab.App
         private static Main MainWindow;
         private static Expert ExpertWindow;
         private static Writer WriterWindow;
+        private static Solver SolverWindow;
 
         public static void SetMainWindow(Main window)
         {
@@ -28,6 +29,12 @@ namespace CatswordsTab.App
         {
             WriterWindow = new Writer();
             return WriterWindow;
+        }
+
+        public static Solver GetSolverWindow()
+        {
+            SolverWindow = new Solver();
+            return SolverWindow;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CatswordsTab.App
     {
         private string _path;
         private Dictionary<string, string> _computed;
-        private string _result = Properties.Resources.txtTerminal_en;
+        private string _result = T._("Loading...");
 
         public Main(string _path)
         {

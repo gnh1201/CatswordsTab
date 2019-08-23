@@ -29,9 +29,13 @@ namespace CatswordsTab.App.Winform
         private string ChooseFile()
         {
             string filename = null;
+            OpenFileDialog fd;
+            
+            fd = new OpenFileDialog
+            {
+                Title = T._("Choose your file...")
+            };
 
-            OpenFileDialog fd = new OpenFileDialog();
-            fd.Title = T._("Choose your file...");
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 filename = fd.FileName;
@@ -40,14 +44,16 @@ namespace CatswordsTab.App.Winform
             return filename;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void OnClick_btnOpenManifest(object sender, EventArgs e)
         {
-            ChooseFile();
+            string filename = ChooseFile();
+            txtManifestFilename.Text = filename;
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void OnClick_btnOpenExport(object sender, EventArgs e)
         {
-            ChooseFile();
+            string filename = ChooseFile();
+            txtExportFilename.Text = filename;
         }
     }
 }

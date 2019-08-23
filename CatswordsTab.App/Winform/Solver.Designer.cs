@@ -30,11 +30,11 @@
         {
             this.labelTitle = new System.Windows.Forms.Label();
             this.btnUnlock = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtManifestFilename = new System.Windows.Forms.TextBox();
             this.labelManifest = new System.Windows.Forms.Label();
             this.btnOpenManifest = new System.Windows.Forms.Button();
             this.labelExport = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtExportFilename = new System.Windows.Forms.TextBox();
             this.btnOpenExport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -66,12 +66,12 @@
             this.btnUnlock.Text = "Solve";
             this.btnUnlock.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtManifestFilename
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 148);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
-            this.textBox1.TabIndex = 16;
+            this.txtManifestFilename.Location = new System.Drawing.Point(108, 148);
+            this.txtManifestFilename.Name = "txtManifestFilename";
+            this.txtManifestFilename.Size = new System.Drawing.Size(230, 20);
+            this.txtManifestFilename.TabIndex = 16;
             // 
             // labelManifest
             // 
@@ -90,7 +90,7 @@
             this.btnOpenManifest.TabIndex = 18;
             this.btnOpenManifest.Text = "Choose...";
             this.btnOpenManifest.UseVisualStyleBackColor = true;
-            this.btnOpenManifest.Click += new System.EventHandler(this.Button1_Click);
+            this.btnOpenManifest.Click += new System.EventHandler(this.OnClick_btnOpenManifest);
             // 
             // labelExport
             // 
@@ -101,12 +101,12 @@
             this.labelExport.TabIndex = 19;
             this.labelExport.Text = "Export to";
             // 
-            // textBox2
+            // txtExportFilename
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 181);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 20);
-            this.textBox2.TabIndex = 16;
+            this.txtExportFilename.Location = new System.Drawing.Point(108, 181);
+            this.txtExportFilename.Name = "txtExportFilename";
+            this.txtExportFilename.Size = new System.Drawing.Size(230, 20);
+            this.txtExportFilename.TabIndex = 16;
             // 
             // btnOpenExport
             // 
@@ -116,7 +116,7 @@
             this.btnOpenExport.TabIndex = 18;
             this.btnOpenExport.Text = "Choose...";
             this.btnOpenExport.UseVisualStyleBackColor = true;
-            this.btnOpenExport.Click += new System.EventHandler(this.Button2_Click);
+            this.btnOpenExport.Click += new System.EventHandler(this.OnClick_btnOpenExport);
             // 
             // Solver
             // 
@@ -130,8 +130,8 @@
             this.Controls.Add(this.btnOpenExport);
             this.Controls.Add(this.btnOpenManifest);
             this.Controls.Add(this.labelManifest);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtExportFilename);
+            this.Controls.Add(this.txtManifestFilename);
             this.Controls.Add(this.btnUnlock);
             this.Controls.Add(this.labelTitle);
             this.Name = "Solver";
@@ -145,11 +145,11 @@
 
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button btnUnlock;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtManifestFilename;
         private System.Windows.Forms.Label labelManifest;
         private System.Windows.Forms.Button btnOpenManifest;
         private System.Windows.Forms.Label labelExport;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtExportFilename;
         private System.Windows.Forms.Button btnOpenExport;
     }
 }

@@ -29,7 +29,7 @@ namespace CatswordsTab.App
                     {
                         ResourceName = skName,
                         Default = (string)sk.GetValue(null), // null means default value
-                        ContentType = (string)sk.GetValue("Content Type"), // attention: 'Content Type' correct in windows registry
+                        ContentType = (string)sk.GetValue("Content Type"), // attention: 'Content Type' is correct name in Windows registry
                         PerceivedType = (string)sk.GetValue("PerceivedType")
                     };
                 }

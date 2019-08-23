@@ -89,7 +89,7 @@
             this.btnAgree.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAgree.FlatAppearance.BorderSize = 0;
             this.btnAgree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgree.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgree.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnAgree.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgree.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnAgree.ImageAlign = System.Drawing.ContentAlignment.BottomRight;

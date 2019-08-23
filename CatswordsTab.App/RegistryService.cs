@@ -9,7 +9,7 @@ namespace CatswordsTab.App
     {
         public static AssociationModel GetAssoiciationByExtension(string extension)
         {
-            string skName = String.Format(".{0}", extension);
+            string skName = (extension.Substring(0, 1) == ".") ? extension : string.Format(".{0}", extension);
             return GetAssociationByResourceName(skName);
         }
 
@@ -57,7 +57,7 @@ namespace CatswordsTab.App
 
             return associations;
         }
-        public List<ApplicationModel> GetInstalledApps()
+        public static List<ApplicationModel> GetInstalledApps()
         {
             List<ApplicationModel> items = new List<ApplicationModel>();
 

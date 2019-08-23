@@ -23,6 +23,8 @@ namespace CatswordsTab.App.Winform
             labelTitle.Text = T._(labelTitle.Text);
             btnSubmit.Text = T._(btnSubmit.Text);
             btnOpenSolver.Text = T._(btnOpenSolver.Text);
+            btnOpenApplication.Text = T._(btnOpenApplication.Text);
+            btnOpenAssociation.Text = T._(btnOpenAssociation.Text);
 
             txtExtension.Text = _computed.Extension;
             txtHashMd5.Text = _computed.MD5;
@@ -62,6 +64,16 @@ namespace CatswordsTab.App.Winform
         private void OnClick_btnOpenSolver(object sender, EventArgs e)
         {
             WinformService.GetSolverWindow().Show();
+        }
+
+        private void OnClick_btnOpenApplication(object sender, EventArgs e)
+        {
+            WinformService.GetApplicationWindow().Show();
+        }
+
+        private void OnClick_btnOpenAssociation(object sender, EventArgs e)
+        {
+            WinformService.GetAssociationWindow().Show();
         }
     }
 }

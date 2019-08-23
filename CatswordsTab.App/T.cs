@@ -24,6 +24,8 @@ namespace CatswordsTab.App
                 new LocalizationModel { MsgId = "CatswordsTabWriter", MsgStr = "캐츠워즈 탭 : 의견작성" },
                 new LocalizationModel { MsgId = "CatswordsTabExpert", MsgStr = "캐츠워즈 탭 : 전문가" },
                 new LocalizationModel { MsgId = "CatswordsTabSolver", MsgStr = "캐츠워즈 탭 : 암호해제기" },
+                new LocalizationModel { MsgId = "CatswordsTabApplication", MsgStr = "캐츠워즈 탭 : 설치된 프로그램" },
+                new LocalizationModel { MsgId = "CatswordsTabAssociation", MsgStr = "캐츠워즈 탭 : 연결 프로그램" },
                 new LocalizationModel { MsgId = "Caution", MsgStr = "주의사항" },
                 new LocalizationModel { MsgId = "Agree", MsgStr = "동의" },
                 new LocalizationModel { MsgId = "Agree", MsgStr = "동의" },
@@ -51,7 +53,13 @@ namespace CatswordsTab.App
                 new LocalizationModel { MsgId = "Solve", MsgStr = "해제" },
                 new LocalizationModel { MsgId = "Export to", MsgStr = "내보낼 경로" },
                 new LocalizationModel { MsgId = "Choose...", MsgStr = "선택..." },
-                new LocalizationModel { MsgId = "Open protection solver...", MsgStr = "암호해제기 열기" }
+                new LocalizationModel { MsgId = "Open protection solver...", MsgStr = "암호해제기 열기..." },
+                new LocalizationModel { MsgId = "View installed applications...", MsgStr = "설치된 프로그램 보기..." },
+                new LocalizationModel { MsgId = "OK", MsgStr = "확인" },
+                new LocalizationModel { MsgId = "Submit", MsgStr = "제출" },
+                new LocalizationModel { MsgId = "Applications", MsgStr = "어플리케이션" },
+                new LocalizationModel { MsgId = "View file associations...", MsgStr = "연결 프로그램 보기..." },
+                new LocalizationModel { MsgId = "Associations", MsgStr = "연결 프로그램" },
             };
 
             // add English translation
@@ -61,7 +69,9 @@ namespace CatswordsTab.App
                 new LocalizationModel { MsgId = "CatswordsTabMain", MsgStr = "CatswordsTab: Community" },
                 new LocalizationModel { MsgId = "CatswordsTabWriter", MsgStr = "CatswordsTab: Writer" },
                 new LocalizationModel { MsgId = "CatswordsTabExpert", MsgStr = "CatswordsTab: Expert" },
-                new LocalizationModel { MsgId = "CatswordsTabSolver", MsgStr = "CatswordsTab: Solver" }
+                new LocalizationModel { MsgId = "CatswordsTabSolver", MsgStr = "CatswordsTab: Solver" },
+                new LocalizationModel { MsgId = "CatswordsTabApplication", MsgStr = "CatswordsTab: Installed applications" },
+                new LocalizationModel { MsgId = "CatswordsTabAssociation", MsgStr = "CatswordsTab: File Associations" }
             };
         }
 

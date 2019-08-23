@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComputeService.cs" />
+    <Compile Include="Model\ApplicationModel.cs" />
     <Compile Include="Model\AssociationModel.cs" />
     <Compile Include="Model\ComputationModel.cs" />
     <Compile Include="Model\LocalizationModel.cs" />
@@ -69,6 +70,18 @@
     <Compile Include="RegistryService.cs" />
     <Compile Include="T.cs" />
     <Compile Include="WinformService.cs" />
+    <Compile Include="Winform\Application.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Application.Designer.cs">
+      <DependentUpon>Application.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Association.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Association.Designer.cs">
+      <DependentUpon>Association.cs</DependentUpon>
+    </Compile>
     <Compile Include="Winform\Solver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +122,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Winform\Application.resx">
+      <DependentUpon>Application.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Association.resx">
+      <DependentUpon>Association.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Winform\Solver.resx">
       <DependentUpon>Solver.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +201,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_Warning_3870073.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_application_32383.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_application_52510.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_codeblocks_3246770.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_link-chain-hyperlink-linked-internet_3937335.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

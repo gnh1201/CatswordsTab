@@ -55,7 +55,7 @@
             this.btnUnlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnUnlock.FlatAppearance.BorderSize = 0;
             this.btnUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnlock.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnlock.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnUnlock.ForeColor = System.Drawing.SystemColors.Window;
             this.btnUnlock.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnUnlock.ImageAlign = System.Drawing.ContentAlignment.BottomRight;

@@ -103,9 +103,29 @@ namespace CatswordsTab.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_codeblocks_3246770 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_codeblocks_3246770", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_General_Office_48_3592847 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_General_Office_48_3592847", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_link_chain_hyperlink_linked_internet_3937335 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_link_chain_hyperlink_linked_internet_3937335", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,16 +166,6 @@ namespace CatswordsTab.App.Properties {
         internal static System.Drawing.Bitmap iconfinder_simpline_45_2305617 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_simpline_45_2305617", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconfinder_unlock_blue_10562 {
-            get {
-                object obj = ResourceManager.GetObject("iconfinder_unlock_blue_10562", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

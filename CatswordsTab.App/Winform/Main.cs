@@ -10,7 +10,7 @@ namespace CatswordsTab.App
     public partial class Main : Form
     {
         private string _path;
-        private Dictionary<string, string> _computed;
+        private ComputationModel  _computed;
         private string _result = T._("Loading...");
 
         public Main(string _path)
@@ -29,13 +29,13 @@ namespace CatswordsTab.App
             RestClient client = new RestClient("https://catswords.re.kr/ep/?route=tab");
             RestRequest request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddParameter("hash_md5", _computed["md5"]);
-            request.AddParameter("hash_sha1", _computed["sha1"]);
-            request.AddParameter("hash_crc32", _computed["crc32"]);
-            request.AddParameter("hash_sha256", _computed["sha256"]);
-            request.AddParameter("extension", _computed["extension"]);
-            request.AddParameter("infohash", _computed["infohash"]);
-            request.AddParameter("locale", T.GetLocale());
+            request.AddParameter("hash_md5", _computed.MD5);
+            request.AddParameter("hash_sha1", _computed.SHA1);
+            request.AddParameter("hash_crc32", _computed.CRC32);
+            request.AddParameter("hash_sha256", _computed.SHA256);
+            request.AddParameter("extension", _computed.Extension);
+            request.AddParameter("infohash", _computed.InfoHash);
+            request.AddParameter("locale", _computed.SystemLocale);
 
             // Get information when online
             IRestResponse response = client.Execute(request);
@@ -47,9 +47,9 @@ namespace CatswordsTab.App
             {
                 WriteResultLine("# CatswordsTab Report (Offline)");
                 WriteResultLine();
-                WriteResultLine("- MD5: " + _computed["md5"]);
-                WriteResultLine("- SHA1: " + _computed["sha1"]);
-                WriteResultLine("- CRC32: " + _computed["crc32"]);
+                WriteResultLine("- MD5: " + _computed.MD5);
+                WriteResultLine("- SHA1: " + _computed.SHA1);
+                WriteResultLine("- CRC32: " + _computed.CRC32);
                 WriteResultLine();
                 WriteResultLine(T._("Please check your internet connection"));
                 WriteResultLine();
@@ -57,7 +57,7 @@ namespace CatswordsTab.App
                 using (LiteDatabase db = new LiteDatabase("@AppData.db"))
                 {
                     LiteCollection<MessageModel> messages = db.GetCollection<MessageModel>("messages");
-                    IEnumerable<MessageModel> results = messages.Find(x => x.HashMD5.Equals(_computed["md5"]));
+                    IEnumerable<MessageModel> results = messages.Find(x => x.HashMD5.Equals(_computed.MD5));
                     messages.EnsureIndex(x => x.HashMD5);
                     foreach (MessageModel entry in results)
                     {
@@ -114,7 +114,7 @@ namespace CatswordsTab.App
             _result = _result + text + "\r\n";
         }
 
-        public Dictionary<string, string> GetComputed()
+        public ComputationModel GetComputed()
         {
             return _computed;
         }

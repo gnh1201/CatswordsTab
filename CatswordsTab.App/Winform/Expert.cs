@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using CatswordsTab.App.Model;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace CatswordsTab.App.Winform
 {
     public partial class Expert : Form
     {
-        private Dictionary<string, string> _computed;
+        private ComputationModel _computed;
 
         public Expert()
         {
@@ -23,14 +24,14 @@ namespace CatswordsTab.App.Winform
             btnSubmit.Text = T._(btnSubmit.Text);
             btnOpenSolver.Text = T._(btnOpenSolver.Text);
 
-            txtExtension.Text = _computed["extension"];
-            txtHashMd5.Text = _computed["md5"];
-            txtHashSha1.Text = _computed["sha1"];
-            txtHashCrc32.Text = _computed["crc32"];
-            txtHashSha256.Text = _computed["sha256"];
-            txtHashHead32.Text = _computed["head32"];
-            txtInfoHash.Text = _computed["infohash"];
-            txtLocale.Text = _computed["locale"];
+            txtExtension.Text = _computed.Extension;
+            txtHashMd5.Text = _computed.MD5;
+            txtHashSha1.Text = _computed.SHA1;
+            txtHashCrc32.Text = _computed.CRC32;
+            txtHashSha256.Text = _computed.SHA256;
+            txtHashHead32.Text = _computed.HEAD32;;
+            txtInfoHash.Text = _computed.InfoHash;
+            txtLocale.Text = _computed.SystemLocale;
         }
 
         private void OnClick_btnSubmit(object sender, EventArgs e)

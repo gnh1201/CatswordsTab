@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatswordsTab.App.Model
 {
-    class LocalizationModel
+    public class LocalizationModel
     {
         public string MsgId { get; set; }
         public string MsgStr { get; set; }

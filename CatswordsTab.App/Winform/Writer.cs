@@ -9,7 +9,7 @@ namespace CatswordsTab.App.Winform
 {
     public partial class Writer : Form
     {
-        private Dictionary<string, string> _computed;
+        private ComputationModel _computed;
         private string _result;
 
         public Writer()
@@ -48,13 +48,13 @@ namespace CatswordsTab.App.Winform
                     {
                         Message = txtMessage.Text,
                         ReplyEmail = txtReplyEmail.Text,
-                        HashMD5 = _computed["md5"],
-                        HashSHA256 = _computed["sha256"],
-                        HashCRC32 = _computed["crc32"],
-                        HashSHA1 = _computed["sha1"],
-                        HashHEAD32 = _computed["head32"],
-                        InfoHash = _computed["infohash"],
-                        Extension = _computed["extension"],
+                        HashMD5 = _computed.MD5,
+                        HashSHA256 = _computed.SHA256,
+                        HashCRC32 = _computed.CRC32,
+                        HashSHA1 = _computed.SHA1,
+                        HashHEAD32 = _computed.HEAD32,
+                        InfoHash = _computed.InfoHash,
+                        Extension = _computed.Extension,
                         CreatedOn = DateTime.Now
                     };
                     messages.Insert(message);
@@ -67,13 +67,13 @@ namespace CatswordsTab.App.Winform
                     RequestFormat = DataFormat.Json
                 };
                 request.AddParameter("action", "comment");
-                request.AddParameter("hash_md5", _computed["md5"]);
-                request.AddParameter("hash_sha1", _computed["sha1"]);
-                request.AddParameter("hash_crc32", _computed["crc32"]);
-                request.AddParameter("hash_sha256", _computed["sha256"]);
-                request.AddParameter("hash_head32", _computed["head32"]);
-                request.AddParameter("extension", _computed["extension"]);
-                request.AddParameter("infohash", _computed["infohash"]);
+                request.AddParameter("hash_md5", _computed.MD5);
+                request.AddParameter("hash_sha1", _computed.SHA1);
+                request.AddParameter("hash_crc32", _computed.CRC32);
+                request.AddParameter("hash_sha256", _computed.SHA256);
+                request.AddParameter("hash_head32", _computed.HEAD32);
+                request.AddParameter("extension", _computed.Extension);
+                request.AddParameter("infohash", _computed.InfoHash);
                 request.AddParameter("locale", T.GetLocale());
                 request.AddParameter("message", txtMessage.Text);
                 request.AddParameter("reply_email", txtReplyEmail.Text);

@@ -1,32 +1,31 @@
 ﻿using BencodeNET.Parsing;
 using BencodeNET.Torrents;
+using CatswordsTab.App.Model;
 using Force.Crc32;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CatswordsTab.App
 {
     class ComputeService
     {
-        public static Dictionary<string, string> Compute(string filename)
+        public static ComputationModel Compute(string filename)
         {
             string extension = GetExtension(filename);
-            return new Dictionary<string, string>
+            return new ComputationModel
             {
-                { "extension", extension },
-                { "md5",       GetMD5(filename) },
-                { "sha1",      GetSHA1(filename) },
-                { "head32",    GetHEAD32(filename) },
-                { "crc32",     GetCRC32(filename) },
-                { "sha256",    GetSHA256(filename) },
-                { "infohash",  GetInfoHash(filename, extension) },
-                { "locale",    GetSystemLocale() }
+                Extension = extension,
+                MD5 = GetMD5(filename),
+                SHA1 = GetSHA1(filename),
+                HEAD32 = GetHEAD32(filename),
+                CRC32 = GetCRC32(filename),
+                SHA256 = GetSHA256(filename),
+                InfoHash = GetInfoHash(filename, extension),
+                SystemLocale = T.GetLocale(),
+                Association = RegistryService.GetAssoiciationByExtension(extension)
             };
         }
 
@@ -133,11 +132,6 @@ namespace CatswordsTab.App
             }
 
             return checksum;
-        }
-
-        private static string GetSystemLocale()
-        {
-            return CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
         }
 
         public static string GetHexView(byte[] Data)

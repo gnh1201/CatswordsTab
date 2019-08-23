@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="ComputeService.cs" />
     <Compile Include="Model\AssociationModel.cs" />
+    <Compile Include="Model\ComputationModel.cs" />
     <Compile Include="Model\LocalizationModel.cs" />
     <Compile Include="Model\MessageModel.cs" />
     <Compile Include="Program.cs" />

@@ -1,11 +1,13 @@
 ﻿using CatswordsTab.App.Model;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 
 namespace CatswordsTab.App
 {
     class RegistryService
     {
+
         public static AssociationModel GetAssoiciationByExtension(string extension)
         {
             string skName = String.Format(".{0}", extension);
@@ -38,6 +40,23 @@ namespace CatswordsTab.App
             }
 
             return association;
+        }
+
+        public static List<AssociationModel> GetAssoiciationItems()
+        {
+            List<AssociationModel> associations = new List<AssociationModel>();
+
+            RegistryKey rk = Registry.ClassesRoot;
+            foreach (string skName in rk.GetSubKeyNames())
+            {
+                AssociationModel association = GetAssociationByResourceName(skName);
+                if (association != null)
+                {
+                    associations.Add(association);
+                }
+            }
+
+            return associations;
         }
     }
 }

@@ -6,18 +6,18 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CatswordsTab.Shell")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("CatswordsTab makes your own file community")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Catswords Community OSL")]
 [assembly: AssemblyProduct("CatswordsTab.Shell")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2019 Catswords Community OSL")]
+[assembly: AssemblyTrademark("Catswords Community OSL")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("96e9b776-a3ef-4cd8-959f-062fb28b7822")]

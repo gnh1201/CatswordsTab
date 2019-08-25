@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CatswordsTab.App")]
 [assembly: AssemblyDescription("CatswordsTab makes own your file community")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Catswords Research. Co.")]
+[assembly: AssemblyCompany("Catswords Community OSL")]
 [assembly: AssemblyProduct("CatswordsTab.App")]
-[assembly: AssemblyCopyright("Copyright © Catswords Research. Co., 2019")]
-[assembly: AssemblyTrademark("Catswords Community")]
+[assembly: AssemblyCopyright("Copyright © 2019 Catswords Community OSL")]
+[assembly: AssemblyTrademark("Catswords Community OSL")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 

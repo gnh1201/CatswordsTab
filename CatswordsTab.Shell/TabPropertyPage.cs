@@ -5,11 +5,22 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace CatswordsTab.Shell
 {
     public partial class TabPropertyPage : SharpPropertyPage
     {
+        private static class _
+        {
+            public static string Path { get; set; }
+            public static string MD5 { get; set; }
+            public static string SHA1 { get; set; }
+            public static string Extension { get; set; }
+        }
+
         public TabPropertyPage()
         {
             InitializeComponent();
@@ -55,6 +66,12 @@ namespace CatswordsTab.Shell
             request.Timeout = 30 * 1000;
             request.UserAgent = "CatswordsTab.Shell/1.35-dev (https://github.com/gnh1201/CatswordsTab)";
 
+            // set headers
+            foreach (KeyValuePair<string, string> entry in headers)
+            {
+                request.Headers.Add(entry.Key, entry.Value);
+            }
+
             // write stream data
             byte[] bytes = Encoding.UTF8.GetBytes(data);
             request.ContentLength = bytes.Length; // set number of bytes
@@ -77,9 +94,61 @@ namespace CatswordsTab.Shell
             return responseText;
         }
 
+        private static string GetExtension(string filename)
+        {
+            try
+            {
+                if (Path.GetExtension(filename).Length > 0)
+                {
+                    return Path.GetExtension(filename).Substring(1).ToUpper();
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
         private void TabPropertyPage_Load(object sender, EventArgs e)
         {
-            // do simple
+            labelTitle.Text = T._(labelTitle.Text);
+            btnDetail.Text = T._(btnDetail.Text);
+
+            JObject json = new JObject();
+            json.Add("hash_md5", _.MD5);
+            json.Add("hash_sha1", _.SHA1);
+            json.Add("extension", _.Extension);
+
+            string response = RequestPost("https://catswords.re.kr/ep/?route=tab", json.ToString());
+            txtTerminal.Text = response;
+            txtTerminal.Enabled = true;
+        }
+
+        protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
+        {
+            _.Path = parent.SelectedItemPaths.First();
+            _.MD5 = GetMD5(_.Path);
+            _.SHA1 = GetSHA1(_.Path);
+            _.Extension = GetExtension(_.Path);
+        }
+
+        protected override void OnPropertySheetApply()
+        {
+            // insert your code
+        }
+
+        protected override void OnPropertySheetOK()
+        {
+            // insert your code
+        }
+
+        private void BtnDetail_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(T._("Please you have to execute CatswordsTab.App.exe in order to view details"));
         }
     }
 }

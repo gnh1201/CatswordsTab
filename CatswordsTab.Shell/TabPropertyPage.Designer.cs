@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelTitle = new System.Windows.Forms.Label();
-            this.btnWriter = new System.Windows.Forms.Button();
+            this.btnDetail = new System.Windows.Forms.Button();
             this.txtTerminal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -44,20 +44,22 @@
             this.labelTitle.TabIndex = 4;
             this.labelTitle.Text = "Community";
             // 
-            // btnWriter
+            // btnDetail
             // 
-            this.btnWriter.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnWriter.FlatAppearance.BorderSize = 0;
-            this.btnWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWriter.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWriter.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWriter.Location = new System.Drawing.Point(300, 63);
-            this.btnWriter.Name = "btnWriter";
-            this.btnWriter.Size = new System.Drawing.Size(109, 43);
-            this.btnWriter.TabIndex = 3;
-            this.btnWriter.Text = "Comment";
-            this.btnWriter.UseVisualStyleBackColor = false;
+            this.btnDetail.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnDetail.FlatAppearance.BorderSize = 0;
+            this.btnDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetail.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnDetail.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_check_mark_3_32;
+            this.btnDetail.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDetail.Location = new System.Drawing.Point(300, 63);
+            this.btnDetail.Name = "btnDetail";
+            this.btnDetail.Size = new System.Drawing.Size(109, 43);
+            this.btnDetail.TabIndex = 3;
+            this.btnDetail.Text = "Detail";
+            this.btnDetail.UseVisualStyleBackColor = false;
+            this.btnDetail.Click += new System.EventHandler(this.BtnDetail_Click);
             // 
             // txtTerminal
             // 
@@ -81,7 +83,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.btnWriter);
+            this.Controls.Add(this.btnDetail);
             this.Name = "TabPropertyPage";
             this.Size = new System.Drawing.Size(429, 562);
             this.Load += new System.EventHandler(this.TabPropertyPage_Load);
@@ -93,7 +95,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Button btnWriter;
+        private System.Windows.Forms.Button btnDetail;
         private System.Windows.Forms.TextBox txtTerminal;
     }
 }

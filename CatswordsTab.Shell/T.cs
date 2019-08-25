@@ -22,9 +22,10 @@ namespace CatswordsTab.Shell
                 new LocalizationModel { MsgId = "Community", MsgStr = "커뮤니티" },
                 new LocalizationModel { MsgId = "Detail", MsgStr = "자세히" },
                 new LocalizationModel {
-                    MsgId = "Please you have to execute CatswordsTab.App.exe in order to view details",
-                    MsgStr = "자세한 정보를 보려면 Catswords.App.exe를 실행하여 주세요."
-                }
+                    MsgId = "You have to set path of CatswordsTab.App.exe in order to view details",
+                    MsgStr = "자세한 정보를 보려면 CatswordsTab.App.exe 파일의 경로를 설정하여 주세요"
+                },
+                new LocalizationModel { MsgId = "Unknown error", MsgStr = "알 수 없는 오류" }
             };
 
             // add English translation

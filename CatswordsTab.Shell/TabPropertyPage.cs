@@ -8,11 +8,17 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace CatswordsTab.Shell
 {
     public partial class TabPropertyPage : SharpPropertyPage
     {
+        private static string AppPathFile = Path.Combine(
+            Environment.GetFolderPath(
+                Environment.SpecialFolder.ApplicationData
+            ), "CatswordsTab.App.Path.txt");
+
         private static class _
         {
             public static string Path { get; set; }
@@ -24,6 +30,22 @@ namespace CatswordsTab.Shell
         public TabPropertyPage()
         {
             InitializeComponent();
+        }
+
+        private static string GetAppPath()
+        {
+            try {
+                return File.ReadAllText(AppPathFile);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        private static void SetAppPath(string path)
+        {
+            File.WriteAllText(AppPathFile, path, Encoding.UTF8);
         }
 
         private static string GetMD5(string filename)
@@ -148,7 +170,50 @@ namespace CatswordsTab.Shell
 
         private void BtnDetail_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(T._("Please you have to execute CatswordsTab.App.exe in order to view details"));
+            string AppExecFile = GetAppPath();
+
+            // step 1. if AppExecFile is null or empty
+            if (string.IsNullOrEmpty(AppExecFile))
+            {
+                OpenFileDialog fd = new OpenFileDialog();
+                fd.Title = T._("Finding CatswordsTab.App.exe file...");
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    SetAppPath(fd.FileName);
+                    AppExecFile = GetAppPath();
+                }
+            }
+            else if (!File.Exists(AppExecFile))
+            {
+                AppExecFile = null;
+                SetAppPath("");
+                BtnDetail_Click(sender, e);
+                return;
+            }
+
+            // step 2. if AppExecFile is null or empty
+            if (string.IsNullOrEmpty(AppExecFile))
+            {
+                MessageBox.Show(T._("You have to set path of CatswordsTab.App.exe in order to view details"));
+            }
+            else
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = GetAppPath();
+                startInfo.Arguments = "--filename " + _.Path;
+
+                try
+                {
+                    using (Process proc = Process.Start(startInfo))
+                    {
+                        proc.WaitForExit();
+                    }
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show(T._("Unknown error"));
+                }
+            } 
         }
     }
 }

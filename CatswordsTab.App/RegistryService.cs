@@ -9,8 +9,25 @@ namespace CatswordsTab.App
     {
         public static AssociationModel GetAssoiciationByExtension(string extension)
         {
-            string skName = (extension.Substring(0, 1) == ".") ? extension : string.Format(".{0}", extension);
-            return GetAssociationByResourceName(skName);
+            if (extension.Length > 0)
+            {
+                string skName;
+
+                if(extension.Substring(0, 1).Equals(".")) {
+                    skName = extension;
+                }
+                else
+                {
+                    skName = string.Format(".{0}", extension);
+                }
+
+                skName = skName.ToLower();
+                return GetAssociationByResourceName(skName);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public static AssociationModel GetAssociationByResourceName(string resourceName)

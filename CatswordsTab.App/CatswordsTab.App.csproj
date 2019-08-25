@@ -82,6 +82,12 @@
     <Compile Include="Winform\Association.Designer.cs">
       <DependentUpon>Association.cs</DependentUpon>
     </Compile>
+    <Compile Include="Winform\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
     <Compile Include="Winform\Solver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Association.resx">
       <DependentUpon>Association.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Solver.resx">
       <DependentUpon>Solver.cs</DependentUpon>

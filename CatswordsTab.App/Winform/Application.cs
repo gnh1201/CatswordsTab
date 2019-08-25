@@ -39,7 +39,12 @@ namespace CatswordsTab.App.Winform
             List<ApplicationModel> apps = RegistryService.GetInstalledApps();
             foreach (ApplicationModel app in apps)
             {
-                dataGridView1.Rows.Add(new string[] { app.InstallDate, app.Publisher, app.DisplayName, app.DisplayVersion });
+                string displayName = app.DisplayName;
+                if(string.IsNullOrEmpty(displayName))
+                {
+                    displayName = "(Unknown or Uninstalled)";
+                }
+                dataGridView1.Rows.Add(new string[] { app.InstallDate, app.Publisher, displayName, app.DisplayVersion });
             }
         }
 

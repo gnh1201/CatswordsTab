@@ -209,7 +209,7 @@ namespace CatswordsTab.Shell
                         proc.WaitForExit();
                     }
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     MessageBox.Show(T._("Unknown error"));
                 }

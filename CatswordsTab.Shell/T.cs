@@ -25,6 +25,11 @@ namespace CatswordsTab.Shell
                     MsgId = "You have to set path of CatswordsTab.App.exe in order to view details",
                     MsgStr = "자세한 정보를 보려면 CatswordsTab.App.exe 파일의 경로를 설정하여 주세요"
                 },
+                new LocalizationModel
+                {
+                    MsgId = "Finding CatswordsTab.App.exe file...",
+                    MsgStr = "CatswordsTab.App.exe 파일을 찾는 중..."
+                },
                 new LocalizationModel { MsgId = "Unknown error", MsgStr = "알 수 없는 오류" }
             };
 

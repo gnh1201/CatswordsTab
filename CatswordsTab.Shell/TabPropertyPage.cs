@@ -15,7 +15,7 @@ namespace CatswordsTab.Shell
 {
     public partial class TabPropertyPage : SharpPropertyPage
     {
-        private string AppPathFile = AppDataService.GetFilePath("CatswordsTab.App.Path.txt");
+        private string AppPath = AppDataService.GetFilePath("CatswordsTab.App.Path.txt");
 
         private class FileInfo
         {
@@ -37,7 +37,7 @@ namespace CatswordsTab.Shell
         private string GetAppPath()
         {
             try {
-                return File.ReadAllText(AppPathFile);
+                return File.ReadAllText(AppPath);
             }
             catch (Exception)
             {
@@ -47,7 +47,7 @@ namespace CatswordsTab.Shell
 
         private void SetAppPath(string path)
         {
-            File.WriteAllText(AppPathFile, path, Encoding.UTF8);
+            File.WriteAllText(AppPath, path, Encoding.UTF8);
         }
 
         private string GetMD5(string filename)

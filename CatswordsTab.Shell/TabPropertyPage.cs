@@ -140,10 +140,12 @@ namespace CatswordsTab.Shell
             labelTitle.Text = T._(labelTitle.Text);
             btnDetail.Text = T._(btnDetail.Text);
 
-            JObject json = new JObject();
-            json.Add("hash_md5", _.MD5);
-            json.Add("hash_sha1", _.SHA1);
-            json.Add("extension", _.Extension);
+            JObject json = new JObject
+            {
+                { "hash_md5", _.MD5 },
+                { "hash_sha1", _.SHA1 },
+                { "extension", _.Extension }
+            };
 
             string response = RequestPost("https://catswords.re.kr/ep/?route=tab", json.ToString());
             txtTerminal.Text = response;

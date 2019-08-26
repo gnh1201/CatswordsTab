@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="Resources\iconsdb-white-check-mark-3-32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Crc32.NET\Crc32.NET.csproj">
+      <Project>{d2cd2407-76a9-4a87-8940-873b59e7f5c5}</Project>
+      <Name>Crc32.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

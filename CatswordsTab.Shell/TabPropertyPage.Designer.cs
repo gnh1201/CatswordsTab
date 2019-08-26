@@ -53,7 +53,7 @@
             this.btnDetail.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnDetail.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnDetail.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDetail.Location = new System.Drawing.Point(271, 63);
+            this.btnDetail.Location = new System.Drawing.Point(277, 63);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(109, 43);
             this.btnDetail.TabIndex = 3;
@@ -71,7 +71,7 @@
             this.txtTerminal.Name = "txtTerminal";
             this.txtTerminal.ReadOnly = true;
             this.txtTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTerminal.Size = new System.Drawing.Size(370, 334);
+            this.txtTerminal.Size = new System.Drawing.Size(376, 334);
             this.txtTerminal.TabIndex = 5;
             // 
             // TabPropertyPage

@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Force.Crc32;
 
 namespace CatswordsTab.Shell
 {
@@ -19,13 +20,16 @@ namespace CatswordsTab.Shell
                 Environment.SpecialFolder.ApplicationData
             ), "CatswordsTab.App.Path.txt");
 
-        private class _
+        private class FileInfo
         {
-            public static string Path { get; set; }
-            public static string MD5 { get; set; }
-            public static string SHA1 { get; set; }
-            public static string Extension { get; set; }
+            public string Path { get; set; }
+            public string MD5 { get; set; }
+            public string SHA1 { get; set; }
+            public string CRC32 { get; set; }
+            public string Extension { get; set; }
         }
+
+        private FileInfo _;
 
         public TabPropertyPage()
         {
@@ -76,6 +80,18 @@ namespace CatswordsTab.Shell
                     byte[] hash = hasher.ComputeHash(stream);
                     checksum = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
+            }
+
+            return checksum;
+        }
+
+        private static string GetCRC32(string filename)
+        {
+            string checksum = "";
+
+            using (FileStream stream = File.OpenRead(filename))
+            {
+                checksum = string.Format("{0:x}", Crc32Algorithm.Compute(stream));
             }
 
             return checksum;
@@ -142,25 +158,28 @@ namespace CatswordsTab.Shell
         {
             labelTitle.Text = T._(labelTitle.Text);
             btnDetail.Text = T._(btnDetail.Text);
+        }
+
+        protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
+        {
+            _ = new FileInfo();
+            _.Path = parent.SelectedItemPaths.First();
+            _.MD5 = GetMD5(_.Path);
+            _.SHA1 = GetSHA1(_.Path);
+            _.CRC32 = GetCRC32(_.Path);
+            _.Extension = GetExtension(_.Path);
 
             JObject json = new JObject
             {
                 { "hash_md5", _.MD5 },
                 { "hash_sha1", _.SHA1 },
+                { "hash_crc32", _.CRC32 },
                 { "extension", _.Extension }
             };
 
             string response = RequestPost("https://catswords.re.kr/ep/?route=tab", json.ToString());
             txtTerminal.Text = response;
             txtTerminal.Enabled = true;
-        }
-
-        protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
-        {
-            _.Path = parent.SelectedItemPaths.First();
-            _.MD5 = GetMD5(_.Path);
-            _.SHA1 = GetSHA1(_.Path);
-            _.Extension = GetExtension(_.Path);
         }
 
         protected override void OnPropertySheetApply()

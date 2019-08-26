@@ -35,6 +35,12 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\Ph03nyx-Super-Mario-Retro-Flower-Fire-2.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MyKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BencodeNET, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BencodeNET.2.3.0\lib\net45\BencodeNET.dll</HintPath>
@@ -146,6 +152,7 @@
     <EmbeddedResource Include="Winform\Writer.resx">
       <DependentUpon>Writer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MyKey.snk" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

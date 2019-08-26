@@ -53,7 +53,7 @@
             this.btnDetail.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnDetail.Image = global::CatswordsTab.Shell.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnDetail.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDetail.Location = new System.Drawing.Point(300, 63);
+            this.btnDetail.Location = new System.Drawing.Point(271, 63);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(109, 43);
             this.btnDetail.TabIndex = 3;
@@ -66,12 +66,12 @@
             this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTerminal.Enabled = false;
             this.txtTerminal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTerminal.Location = new System.Drawing.Point(16, 129);
+            this.txtTerminal.Location = new System.Drawing.Point(10, 125);
             this.txtTerminal.Multiline = true;
             this.txtTerminal.Name = "txtTerminal";
             this.txtTerminal.ReadOnly = true;
             this.txtTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTerminal.Size = new System.Drawing.Size(393, 372);
+            this.txtTerminal.Size = new System.Drawing.Size(370, 334);
             this.txtTerminal.TabIndex = 5;
             // 
             // TabPropertyPage
@@ -85,7 +85,7 @@
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.btnDetail);
             this.Name = "TabPropertyPage";
-            this.Size = new System.Drawing.Size(429, 562);
+            this.Size = new System.Drawing.Size(429, 522);
             this.Load += new System.EventHandler(this.TabPropertyPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

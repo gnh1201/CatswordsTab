@@ -14,12 +14,12 @@ namespace CatswordsTab.Shell
 {
     public partial class TabPropertyPage : SharpPropertyPage
     {
-        private static string AppPathFile = Path.Combine(
+        private string AppPathFile = Path.Combine(
             Environment.GetFolderPath(
                 Environment.SpecialFolder.ApplicationData
             ), "CatswordsTab.App.Path.txt");
 
-        private static class _
+        private class _
         {
             public static string Path { get; set; }
             public static string MD5 { get; set; }
@@ -30,9 +30,10 @@ namespace CatswordsTab.Shell
         public TabPropertyPage()
         {
             InitializeComponent();
+            PageTitle = T._("Community");
         }
 
-        private static string GetAppPath()
+        private string GetAppPath()
         {
             try {
                 return File.ReadAllText(AppPathFile);
@@ -43,12 +44,12 @@ namespace CatswordsTab.Shell
             }
         }
 
-        private static void SetAppPath(string path)
+        private void SetAppPath(string path)
         {
             File.WriteAllText(AppPathFile, path, Encoding.UTF8);
         }
 
-        private static string GetMD5(string filename)
+        private string GetMD5(string filename)
         {
             string checksum = "";
 
@@ -64,7 +65,7 @@ namespace CatswordsTab.Shell
             return checksum;
         }
 
-        private static string GetSHA1(string filename)
+        private string GetSHA1(string filename)
         {
             string checksum = "";
 
@@ -80,7 +81,7 @@ namespace CatswordsTab.Shell
             return checksum;
         }
 
-        private static string RequestPost(string url, string data, Dictionary<string, string> headers = null)
+        private string RequestPost(string url, string data, Dictionary<string, string> headers = null)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
@@ -89,9 +90,11 @@ namespace CatswordsTab.Shell
             request.UserAgent = "CatswordsTab.Shell/1.35-dev (https://github.com/gnh1201/CatswordsTab)";
 
             // set headers
-            foreach (KeyValuePair<string, string> entry in headers)
-            {
-                request.Headers.Add(entry.Key, entry.Value);
+            if(headers != null) {
+                foreach (KeyValuePair<string, string> entry in headers)
+                {
+                    request.Headers.Add(entry.Key, entry.Value);
+                }
             }
 
             // write stream data
@@ -116,7 +119,7 @@ namespace CatswordsTab.Shell
             return responseText;
         }
 
-        private static string GetExtension(string filename)
+        private string GetExtension(string filename)
         {
             try
             {

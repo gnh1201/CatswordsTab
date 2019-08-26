@@ -114,6 +114,8 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Welcome";
             this.Text = "CatswordsTabWelcome";
             this.Load += new System.EventHandler(this.OnLoad_Welcome);

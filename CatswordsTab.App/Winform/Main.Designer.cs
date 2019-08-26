@@ -164,7 +164,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "CatswordsTabMain";
             this.Load += new System.EventHandler(this.OnLoad_Main);

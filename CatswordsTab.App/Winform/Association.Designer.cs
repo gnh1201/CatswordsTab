@@ -81,6 +81,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.labelTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Association";
             this.Text = "CatswordsTabAssociation";
             this.Load += new System.EventHandler(this.OnLoad_Association);

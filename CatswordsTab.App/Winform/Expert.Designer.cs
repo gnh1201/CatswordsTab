@@ -285,7 +285,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Expert";
             this.Text = "CatswordsTabExpert";
             this.Load += new System.EventHandler(this.OnLoad_Expert);

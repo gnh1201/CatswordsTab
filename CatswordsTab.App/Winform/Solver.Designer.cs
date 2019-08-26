@@ -134,6 +134,8 @@
             this.Controls.Add(this.txtManifestFilename);
             this.Controls.Add(this.btnUnlock);
             this.Controls.Add(this.labelTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Solver";
             this.Text = "CatswordsTabSolver";
             this.ResumeLayout(false);

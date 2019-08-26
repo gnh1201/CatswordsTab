@@ -15,10 +15,7 @@ namespace CatswordsTab.Shell
 {
     public partial class TabPropertyPage : SharpPropertyPage
     {
-        private string AppPathFile = Path.Combine(
-            Environment.GetFolderPath(
-                Environment.SpecialFolder.ApplicationData
-            ), "CatswordsTab.App.Path.txt");
+        private string AppPathFile = AppDataService.GetFilePath("CatswordsTab.App.Path.txt");
 
         private class FileInfo
         {

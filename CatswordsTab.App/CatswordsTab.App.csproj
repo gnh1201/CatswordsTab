@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDataService.cs" />
     <Compile Include="ComputeService.cs" />
     <Compile Include="Model\ApplicationModel.cs" />
     <Compile Include="Model\AssociationModel.cs" />

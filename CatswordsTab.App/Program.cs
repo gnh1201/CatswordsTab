@@ -22,22 +22,21 @@ namespace CatswordsTab.App
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 
+            Welcome welcomeWindow = new Welcome();
             ParserResult<Options> _ = Parser.Default.ParseArguments<Options>(args);
             _.WithParsed<Options>(o =>
                 {
-                    if (string.IsNullOrEmpty(o.FileName))
+                    if (!string.IsNullOrEmpty(o.FileName))
                     {
-                        System.Windows.Forms.Application.Run(new Welcome());
+                        welcomeWindow.FileName = o.FileName;
                     }
-                    else
-                    {
-                        System.Windows.Forms.Application.Run(new Main(o.FileName));
-                    }
+
+                    System.Windows.Forms.Application.Run(welcomeWindow);
                 }
             );
             _.WithNotParsed<Options>(e =>
                 {
-                    System.Windows.Forms.Application.Run(new Welcome());
+                    System.Windows.Forms.Application.Run(welcomeWindow);
                 }
             );
         }

@@ -54,7 +54,7 @@ namespace CatswordsTab.App
                 WriteResultLine(T._("Please check your internet connection"));
                 WriteResultLine();
                 WriteResultLine("# Comments (Offline)");
-                using (LiteDatabase db = new LiteDatabase("@AppData.db"))
+                using (LiteDatabase db = new LiteDatabase(@"AppData.db"))
                 {
                     LiteCollection<MessageModel> messages = db.GetCollection<MessageModel>("messages");
                     IEnumerable<MessageModel> results = messages.Find(x => x.HashMD5.Equals(_computed.MD5));

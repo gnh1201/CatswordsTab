@@ -41,7 +41,7 @@ namespace CatswordsTab.App.Winform
             else
             {
                 // store message to offline database
-                using (LiteDatabase db = new LiteDatabase("@AppData.db"))
+                using (LiteDatabase db = new LiteDatabase(@"AppData.db"))
                 {
                     var messages = db.GetCollection<MessageModel>("messages");
                     MessageModel message = new MessageModel

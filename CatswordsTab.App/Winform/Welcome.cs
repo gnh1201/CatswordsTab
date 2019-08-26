@@ -5,6 +5,8 @@ namespace CatswordsTab.App.Winform
 {
     public partial class Welcome : Form
     {
+        public string FileName { get; set; }
+
         public Welcome()
         {
             InitializeComponent();
@@ -27,14 +29,23 @@ namespace CatswordsTab.App.Winform
             fd.Title = T._("Choose your file...");
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                WinformService.SetMainWindow(new Main(fd.FileName));
+                FileName = fd.FileName;
+                WinformService.SetMainWindow(new Main(FileName));
                 WinformService.GetMainWindow().ShowDialog();
             }
         }
 
         private void OnClick_btnAgree(object sender, EventArgs e)
         {
-            ChooseFile();
+            if(string.IsNullOrEmpty(FileName))
+            {
+                ChooseFile();
+            }
+            else
+            {
+                WinformService.SetMainWindow(new Main(FileName));
+                WinformService.GetMainWindow().ShowDialog();
+            }
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -224,7 +224,7 @@ namespace CatswordsTab.Shell
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = GetAppPath();
-                startInfo.Arguments = "--filename " + _.Path;
+                startInfo.Arguments = string.Format("--filename \"{0}\"", @_.Path);
 
                 try
                 {

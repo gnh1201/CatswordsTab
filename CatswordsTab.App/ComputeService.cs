@@ -114,10 +114,17 @@ namespace CatswordsTab.App
                 int offset = 0;
                 while (offset < count)
                 {
-                    int read = stream.Read(buffer, offset, count - offset);
-                    if (read == 0)
-                        throw new System.IO.EndOfStreamException();
-                    offset += read;
+                    try
+                    {
+                        int read = stream.Read(buffer, offset, count - offset);
+                        if (read == 0)
+                            throw new System.IO.EndOfStreamException();
+                        offset += read;
+                    }
+                    catch (EndOfStreamException)
+                    {
+                        break;
+                    }
                 }
 
                 System.Diagnostics.Debug.Assert(offset == count);

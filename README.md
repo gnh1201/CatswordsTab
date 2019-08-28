@@ -2,7 +2,7 @@
 CatswordsTab is file reputation extension on Windows Environment   https://catswords.re.kr/wiki/catswords-tab
 
 ## Demo
-https://youtu.be/cSdjamlY38I
+https://youtu.be/o6lE5WszRLk
 
 ## Donate me
 https://www.patreon.com/posts/catswordstab-25295231

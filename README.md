@@ -2,7 +2,7 @@
 [CatswordsTab](https://catswords.re.kr/wiki/catswords-tab) is make own community of each files on Windows environment
 
 ## Demo
-https://youtu.be/o6lE5WszRLk
+- https://youtu.be/o6lE5WszRLk
 
 ## Awards
 - Awarded in Sep 1 2019, Bronze prize, Software compatition, [Korea National Open University](https://www.knou.ac.kr/)
@@ -19,4 +19,4 @@ https://youtu.be/o6lE5WszRLk
 ![in Desktop 4](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop4.png)
 
 ## Contact me
-support@exts.kr
+- support@exts.kr

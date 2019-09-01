@@ -17,7 +17,5 @@ https://www.patreon.com/posts/catswordstab-25295231
 ![in Desktop 3](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop3.png)
 ![in Desktop 4](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop4.png)
 
-x
-
 ## Contact me
 support@exts.kr

@@ -1,5 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
 using CatswordsTab.App.Winform;
 using CommandLine;
 
@@ -7,10 +9,33 @@ namespace CatswordsTab.App
 {
     static class Program
     {
+        [DllImport("kernel32.dll")]
+        static extern bool AttachConsole(int dwProcessId);
+        private const int ATTACH_PARENT_PROCESS = -1;
+
         class Options
         {
             [Option('f', "filename", Required = false, HelpText = "Set File name or path.")]
             public string FileName { get; set; }
+
+            [Option('c', "commandline", Required = false, HelpText = "Use command line.")]
+            public int CommandLine { get; set; }
+        }
+
+        static void OpenWelcomeWindow(string filename = null)
+        {
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+
+            Welcome welcomeWindow = new Welcome();
+            welcomeWindow.FileName = filename;
+            System.Windows.Forms.Application.Run(welcomeWindow);
+        }
+
+        static void WriteLine(string text = "")
+        {
+            Console.WriteLine(text);
+            File.WriteAllText("stdout.txt", text, Encoding.UTF8);
         }
 
         /// <summary>
@@ -19,26 +44,39 @@ namespace CatswordsTab.App
         [STAThread]
         static void Main(string[] args)
         {
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            AttachConsole(ATTACH_PARENT_PROCESS);
 
-            Welcome welcomeWindow = new Welcome();
-            ParserResult<Options> _ = Parser.Default.ParseArguments<Options>(args);
-            _.WithParsed<Options>(o =>
-                {
-                    if (!string.IsNullOrEmpty(o.FileName))
+            ParserResult<Options> _ = Parser.Default.ParseArguments<Options>(args)
+                .WithParsed<Options>(o =>
                     {
-                        welcomeWindow.FileName = o.FileName;
+                        if (!string.IsNullOrEmpty(o.FileName)) {
+                            if (o.CommandLine == 1)
+                            {
+                                WriteLine(MainService.GetResult(o.FileName));
+                            }
+                            else
+                            {
+                                OpenWelcomeWindow(o.FileName);
+                            }
+                        }
+                        else
+                        {
+                            if (o.CommandLine == 1)
+                            {
+                                WriteLine("File name is not specified.");
+                            }
+                            else
+                            {
+                                OpenWelcomeWindow();
+                            }
+                        }
                     }
-
-                    System.Windows.Forms.Application.Run(welcomeWindow);
-                }
-            );
-            _.WithNotParsed<Options>(e =>
-                {
-                    System.Windows.Forms.Application.Run(welcomeWindow);
-                }
-            );
+                )
+                .WithNotParsed<Options>(e =>
+                    {
+                        OpenWelcomeWindow();
+                    }
+                );
         }
     }
 }

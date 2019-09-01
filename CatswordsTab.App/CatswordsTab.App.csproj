@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="AppDataService.cs" />
     <Compile Include="ComputeService.cs" />
+    <Compile Include="MainService.cs" />
     <Compile Include="Model\ApplicationModel.cs" />
     <Compile Include="Model\AssociationModel.cs" />
     <Compile Include="Model\ComputationModel.cs" />

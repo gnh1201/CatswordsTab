@@ -24,47 +24,7 @@ namespace CatswordsTab.App
         private void SetResult()
         {
             _computed = ComputeService.Compute(_path);
-            _result = "";
-
-            RestClient client = new RestClient("https://catswords.re.kr/ep/?route=tab");
-            RestRequest request = new RestRequest(Method.POST);
-            request.RequestFormat = DataFormat.Json;
-            request.AddParameter("hash_md5", _computed.MD5);
-            request.AddParameter("hash_sha1", _computed.SHA1);
-            request.AddParameter("hash_crc32", _computed.CRC32);
-            request.AddParameter("hash_sha256", _computed.SHA256);
-            request.AddParameter("extension", _computed.Extension);
-            request.AddParameter("infohash", _computed.InfoHash);
-            request.AddParameter("locale", _computed.SystemLocale);
-
-            // Get information when online
-            IRestResponse response = client.Execute(request);
-            if(response.StatusCode == System.Net.HttpStatusCode.OK) {
-                WriteResultLine(response.Content);
-            }
-            // Get information when offline
-            else
-            {
-                WriteResultLine("# CatswordsTab Report (Offline)");
-                WriteResultLine();
-                WriteResultLine("- MD5: " + _computed.MD5);
-                WriteResultLine("- SHA1: " + _computed.SHA1);
-                WriteResultLine("- CRC32: " + _computed.CRC32);
-                WriteResultLine();
-                WriteResultLine(T._("Please check your internet connection"));
-                WriteResultLine();
-                WriteResultLine("# Comments (Offline)");
-                using (LiteDatabase db = new LiteDatabase(AppDataService.GetFilePath("CatswordsTab.App.Data.db")))
-                {
-                    LiteCollection<MessageModel> messages = db.GetCollection<MessageModel>("messages");
-                    IEnumerable<MessageModel> results = messages.Find(x => x.HashMD5.Equals(_computed.MD5));
-                    messages.EnsureIndex(x => x.HashMD5);
-                    foreach (MessageModel entry in results)
-                    {
-                        WriteResultLine("- " + entry.Message + " @" + entry.CreatedOn.ToString());
-                    }
-                }
-            }
+            _result = MainService.GetResult(_path);
         }
 
         private void OnClick_btnWriter(object sender, EventArgs e)
@@ -107,11 +67,6 @@ namespace CatswordsTab.App
         {
             txtTerminal.Text = text;
             txtTerminal.Enabled = true;
-        }
-        
-        public void WriteResultLine(string text = "")
-        {
-            _result = _result + text + "\r\n";
         }
 
         public ComputationModel GetComputed()

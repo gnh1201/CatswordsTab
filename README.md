@@ -7,8 +7,9 @@ https://youtu.be/o6lE5WszRLk
 ## Awards
 - Awarded in Sep 1 2019, Bronze prize, Software compatition, [Korea National Open University](https://www.knou.ac.kr/)
 
-## Donate me
-https://www.patreon.com/posts/catswordstab-25295231
+## Links
+- Live chat: https://open.kakao.com/o/gWvNF1B (KakaoTalk)
+- Donate me: https://www.patreon.com/posts/catswordstab-25295231
 
 ## Screenshots
 ![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/explorer1.png)

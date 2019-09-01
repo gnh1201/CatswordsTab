@@ -1,5 +1,5 @@
 # CatswordsTab
-[CatswordsTab](https://catswords.re.kr/wiki/catswords-tab) is make own community of each files on Windows environment
+[CatswordsTab](https://catswords.re.kr/wiki/catswords-tab) is make own (reputation) community of each files on Windows environment
 
 ## Demo
 - https://youtu.be/o6lE5WszRLk

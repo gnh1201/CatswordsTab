@@ -20,3 +20,4 @@
 
 ## Contact me
 - support@exts.kr
+- catswords@protonmail.com (if you send confidential content to me)

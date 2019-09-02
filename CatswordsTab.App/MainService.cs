@@ -21,6 +21,7 @@ namespace CatswordsTab.App
 
         public static string GetResult(string _path)
         {
+            _result = "";
             _computed = ComputeService.Compute(_path);
 
             RestClient client = new RestClient("https://catswords.re.kr/ep/?route=tab");

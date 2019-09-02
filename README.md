@@ -1,8 +1,5 @@
 # CatswordsTab
-[CatswordsTab](https://catswords.re.kr/wiki/catswords-tab) is make your own (reputation) community of each files on Windows environment
-
-## Demo
-- https://youtu.be/o6lE5WszRLk
+[CatswordsTab](https://catswords.re.kr/wiki/catswords-tab) is make your own (reputation) community of each files on Windows environment [>Demo](https://youtu.be/o6lE5WszRLk)
 
 ## Awards
 - Awarded in Sep 1 2019, Bronze prize, Software compatition, [Korea National Open University](https://www.knou.ac.kr/)

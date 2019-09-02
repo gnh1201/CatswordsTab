@@ -15,11 +15,11 @@ namespace CatswordsTab.App
 
         class Options
         {
-            [Option('f', "filename", Required = false, HelpText = "Set File name or path.")]
+            [Option('f', "filename", Required = false, HelpText = "Set file name or path")]
             public string FileName { get; set; }
 
-            [Option('c', "commandline", Required = false, HelpText = "Use command line.")]
-            public int CommandLine { get; set; }
+            [Option('e', "export", Required = false, HelpText = "Export to file")]
+            public string Export { get; set; }
         }
 
         static void OpenWelcomeWindow(string filename = null)
@@ -35,7 +35,11 @@ namespace CatswordsTab.App
         static void WriteLine(string text = "")
         {
             Console.WriteLine(text);
-            File.WriteAllText("stdout.txt", text, Encoding.UTF8);
+        }
+
+        static void WriteFile(string path, string text = "")
+        {
+            File.WriteAllText(path, text, Encoding.UTF8);
         }
 
         /// <summary>
@@ -50,9 +54,10 @@ namespace CatswordsTab.App
                 .WithParsed<Options>(o =>
                     {
                         if (!string.IsNullOrEmpty(o.FileName)) {
-                            if (o.CommandLine == 1)
+                            if (!string.IsNullOrEmpty(o.Export))
                             {
-                                WriteLine(MainService.GetResult(o.FileName));
+                                WriteFile(o.Export, MainService.GetResult(o.FileName));
+                                WriteLine("Exported file to " + o.Export);
                             }
                             else
                             {
@@ -61,9 +66,9 @@ namespace CatswordsTab.App
                         }
                         else
                         {
-                            if (o.CommandLine == 1)
+                            if (!string.IsNullOrEmpty(o.Export))
                             {
-                                WriteLine("File name is not specified.");
+                                WriteLine("File name is not specified");
                             }
                             else
                             {

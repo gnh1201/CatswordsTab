@@ -11,6 +11,10 @@
 - Live chat: https://open.kakao.com/o/gWvNF1B (KakaoTalk)
 - Donate me: https://www.patreon.com/posts/catswordstab-25295231
 
+## Command line options
+- `-f`, `--filename`: Set file name or path
+- `-e`, `--export`: Export to file
+
 ## Screenshots
 ![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/explorer1.png)
 ![in Desktop 1](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop1.png)

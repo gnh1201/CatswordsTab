@@ -14,7 +14,7 @@
 - Example: `CatswordsTab.App.exe -f CatswordsTab.App.exe -e result.txt`
 
 ## New: OEM/3rdparty WebApi
-- Supporting develop OEM/3rdparty software based on CatswordsTab. Do it check `CatswordsTab.WebApi` project.
+- Supporting develop OEM/3rdparty software based on CatswordsTab. Do it check `CatswordsTab.WebApi`.
 
 ## Screenshots
 ![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/explorer1.png)

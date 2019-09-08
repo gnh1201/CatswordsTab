@@ -10,23 +10,14 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Force.Crc32;
+using CatswordsTab.Shell.Model;
 
 namespace CatswordsTab.Shell
 {
     public partial class TabPropertyPage : SharpPropertyPage
     {
         private string AppPathFile = AppDataService.GetFilePath("CatswordsTab.App.Path.txt");
-
-        private class FileInfo
-        {
-            public string Path { get; set; }
-            public string MD5 { get; set; }
-            public string SHA1 { get; set; }
-            public string CRC32 { get; set; }
-            public string Extension { get; set; }
-        }
-
-        private FileInfo _;
+        private string ItemPath = null;
 
         public TabPropertyPage()
         {
@@ -159,13 +150,17 @@ namespace CatswordsTab.Shell
 
         protected override void OnPropertyPageInitialised(SharpPropertySheet parent)
         {
-            _ = new FileInfo();
-            _.Path = parent.SelectedItemPaths.First();
-            _.MD5 = GetMD5(_.Path);
-            _.SHA1 = GetSHA1(_.Path);
-            _.CRC32 = GetCRC32(_.Path);
-            _.Extension = GetExtension(_.Path);
+            ItemPath = parent.SelectedItemPaths.First();
 
+            ComputationModel _ = new ComputationModel()
+            {
+                Path = ItemPath,
+                MD5 = GetMD5(ItemPath),
+                SHA1 = GetSHA1(ItemPath),
+                CRC32 = GetCRC32(ItemPath),
+                Extension = GetExtension(ItemPath)
+            };
+        
             JObject json = new JObject
             {
                 { "hash_md5", _.MD5 },
@@ -221,7 +216,7 @@ namespace CatswordsTab.Shell
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = GetAppPath();
-                startInfo.Arguments = string.Format("--filename \"{0}\"", @_.Path);
+                startInfo.Arguments = string.Format("--filename \"{0}\"", @ItemPath);
 
                 try
                 {

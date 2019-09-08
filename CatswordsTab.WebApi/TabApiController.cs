@@ -14,10 +14,14 @@ namespace CatswordsTab.WebApi
             return;
         }
 
+        [Route(HttpVerbs.Get, "/ping")]
+        public string DoPing() => "pong";
+
         [Route(HttpVerbs.Get, "/appliance/all")]
         public List<ApplianceModel> GetAppliances() => RegistryService.GetInstalledApps();
 
         [Route(HttpVerbs.Get, "/association/all")]
         public List<AssociationModel> GetAssociations() => RegistryService.GetAssoiciations();
+
     }
 }

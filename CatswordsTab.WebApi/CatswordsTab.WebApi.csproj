@@ -61,6 +61,7 @@
     <Compile Include="Model\ComputationModel.cs" />
     <Compile Include="Model\LocalizationModel.cs" />
     <Compile Include="Model\MessageModel.cs" />
+    <Compile Include="NetworkService.cs" />
     <Compile Include="RegistryService.cs" />
     <Compile Include="TabApiController.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +70,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

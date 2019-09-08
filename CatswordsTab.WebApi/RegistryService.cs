@@ -117,5 +117,28 @@ namespace CatswordsTab.WebApi
 
             return items;
         }
+
+        public static string GetValueByKeyName_HKLM(string path, string key)
+        {
+            try
+            {
+                RegistryKey rk = Registry.LocalMachine.OpenSubKey(path);
+                if (rk == null) return "";
+                return (string)rk.GetValue(key);
+            }
+            catch { return ""; }
+        }
+
+        public static string GetOSVersion()
+        {
+            string ProductName = GetValueByKeyName_HKLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ProductName");
+            string CSDVersion = GetValueByKeyName_HKLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", "CSDVersion");
+            if (ProductName != "")
+            {
+                return (ProductName.StartsWith("Microsoft") ? "" : "Microsoft ") + ProductName +
+                            (CSDVersion != "" ? " " + CSDVersion : "");
+            }
+            return "";
+        }
     }
 }

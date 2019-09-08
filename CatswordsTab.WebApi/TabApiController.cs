@@ -23,5 +23,13 @@ namespace CatswordsTab.WebApi
         [Route(HttpVerbs.Get, "/association/all")]
         public List<AssociationModel> GetAssociations() => RegistryService.GetAssoiciations();
 
+        [Route(HttpVerbs.Get, "/os")]
+        public string GetOSVersion() => RegistryService.GetOSVersion();
+
+        [Route(HttpVerbs.Get, "/net/ip")]
+        public string GetNetIP() => NetworkService.GetLocalIP();
+
+        [Route(HttpVerbs.Get, "/net/mac")]
+        public string GetNetMAC() => NetworkService.GetLocalMAC();
     }
 }

@@ -13,8 +13,8 @@
 - `-e`, `--export`: Export to file
 - Example: `CatswordsTab.App.exe -f CatswordsTab.App.exe -e result.txt`
 
-## New: OEM/Third-party WebApi
-- Supporting develop OEM software based on CatswordsTab. Do it check 'CatswordsTab.WebApi` project.
+## New: OEM/3rdparty WebApi
+- Supporting develop OEM/3rdparty software based on CatswordsTab. Do it check `CatswordsTab.WebApi` project.
 
 ## Screenshots
 ![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/explorer1.png)

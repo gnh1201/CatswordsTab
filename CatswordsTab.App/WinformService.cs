@@ -8,7 +8,7 @@ namespace CatswordsTab.App
         private static Expert ExpertWindow;
         private static Writer WriterWindow;
         private static Solver SolverWindow;
-        private static Application ApplicationWindow;
+        private static Appliance ApplianceWindow;
         private static Association AssociationWindow;
 
         public static void SetMainWindow(Main window)
@@ -39,10 +39,10 @@ namespace CatswordsTab.App
             return SolverWindow;
         }
 
-        public static Application GetApplicationWindow()
+        public static Appliance GetApplianceWindow()
         {
-            ApplicationWindow = new Application();
-            return ApplicationWindow;
+            ApplianceWindow = new Appliance();
+            return ApplianceWindow;
         }
 
         public static Association GetAssociationWindow()

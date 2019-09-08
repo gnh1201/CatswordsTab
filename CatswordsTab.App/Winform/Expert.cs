@@ -66,9 +66,9 @@ namespace CatswordsTab.App.Winform
             WinformService.GetSolverWindow().Show();
         }
 
-        private void OnClick_btnOpenApplication(object sender, EventArgs e)
+        private void OnClick_btnOpenAppliance(object sender, EventArgs e)
         {
-            WinformService.GetApplicationWindow().Show();
+            WinformService.GetApplianceWindow().Show();
         }
 
         private void OnClick_btnOpenAssociation(object sender, EventArgs e)

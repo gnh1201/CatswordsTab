@@ -1,6 +1,6 @@
 ﻿namespace CatswordsTab.App.Winform
 {
-    partial class Application
+    partial class Appliance
     {
         /// <summary>
         /// Required designer variable.

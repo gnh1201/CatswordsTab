@@ -239,9 +239,9 @@
             this.btnOpenApplication.Name = "btnOpenApplication";
             this.btnOpenApplication.Size = new System.Drawing.Size(284, 23);
             this.btnOpenApplication.TabIndex = 3;
-            this.btnOpenApplication.Text = "View installed applications...";
+            this.btnOpenApplication.Text = "View installed software...";
             this.btnOpenApplication.UseVisualStyleBackColor = true;
-            this.btnOpenApplication.Click += new System.EventHandler(this.OnClick_btnOpenApplication);
+            this.btnOpenApplication.Click += new System.EventHandler(this.OnClick_btnOpenAppliance);
             // 
             // btnOpenAssociation
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatswordsTab.App.Model
 {
-    class ApplicationModel
+    class ApplianceModel
     {
         public string ResourceName { get; set; }
         public string Default { get; set; }

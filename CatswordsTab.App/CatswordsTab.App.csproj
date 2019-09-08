@@ -71,7 +71,7 @@
     <Compile Include="AppDataService.cs" />
     <Compile Include="ComputeService.cs" />
     <Compile Include="MainService.cs" />
-    <Compile Include="Model\ApplicationModel.cs" />
+    <Compile Include="Model\ApplianceModel.cs" />
     <Compile Include="Model\AssociationModel.cs" />
     <Compile Include="Model\ComputationModel.cs" />
     <Compile Include="Model\LocalizationModel.cs" />
@@ -81,11 +81,11 @@
     <Compile Include="RegistryService.cs" />
     <Compile Include="T.cs" />
     <Compile Include="WinformService.cs" />
-    <Compile Include="Winform\Application.cs">
+    <Compile Include="Winform\Appliance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Winform\Application.Designer.cs">
-      <DependentUpon>Application.cs</DependentUpon>
+    <Compile Include="Winform\Appliance.Designer.cs">
+      <DependentUpon>Appliance.cs</DependentUpon>
     </Compile>
     <Compile Include="Winform\Association.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Winform\Application.resx">
-      <DependentUpon>Application.cs</DependentUpon>
+    <EmbeddedResource Include="Winform\Appliance.resx">
+      <DependentUpon>Appliance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Association.resx">
       <DependentUpon>Association.cs</DependentUpon>

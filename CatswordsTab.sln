@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.App", "Catswor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.Shell", "CatswordsTab.Shell\CatswordsTab.Shell.csproj", "{96E9B776-A3EF-4CD8-959F-062FB28B7822}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatswordsTab.WebApi", "CatswordsTab.WebApi\CatswordsTab.WebApi.csproj", "{6C364896-64A4-472F-AAA0-2C07746D8C40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Build|Any CPU = Build|Any CPU
@@ -34,6 +36,12 @@ Global
 		{96E9B776-A3EF-4CD8-959F-062FB28B7822}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96E9B776-A3EF-4CD8-959F-062FB28B7822}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96E9B776-A3EF-4CD8-959F-062FB28B7822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C364896-64A4-472F-AAA0-2C07746D8C40}.Build|Any CPU.ActiveCfg = Release|Any CPU
+		{6C364896-64A4-472F-AAA0-2C07746D8C40}.Build|Any CPU.Build.0 = Release|Any CPU
+		{6C364896-64A4-472F-AAA0-2C07746D8C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C364896-64A4-472F-AAA0-2C07746D8C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C364896-64A4-472F-AAA0-2C07746D8C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C364896-64A4-472F-AAA0-2C07746D8C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ using System.Text;
 
 namespace CatswordsTab.App
 {
-    class ComputeService
+    public class ComputeService
     {
         public static ComputationModel Compute(string filename)
         {

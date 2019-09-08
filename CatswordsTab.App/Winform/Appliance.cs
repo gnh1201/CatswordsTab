@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CatswordsTab.App.Winform
 {
-    public partial class Application : Form
+    public partial class Appliance : Form
     {
-        public Application()
+        public Appliance()
         {
             InitializeComponent();
         }
@@ -36,8 +36,8 @@ namespace CatswordsTab.App.Winform
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            List<ApplicationModel> apps = RegistryService.GetInstalledApps();
-            foreach (ApplicationModel app in apps)
+            List<ApplianceModel> apps = RegistryService.GetInstalledApps();
+            foreach (ApplianceModel app in apps)
             {
                 string displayName = app.DisplayName;
                 if(string.IsNullOrEmpty(displayName))

@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -29,12 +23,26 @@ namespace CatswordsTab.App.Winform
             btnOpenExport.Text = T._(btnOpenExport.Text);
         }
 
-        private string ChooseFile()
+        private string ChooseOpenFile()
         {
             string filename = null;
-            OpenFileDialog fd;
-            
-            fd = new OpenFileDialog
+            OpenFileDialog fd = new OpenFileDialog
+            {
+                Title = T._("Choose your file...")
+            };
+
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                filename = fd.FileName;
+            }
+
+            return filename;
+        }
+
+        private string ChooseSaveFile()
+        {
+            string filename = null;
+            SaveFileDialog fd = new SaveFileDialog
             {
                 Title = T._("Choose your file...")
             };
@@ -49,13 +57,13 @@ namespace CatswordsTab.App.Winform
 
         private void OnClick_btnOpenManifest(object sender, EventArgs e)
         {
-            string filename = ChooseFile();
+            string filename = ChooseOpenFile();
             txtManifestFilename.Text = filename;
         }
 
         private void OnClick_btnOpenExport(object sender, EventArgs e)
         {
-            string filename = ChooseFile();
+            string filename = ChooseSaveFile();
             txtExportFilename.Text = filename;
         }
 
@@ -67,76 +75,75 @@ namespace CatswordsTab.App.Winform
             try
             {
                 ZipFile.ExtractToDirectory(zipFile, extractPath);
-
-                XmlDocument xdoc = new XmlDocument();
-                xdoc.LoadXml(File.ReadAllText(AppDataService.GetFilePath("manifest.xml")));
-
-                XmlNodeList nodes;
-
-                // get variables
-                Dictionary<string, string> variables = new Dictionary<string, string>();
-                nodes = xdoc.GetElementsByTagName("variables");
-                foreach(XmlNode node in nodes)
-                {
-                    foreach(XmlNode _node in node.SelectNodes("variable"))
-                    {
-                        if (_node.Attributes["type"].Value != "argument")
-                        {
-                            variables.Add(_node.Attributes["name"].Value, _node.Attributes["value"].Value);
-                        }
-                        else if(_node.Attributes["name"].Value == "input") {
-                            variables.Add("input", WinformService.GetMainWindow().GetPath());
-                        }
-                        else if(_node.Attributes["name"].Value == "output")
-                        {
-                            variables.Add("output", txtExportFilename.Text);
-                        }
-                    }
-                }
-
-                // get repositories
-                Dictionary<string, string> repositories = new Dictionary<string, string>();
-                nodes = xdoc.GetElementsByTagName("repositories");
-                foreach (XmlNode node in nodes)
-                {
-                    foreach (XmlNode _node in node.SelectNodes("repository"))
-                    {
-                        variables.Add(_node.Attributes["name"].Value, _node.Attributes["source"].Value);
-                    }
-                }
-
-                // do steps
-                nodes = xdoc.GetElementsByTagName("steps");
-                foreach(XmlNode node in nodes)
-                {
-                    foreach (XmlNode _node in node.SelectNodes("step"))
-                    {
-                        string repositoryName = _node.Attributes["repository"].Value;
-                        string filename = repositories[repositoryName];
-                        string argument = _node.Attributes["argument"].Value;
-                        foreach(KeyValuePair<string, string> v in variables)
-                        {
-                            argument = argument.Replace(@"${" + v.Key + "}", v.Value);
-                        }
-
-                        // execute process
-                        System.Diagnostics.Process process = new System.Diagnostics.Process();
-                        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                        startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                        startInfo.FileName = filename;
-                        startInfo.Arguments = argument;
-                        process.StartInfo = startInfo;
-                        process.Start();
-                    }
-                }
-
-                // done
-                MessageBox.Show("Done");
             }
-            catch (Exception)
+            catch (Exception) {
+                // pass
+            }
+
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.LoadXml(File.ReadAllText(AppDataService.GetFilePath("manifest.xml")));
+
+            XmlNodeList nodes;
+
+            // get variables
+            Dictionary<string, string> variables = new Dictionary<string, string>();
+            nodes = xdoc.GetElementsByTagName("variables");
+            foreach(XmlNode node in nodes)
             {
-                MessageBox.Show("Incorrect manifest file");
+                foreach(XmlNode _node in node.SelectNodes("variable"))
+                {
+                    if (_node.Attributes["type"].Value != "argument")
+                    {
+                        variables.Add(_node.Attributes["name"].Value, _node.Attributes["value"].Value);
+                    }
+                    else if(_node.Attributes["name"].Value == "input") {
+                        variables.Add("input", WinformService.GetMainWindow().GetPath());
+                    }
+                    else if(_node.Attributes["name"].Value == "output")
+                    {
+                        variables.Add("output", txtExportFilename.Text);
+                    }
+                }
             }
+
+            // get repositories
+            Dictionary<string, string> repositories = new Dictionary<string, string>();
+            nodes = xdoc.GetElementsByTagName("repositories");
+            foreach (XmlNode node in nodes)
+            {
+                foreach (XmlNode _node in node.SelectNodes("repository"))
+                {
+                    repositories.Add(_node.Attributes["name"].Value, _node.Attributes["source"].Value);
+                }
+            }
+
+            // do steps
+            nodes = xdoc.GetElementsByTagName("steps");
+            foreach(XmlNode node in nodes)
+            {
+                foreach (XmlNode _node in node.SelectNodes("step"))
+                {
+                    string repositoryName = _node.Attributes["repository"].Value;
+                    string filename = AppDataService.GetFilePath(repositories[repositoryName]);
+                    string argument = _node.Attributes["argument"].Value;
+                    foreach(KeyValuePair<string, string> v in variables)
+                    {
+                        argument = argument.Replace(@"${" + v.Key + "}", v.Value);
+                    }
+
+                    // execute process
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                    startInfo.FileName = filename;
+                    startInfo.Arguments = argument;
+                    process.StartInfo = startInfo;
+                    process.Start();
+                }
+            }
+
+            // Done
+            MessageBox.Show(T._("Done"));
         }
     }
 }

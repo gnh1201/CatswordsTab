@@ -36,6 +36,7 @@
             this.labelExport = new System.Windows.Forms.Label();
             this.txtExportFilename = new System.Windows.Forms.TextBox();
             this.btnOpenExport = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -73,6 +74,7 @@
             this.txtManifestFilename.Name = "txtManifestFilename";
             this.txtManifestFilename.Size = new System.Drawing.Size(230, 20);
             this.txtManifestFilename.TabIndex = 16;
+            this.txtManifestFilename.Click += new System.EventHandler(this.OnClick_txtManifestFilename);
             // 
             // labelManifest
             // 
@@ -108,6 +110,7 @@
             this.txtExportFilename.Name = "txtExportFilename";
             this.txtExportFilename.Size = new System.Drawing.Size(230, 20);
             this.txtExportFilename.TabIndex = 16;
+            this.txtExportFilename.Click += new System.EventHandler(this.OnClick_txtExportFilename);
             // 
             // btnOpenExport
             // 
@@ -119,6 +122,17 @@
             this.btnOpenExport.UseVisualStyleBackColor = true;
             this.btnOpenExport.Click += new System.EventHandler(this.OnClick_btnOpenExport);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(25, 220);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(161, 13);
+            this.linkLabel1.TabIndex = 20;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Download manifest file (Solver)...";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnClick_LinkLabel1);
+            // 
             // Solver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,7 +140,8 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_simpline_24_2305594;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(449, 228);
+            this.ClientSize = new System.Drawing.Size(449, 254);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.labelExport);
             this.Controls.Add(this.btnOpenExport);
             this.Controls.Add(this.btnOpenManifest);
@@ -154,5 +169,6 @@
         private System.Windows.Forms.Label labelExport;
         private System.Windows.Forms.TextBox txtExportFilename;
         private System.Windows.Forms.Button btnOpenExport;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

@@ -61,10 +61,20 @@ namespace CatswordsTab.App.Winform
             txtManifestFilename.Text = filename;
         }
 
+        private void OnClick_txtManifestFilename(object sender, EventArgs e)
+        {
+            OnClick_btnOpenManifest(sender, e);
+        }
+
         private void OnClick_btnOpenExport(object sender, EventArgs e)
         {
             string filename = ChooseSaveFile();
             txtExportFilename.Text = filename;
+        }
+
+        private void OnClick_txtExportFilename(object sender, EventArgs e)
+        {
+            OnClick_btnOpenExport(sender, e);
         }
 
         private void OnClick_BtnSolve(object sender, EventArgs e)
@@ -144,6 +154,11 @@ namespace CatswordsTab.App.Winform
 
             // Done
             MessageBox.Show(T._("Done"));
+        }
+
+        private void OnClick_LinkLabel1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
         }
     }
 }

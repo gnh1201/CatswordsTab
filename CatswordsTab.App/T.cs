@@ -61,6 +61,7 @@ namespace CatswordsTab.App
                 new LocalizationModel { MsgId = "View file associations...", MsgStr = "연결 프로그램 보기..." },
                 new LocalizationModel { MsgId = "Associations", MsgStr = "연결 프로그램" },
                 new LocalizationModel { MsgId = "Done", MsgStr = "완료" },
+                new LocalizationModel { MsgId = "Choose...", MsgStr = "선택..." }
             };
 
             // add English translation

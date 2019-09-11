@@ -30,7 +30,7 @@ namespace CatswordsTab.App.Winform
             }
             catch (Exception)
             {
-                return null;
+                return "";
             }
         }
 

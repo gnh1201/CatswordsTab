@@ -31,5 +31,11 @@ namespace CatswordsTab.WebApi
 
         [Route(HttpVerbs.Get, "/net/mac")]
         public string GetNetMAC() => NetworkService.GetLocalMAC();
+
+        [Route(HttpVerbs.Get, "/name/machine")]
+        public string GetMachineName() => System.Environment.MachineName;
+
+        [Route(HttpVerbs.Get, "/name/user")]
+        public string GetUserName() => System.Environment.UserName;
     }
 }

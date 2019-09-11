@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelTitle = new System.Windows.Forms.Label();
-            this.btnUnlock = new System.Windows.Forms.Button();
+            this.btnSolve = new System.Windows.Forms.Button();
             this.txtManifestFilename = new System.Windows.Forms.TextBox();
             this.labelManifest = new System.Windows.Forms.Label();
             this.btnOpenManifest = new System.Windows.Forms.Button();
@@ -49,22 +49,23 @@
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "Solver";
             // 
-            // btnUnlock
+            // btnSolve
             // 
-            this.btnUnlock.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnUnlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnUnlock.FlatAppearance.BorderSize = 0;
-            this.btnUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnlock.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnUnlock.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUnlock.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
-            this.btnUnlock.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnUnlock.Location = new System.Drawing.Point(310, 66);
-            this.btnUnlock.Name = "btnUnlock";
-            this.btnUnlock.Size = new System.Drawing.Size(109, 43);
-            this.btnUnlock.TabIndex = 15;
-            this.btnUnlock.Text = "Solve";
-            this.btnUnlock.UseVisualStyleBackColor = false;
+            this.btnSolve.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSolve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSolve.FlatAppearance.BorderSize = 0;
+            this.btnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSolve.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnSolve.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSolve.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
+            this.btnSolve.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnSolve.Location = new System.Drawing.Point(310, 66);
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.Size = new System.Drawing.Size(109, 43);
+            this.btnSolve.TabIndex = 15;
+            this.btnSolve.Text = "Solve";
+            this.btnSolve.UseVisualStyleBackColor = false;
+            this.btnSolve.Click += new System.EventHandler(this.OnClick_BtnSolve);
             // 
             // txtManifestFilename
             // 
@@ -132,7 +133,7 @@
             this.Controls.Add(this.labelManifest);
             this.Controls.Add(this.txtExportFilename);
             this.Controls.Add(this.txtManifestFilename);
-            this.Controls.Add(this.btnUnlock);
+            this.Controls.Add(this.btnSolve);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -146,7 +147,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Button btnUnlock;
+        private System.Windows.Forms.Button btnSolve;
         private System.Windows.Forms.TextBox txtManifestFilename;
         private System.Windows.Forms.Label labelManifest;
         private System.Windows.Forms.Button btnOpenManifest;

@@ -9,9 +9,14 @@ namespace CatswordsTab.App
 {
     class AppDataService
     {
+        public static string GetAppDataFolder()
+        {
+            return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        }
+
         public static string GetFilePath(string filename)
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), filename);
+            return Path.Combine(GetAppDataFolder(), filename);
         }
     }
 }

@@ -128,7 +128,7 @@ namespace CatswordsTab.App.Winform
                     string argument = _node.Attributes["argument"].Value;
                     foreach(KeyValuePair<string, string> v in variables)
                     {
-                        argument = argument.Replace(@"${" + v.Key + "}", v.Value);
+                        argument = argument.Replace(@"${" + v.Key + "}", "\"" + v.Value + "\"");
                     }
 
                     // execute process

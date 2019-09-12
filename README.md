@@ -16,6 +16,9 @@
 ## New: OEM/3rdparty WebApi
 - Supporting develop OEM/3rdparty software based on CatswordsTab. Do it check `CatswordsTab.WebApi`.
 
+## New: unseal script
+- this program support ransomware decryption with unseal script.
+
 ## Screenshots
 ![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/explorer1.png)
 ![in Desktop 1](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop1.png)

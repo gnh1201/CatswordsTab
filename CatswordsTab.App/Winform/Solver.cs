@@ -21,6 +21,7 @@ namespace CatswordsTab.App.Winform
             btnSolve.Text = T._(btnSolve.Text);
             btnOpenManifest.Text = T._(btnOpenManifest.Text);
             btnOpenExport.Text = T._(btnOpenExport.Text);
+            linkLabel1.Text = T._(linkLabel1.Text);
         }
 
         private string ChooseOpenFile()

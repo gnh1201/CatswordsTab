@@ -75,5 +75,10 @@ namespace CatswordsTab.App.Winform
         {
             WinformService.GetAssociationWindow().Show();
         }
+
+        private void OnClick_btnFileExtension(object sender, EventArgs e)
+        {
+            WinformService.GetFileExtensionWindow().Show();
+        }
     }
 }

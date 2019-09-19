@@ -10,6 +10,7 @@ namespace CatswordsTab.App
         private static Solver SolverWindow;
         private static Appliance ApplianceWindow;
         private static Association AssociationWindow;
+        private static FileExtension FileExtensionWindow;
 
         public static void SetMainWindow(Main window)
         {
@@ -49,6 +50,12 @@ namespace CatswordsTab.App
         {
             AssociationWindow = new Association();
             return AssociationWindow;
+        }
+
+        public static FileExtension GetFileExtensionWindow()
+        {
+            FileExtensionWindow = new FileExtension();
+            return FileExtensionWindow;
         }
     }
 }

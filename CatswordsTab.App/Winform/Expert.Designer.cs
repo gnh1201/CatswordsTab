@@ -49,6 +49,8 @@
             this.btnOpenSolver = new System.Windows.Forms.Button();
             this.btnOpenApplication = new System.Windows.Forms.Button();
             this.btnOpenAssociation = new System.Windows.Forms.Button();
+            this.btnFileExtension = new System.Windows.Forms.Button();
+            this.labelTools = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -225,33 +227,57 @@
             // 
             // btnOpenSolver
             // 
-            this.btnOpenSolver.Location = new System.Drawing.Point(129, 449);
+            this.btnOpenSolver.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnOpenSolver.Location = new System.Drawing.Point(129, 442);
             this.btnOpenSolver.Name = "btnOpenSolver";
             this.btnOpenSolver.Size = new System.Drawing.Size(284, 23);
             this.btnOpenSolver.TabIndex = 3;
-            this.btnOpenSolver.Text = "Open protection solver...";
+            this.btnOpenSolver.Text = "Run file decryptor...";
             this.btnOpenSolver.UseVisualStyleBackColor = true;
             this.btnOpenSolver.Click += new System.EventHandler(this.OnClick_btnOpenSolver);
             // 
             // btnOpenApplication
             // 
-            this.btnOpenApplication.Location = new System.Drawing.Point(129, 478);
+            this.btnOpenApplication.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenApplication.Location = new System.Drawing.Point(129, 471);
             this.btnOpenApplication.Name = "btnOpenApplication";
             this.btnOpenApplication.Size = new System.Drawing.Size(284, 23);
             this.btnOpenApplication.TabIndex = 3;
-            this.btnOpenApplication.Text = "View installed software...";
+            this.btnOpenApplication.Text = "List of installed softwares...";
             this.btnOpenApplication.UseVisualStyleBackColor = true;
             this.btnOpenApplication.Click += new System.EventHandler(this.OnClick_btnOpenAppliance);
             // 
             // btnOpenAssociation
             // 
-            this.btnOpenAssociation.Location = new System.Drawing.Point(129, 508);
+            this.btnOpenAssociation.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenAssociation.Location = new System.Drawing.Point(129, 501);
             this.btnOpenAssociation.Name = "btnOpenAssociation";
             this.btnOpenAssociation.Size = new System.Drawing.Size(283, 23);
             this.btnOpenAssociation.TabIndex = 4;
-            this.btnOpenAssociation.Text = "View file associations...";
+            this.btnOpenAssociation.Text = "List of file associations...";
             this.btnOpenAssociation.UseVisualStyleBackColor = true;
             this.btnOpenAssociation.Click += new System.EventHandler(this.OnClick_btnOpenAssociation);
+            // 
+            // btnFileExtension
+            // 
+            this.btnFileExtension.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFileExtension.Location = new System.Drawing.Point(129, 531);
+            this.btnFileExtension.Name = "btnFileExtension";
+            this.btnFileExtension.Size = new System.Drawing.Size(284, 23);
+            this.btnFileExtension.TabIndex = 5;
+            this.btnFileExtension.Text = "List of file extensions...";
+            this.btnFileExtension.UseVisualStyleBackColor = true;
+            this.btnFileExtension.Click += new System.EventHandler(this.OnClick_btnFileExtension);
+            // 
+            // labelTools
+            // 
+            this.labelTools.AutoSize = true;
+            this.labelTools.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelTools.Location = new System.Drawing.Point(31, 442);
+            this.labelTools.Name = "labelTools";
+            this.labelTools.Size = new System.Drawing.Size(35, 15);
+            this.labelTools.TabIndex = 6;
+            this.labelTools.Text = "Tools";
             // 
             // Expert
             // 
@@ -260,7 +286,9 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_shining_mix_wrench_1059388;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(441, 555);
+            this.ClientSize = new System.Drawing.Size(441, 582);
+            this.Controls.Add(this.labelTools);
+            this.Controls.Add(this.btnFileExtension);
             this.Controls.Add(this.btnOpenAssociation);
             this.Controls.Add(this.btnOpenApplication);
             this.Controls.Add(this.btnOpenSolver);
@@ -287,6 +315,7 @@
             this.MaximizeBox = false;
             this.Name = "Expert";
             this.Text = "CatswordsTabExpert";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.OnLoad_Expert);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown_Expert);
             this.ResumeLayout(false);
@@ -317,5 +346,7 @@
         private System.Windows.Forms.Button btnOpenSolver;
         private System.Windows.Forms.Button btnOpenApplication;
         private System.Windows.Forms.Button btnOpenAssociation;
+        private System.Windows.Forms.Button btnFileExtension;
+        private System.Windows.Forms.Label labelTools;
     }
 }

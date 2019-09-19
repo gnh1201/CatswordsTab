@@ -75,6 +75,7 @@
     <Compile Include="Model\ApplianceModel.cs" />
     <Compile Include="Model\AssociationModel.cs" />
     <Compile Include="Model\ComputationModel.cs" />
+    <Compile Include="Model\FileExtensionModel.cs" />
     <Compile Include="Model\LocalizationModel.cs" />
     <Compile Include="Model\MessageModel.cs" />
     <Compile Include="Program.cs" />
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="Winform\Association.Designer.cs">
       <DependentUpon>Association.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\FileExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\FileExtension.Designer.cs">
+      <DependentUpon>FileExtension.cs</DependentUpon>
     </Compile>
     <Compile Include="Winform\Solver.cs">
       <SubType>Form</SubType>
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Association.resx">
       <DependentUpon>Association.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\FileExtension.resx">
+      <DependentUpon>FileExtension.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Solver.resx">
       <DependentUpon>Solver.cs</DependentUpon>

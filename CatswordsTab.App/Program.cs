@@ -50,10 +50,11 @@ namespace CatswordsTab.App
         {
             AttachConsole(ATTACH_PARENT_PROCESS);
 
-            ParserResult<Options> _ = Parser.Default.ParseArguments<Options>(args)
+            Parser.Default.ParseArguments<Options>(args)
                 .WithParsed<Options>(o =>
                     {
-                        if (!string.IsNullOrEmpty(o.FileName)) {
+                        if (!string.IsNullOrEmpty(o.FileName))
+                        {
                             if (!string.IsNullOrEmpty(o.Export))
                             {
                                 WriteFile(o.Export, MainService.GetResult(o.FileName));

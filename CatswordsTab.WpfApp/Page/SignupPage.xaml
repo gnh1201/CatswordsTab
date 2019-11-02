@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CatswordsTab.WpfApp.Page.SigninPage"
+﻿<UserControl x:Class="CatswordsTab.WpfApp.Page.SignupPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,32 +17,29 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="30" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
-            <TextBlock Text="Sign in" FontSize="32" FontWeight="Bold" VerticalAlignment="Top"/>
+            <TextBlock Text="Join us" FontSize="32" FontWeight="Bold" VerticalAlignment="Top"/>
             <Label>Welcome to Catswords Community</Label>
         </StackPanel>
 
         <Label Content="Email" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <TextBox x:Name="tbEmail" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"/>
 
-        <Label Content="Password" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <TextBox x:Name="tbPassword" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label Content="Organization" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBox x:Name="tbOrganization" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top"/>
 
-        <Grid Grid.Column="1" Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <Button x:Name="btSignIn" Content="Sign in" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" Click="OnClick_btSignIn"/>
-            <Button x:Name="btSignup" Content="Join us" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Click="OnClick_btSignUp"/>
-        </Grid>
+        <Label Content="Promo code" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBox x:Name="tbPromotion" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top"/>
+
+        <Button x:Name="btSignup" Content="Join us" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4"/>
         
-        <TextBlock x:Name="tbMessage" Grid.Column="1" Grid.Row="4" Text=""/>
+        <TextBlock x:Name="tbMessage" Grid.Column="1" Grid.Row="5" Text=""/>
 
-        <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Content="(c) 2019 Catswords Research OSL. Non-commercial use free."/>
+        <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Content="(c) 2019 Catswords Research OSL. Non-commercial use free."/>
     </Grid>
 </UserControl>

@@ -1,5 +1,4 @@
-﻿using CatswordsTab.WpfApp.Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +16,13 @@ using System.Windows.Shapes;
 namespace CatswordsTab.WpfApp.Page
 {
     /// <summary>
-    /// Interaction logic for Signin.xaml
+    /// Interaction logic for SignupPage.xaml
     /// </summary>
-    public partial class SigninPage : UserControl
+    public partial class SignupPage : UserControl
     {
-        public SigninPage()
+        public SignupPage()
         {
             InitializeComponent();
-        }
-
-        private void OnClick_btSignIn(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OnClick_btSignUp(object sender, RoutedEventArgs e)
-        {
-            UIService.CreateTabPage(new CatswordsTab.WpfApp.Page.SignupPage(), "Join us");
         }
     }
 }

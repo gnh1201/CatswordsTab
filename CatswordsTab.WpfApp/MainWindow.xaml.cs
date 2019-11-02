@@ -14,6 +14,7 @@ namespace CatswordsTab.WpfApp
         {
             InitializeComponent();
             UIService.TabControlInstance = tcMain;
+            UIService.CreateTabPage(new CatswordsTab.WpfApp.Page.SigninPage(), "Sign in");
         }
 
         private void Button_Applications_Clicked(object sender, RoutedEventArgs e)

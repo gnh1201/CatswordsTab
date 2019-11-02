@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatswordsTab.WpfApp.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,11 @@ namespace CatswordsTab.WpfApp.Service
     {
         public static TabControl TabControlInstance { get; set; }
 
-        public static void CreateTabPage(object Content, string Header = "Untitled", string Name = null)
+        public static void CreateTabPage(object Content, string Title = "Untitled", string Name = null)
         {
-            TabItem ti = new TabItem
+            ClosableTab ti = new ClosableTab
             {
-                Header = Header,
+                Title = Title,
                 Name = Name,
                 Content = Content
             };

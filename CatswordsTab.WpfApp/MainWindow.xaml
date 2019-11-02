@@ -75,11 +75,7 @@
         </Fluent:Ribbon>
 
         <Grid Grid.Row="1">
-            <TabControl x:Name="tcMain">
-                <TabItem Header="Sign in">
-                    <Page:SigninPage />
-                </TabItem>
-            </TabControl>
+            <TabControl x:Name="tcMain"/>
         </Grid>
     </Grid>
 </Fluent:RibbonWindow>

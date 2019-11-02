@@ -125,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ClosableTab.cs" />
+    <Compile Include="Controls\CloseableHeader.xaml.cs">
+      <DependentUpon>CloseableHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\FontModel.cs" />
     <Compile Include="Page\AssociationsPage.xaml.cs">
       <DependentUpon>AssociationsPage.xaml</DependentUpon>
@@ -158,6 +162,10 @@
     <Compile Include="Service\RegistryService.cs" />
     <Compile Include="Service\UIService.cs" />
     <Compile Include="T.cs" />
+    <Page Include="Controls\CloseableHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -13,11 +13,13 @@
 - `-e`, `--export`: Export to file
 - Example: `CatswordsTab.App.exe -f CatswordsTab.App.exe -e result.txt`
 
-## New: OEM/3rdparty WebApi
-- Supporting develop OEM/3rdparty software based on CatswordsTab. Do it check `CatswordsTab.WebApi`.
-
 ## New: unseal script
 - this program support ransomware decryption with unseal script.
+
+## Screenshots (Preview ver.)
+![in Desktop 1](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/new1.png)
+![in Desktop 2](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/new2.png)
+![in Desktop 3](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/new3.png)
 
 ## Screenshots
 ![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/explorer1.png)
@@ -28,4 +30,4 @@
 
 ## Contact me
 - support@exts.kr
-- catswords@protonmail.com (if you send confidential contents to me)
+- catswords@protonmail.com (if you have to keep confidence)

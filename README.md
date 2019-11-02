@@ -20,11 +20,11 @@
 - this program support ransomware decryption with unseal script.
 
 ## Screenshots
-![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/explorer1.png)
-![in Desktop 1](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop1.png)
-![in Desktop 2](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop2.png)
-![in Desktop 3](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop3.png)
-![in Desktop 4](https://raw.githubusercontent.com/gnh1201/CatswordsTab/awesome/screenshots/desktop4.png)
+![in Windows Explorer](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/explorer1.png)
+![in Desktop 1](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/desktop1.png)
+![in Desktop 2](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/desktop2.png)
+![in Desktop 3](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/desktop3.png)
+![in Desktop 4](https://raw.githubusercontent.com/gnh1201/CatswordsTab/master/screenshots/desktop4.png)
 
 ## Contact me
 - support@exts.kr

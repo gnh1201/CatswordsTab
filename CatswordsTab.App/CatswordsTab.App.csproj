@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99E2CB17-4B5B-407A-9AD0-CFFD883CFA89}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CatswordsTab.App</RootNamespace>
+    <AssemblyName>CatswordsTab.App</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Ph03nyx-Super-Mario-Retro-Flower-Fire-2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MyKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BencodeNET, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BencodeNET.2.3.0\lib\net45\BencodeNET.dll</HintPath>
+    </Reference>
+    <Reference Include="CommandLine, Version=2.6.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandLineParser.2.6.0\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=4.1.4.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.4.1.4\lib\net40\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDataService.cs" />
+    <Compile Include="ComputeService.cs" />
+    <Compile Include="MainService.cs" />
+    <Compile Include="Model\ApplianceModel.cs" />
+    <Compile Include="Model\AssociationModel.cs" />
+    <Compile Include="Model\ComputationModel.cs" />
+    <Compile Include="Model\FileExtensionModel.cs" />
+    <Compile Include="Model\LocalizationModel.cs" />
+    <Compile Include="Model\MessageModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistryService.cs" />
+    <Compile Include="T.cs" />
+    <Compile Include="WinformService.cs" />
+    <Compile Include="Winform\Appliance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Appliance.Designer.cs">
+      <DependentUpon>Appliance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Association.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Association.Designer.cs">
+      <DependentUpon>Association.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\FileExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\FileExtension.Designer.cs">
+      <DependentUpon>FileExtension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Solver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Solver.Designer.cs">
+      <DependentUpon>Solver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Expert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Expert.Designer.cs">
+      <DependentUpon>Expert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Writer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\Writer.Designer.cs">
+      <DependentUpon>Writer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Winform\Appliance.resx">
+      <DependentUpon>Appliance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Association.resx">
+      <DependentUpon>Association.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\FileExtension.resx">
+      <DependentUpon>FileExtension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Solver.resx">
+      <DependentUpon>Solver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Expert.resx">
+      <DependentUpon>Expert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\Writer.resx">
+      <DependentUpon>Writer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MyKey.snk" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\become_a_patron_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\become_a_patron_button%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-icons_retro_flower_fire_2_24692_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icondb-white-edit-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_general_office_48_3592847.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_pencil-01_374624.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_shining_mix_wrench_1059388.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_simpline_24_2305594.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_simpline_45_2305617.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsdb-white-check-mark-3-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Crc32.NET\Crc32.NET.csproj">
+      <Project>{D2CD2407-76A9-4A87-8940-873B59E7F5C5}</Project>
+      <Name>Crc32.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ph03nyx-Super-Mario-Retro-Flower-Fire-2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Warning_3870073.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_application_32383.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_application_52510.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_codeblocks_3246770.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_link-chain-hyperlink-linked-internet_3937335.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_unlock blue_10562.png" />
+    <Content Include="Resources\iconsdb-white-account-login-32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

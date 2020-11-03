@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.labelTitle = new System.Windows.Forms.Label();
             this.txtTerminal = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -40,7 +41,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(118, 53);
+            this.labelTitle.Location = new System.Drawing.Point(138, 49);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(110, 37);
             this.labelTitle.TabIndex = 3;
@@ -51,12 +52,12 @@
             this.txtTerminal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTerminal.Enabled = false;
             this.txtTerminal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTerminal.Location = new System.Drawing.Point(12, 127);
+            this.txtTerminal.Location = new System.Drawing.Point(14, 117);
             this.txtTerminal.Multiline = true;
             this.txtTerminal.Name = "txtTerminal";
             this.txtTerminal.ReadOnly = true;
             this.txtTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTerminal.Size = new System.Drawing.Size(378, 90);
+            this.txtTerminal.Size = new System.Drawing.Size(440, 83);
             this.txtTerminal.TabIndex = 4;
             this.txtTerminal.Text = "This program does not guarantee the accuracy of the data. The use of this program" +
     " is at your sole discretion and responsibility";
@@ -64,9 +65,9 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 228);
+            this.linkLabel1.Location = new System.Drawing.Point(14, 210);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(109, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(128, 12);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Contribute this project";
@@ -75,9 +76,9 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(288, 228);
+            this.linkLabel2.Location = new System.Drawing.Point(336, 210);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(100, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(116, 12);
             this.linkLabel2.TabIndex = 6;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Github @catswords";
@@ -93,9 +94,9 @@
             this.btnAgree.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgree.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnAgree.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnAgree.Location = new System.Drawing.Point(283, 47);
+            this.btnAgree.Location = new System.Drawing.Point(330, 43);
             this.btnAgree.Name = "btnAgree";
-            this.btnAgree.Size = new System.Drawing.Size(109, 43);
+            this.btnAgree.Size = new System.Drawing.Size(127, 40);
             this.btnAgree.TabIndex = 15;
             this.btnAgree.Text = "Agree";
             this.btnAgree.UseVisualStyleBackColor = false;
@@ -103,18 +104,19 @@
             // 
             // Welcome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_Warning_3870073;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(404, 255);
+            this.ClientSize = new System.Drawing.Size(471, 235);
             this.Controls.Add(this.btnAgree);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.txtTerminal);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Welcome";
             this.Text = "CatswordsTabWelcome";

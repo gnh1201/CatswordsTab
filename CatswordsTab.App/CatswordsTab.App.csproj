@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Ph03nyx-Super-Mario-Retro-Flower-Fire-2.ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -80,6 +80,11 @@
     <Compile Include="Model\MessageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RegistryService.cs" />
     <Compile Include="T.cs" />
     <Compile Include="WinformService.cs" />
@@ -94,12 +99,6 @@
     </Compile>
     <Compile Include="Winform\Association.Designer.cs">
       <DependentUpon>Association.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Winform\FileExtension.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Winform\FileExtension.Designer.cs">
-      <DependentUpon>FileExtension.cs</DependentUpon>
     </Compile>
     <Compile Include="Winform\Solver.cs">
       <SubType>Form</SubType>
@@ -133,22 +132,14 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Winform\Appliance.resx">
       <DependentUpon>Appliance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Association.resx">
       <DependentUpon>Association.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Winform\FileExtension.resx">
-      <DependentUpon>FileExtension.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winform\Solver.resx">
       <DependentUpon>Solver.cs</DependentUpon>
@@ -181,15 +172,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\become_a_patron_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\become_a_patron_button%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon-icons_retro_flower_fire_2_24692_16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icondb-white-edit-32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -217,9 +199,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ph03nyx-Super-Mario-Retro-Flower-Fire-2.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\iconfinder_Warning_3870073.png" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_unlock blue_10562.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Resources\favicon.ico" />
     <Content Include="Resources\iconsdb-white-account-login-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

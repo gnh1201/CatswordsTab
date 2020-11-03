@@ -77,12 +77,12 @@ namespace CatswordsTab.App.Winform
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
+            System.Diagnostics.Process.Start("https://github.com/gnh1201/CatswordsTab");
         }
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/catswords/CatswordsTab");
+            System.Diagnostics.Process.Start("https://github.com/gnh1201/CatswordsTab");
         }
 
     }

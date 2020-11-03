@@ -1,7 +1,6 @@
 ﻿using CatswordsTab.App.Model;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CatswordsTab.App.Winform
@@ -74,11 +73,6 @@ namespace CatswordsTab.App.Winform
         private void OnClick_btnOpenAssociation(object sender, EventArgs e)
         {
             WinformService.GetAssociationWindow().Show();
-        }
-
-        private void OnClick_btnFileExtension(object sender, EventArgs e)
-        {
-            WinformService.GetFileExtensionWindow().Show();
         }
     }
 }

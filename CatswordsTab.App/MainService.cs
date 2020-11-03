@@ -24,7 +24,7 @@ namespace CatswordsTab.App
             _result = "";
             _computed = ComputeService.Compute(_path);
 
-            RestClient client = new RestClient("https://catswords.re.kr/ep/?route=tab");
+            RestClient client = new RestClient("https://exts.kr/tab.json");
             RestRequest request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddParameter("hash_md5", _computed.MD5);

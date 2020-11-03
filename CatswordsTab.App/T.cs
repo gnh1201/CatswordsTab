@@ -36,7 +36,7 @@ namespace CatswordsTab.App
                 new LocalizationModel { MsgId = "Contribute this project", MsgStr = "이 프로젝트에 기여" },
                 new LocalizationModel { MsgId = "Summary", MsgStr = "요약" },
                 new LocalizationModel { MsgId = "Send", MsgStr = "보내기" },
-                new LocalizationModel { MsgId = "HexView", MsgStr = "16진수" },
+                new LocalizationModel { MsgId = "HexView", MsgStr = "이진 데이터" },
                 new LocalizationModel { MsgId = "Message:", MsgStr = "의견 :" },
                 new LocalizationModel { MsgId = "Reply email (optional):", MsgStr = "회신 전자우편 (선택) :" },
                 new LocalizationModel { MsgId = "I accept the Terms and Conditions and Privacy Policy", MsgStr = "이용약관 및 개인정보보호정책에 동의합니다" },

@@ -4,7 +4,7 @@
                      xmlns:Fluent="urn:fluent-ribbon"
                      xmlns:Page="clr-namespace:CatswordsTab.WpfApp.Page"
                      xmlns:s="clr-namespace:System;assembly=mscorlib"
-                     Title="CatswordsTab rev.2 - Catch all underhoods of your files"
+                     Title="파일 평판 관리자"
                      Width="800"
                      Height="600">
     <Grid>

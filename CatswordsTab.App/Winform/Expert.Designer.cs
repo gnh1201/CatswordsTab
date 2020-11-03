@@ -257,18 +257,6 @@
             this.btnOpenAssociation.Text = "List of file associations...";
             this.btnOpenAssociation.UseVisualStyleBackColor = true;
             this.btnOpenAssociation.Click += new System.EventHandler(this.OnClick_btnOpenAssociation);
-            // 
-            // btnFileExtension
-            // 
-            this.btnFileExtension.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFileExtension.Location = new System.Drawing.Point(129, 531);
-            this.btnFileExtension.Name = "btnFileExtension";
-            this.btnFileExtension.Size = new System.Drawing.Size(284, 23);
-            this.btnFileExtension.TabIndex = 5;
-            this.btnFileExtension.Text = "List of file extensions...";
-            this.btnFileExtension.UseVisualStyleBackColor = true;
-            this.btnFileExtension.Click += new System.EventHandler(this.OnClick_btnFileExtension);
-            // 
             // labelTools
             // 
             this.labelTools.AutoSize = true;

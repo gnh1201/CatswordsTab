@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Association));
             this.btnOk = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -43,9 +44,9 @@
             this.btnOk.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnOk.Image = global::CatswordsTab.App.Properties.Resources.iconsdb_white_check_mark_3_32;
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnOk.Location = new System.Drawing.Point(395, 73);
+            this.btnOk.Location = new System.Drawing.Point(673, 71);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(109, 43);
+            this.btnOk.Size = new System.Drawing.Size(127, 40);
             this.btnOk.TabIndex = 6;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -56,7 +57,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(90, 73);
+            this.labelTitle.Location = new System.Drawing.Point(105, 67);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(163, 37);
             this.labelTitle.TabIndex = 5;
@@ -65,23 +66,24 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 136);
+            this.dataGridView1.Location = new System.Drawing.Point(24, 126);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 409);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 723);
             this.dataGridView1.TabIndex = 7;
             // 
             // Association
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::CatswordsTab.App.Properties.Resources.iconfinder_link_chain_hyperlink_linked_internet_3937335;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(531, 573);
+            this.ClientSize = new System.Drawing.Size(828, 885);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Association";
             this.Text = "CatswordsTabAssociation";
